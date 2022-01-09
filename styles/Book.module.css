@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:wght@300;700&display=swap");
+
+.header {
+  font-family: Vollkorn, sans-serif;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: antiquewhite;
+}
+
+.header h2 {
+  font-weight: 300;
+  width: 70%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

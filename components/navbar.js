@@ -33,7 +33,7 @@ export default function Navbar() {
               <Link href='/bio'>
                   <a >Bio</a>
               </Link>
-              <Link href='/contact'>
+              <Link href='/book'>
                   <a >Book Apointment</a>
               </Link>
               
