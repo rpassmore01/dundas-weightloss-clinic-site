@@ -16,11 +16,11 @@ export default function Home() {
   </Head>  
   <main>
     <Navbar className={styles.navbar}></Navbar>
-    <header className={styles.header}>
+        <header className={styles.header}>
       <div className={styles.testPicture}>
             
       </div>
-    </header>
+  </header>
   </main>
 </div>
   )
