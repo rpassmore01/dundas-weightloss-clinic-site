@@ -1,23 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Vollkorn:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:wght@300;700&display=swap");
 
-.header {
-  background: black;
-  overflow: hidden;
-}
-
-.titleImage {
-  opacity: 0.4;
-  height: 92vh;
-  min-width: 1300px;
-}
-
-.titleImage Image {
-  align-self: center;
-}
-
-.testPicture {
+.pictureContainer {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("../public/tews-falls.jpg") no-repeat center;
   background-size: cover;
   height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Vollkorn, sans-serif;
+}
+
+.pictureContainer h1 {
+  color: white;
+  font-weight: 700;
+  font-size: 35px;
+  text-align: center;
+  height: fit-content;
+  width: 75%;
+}
+
+.pictureContainer p {
+  color: rgb(163, 163, 163);
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.learnMoreButton {
+  background-color: var(--color-highlight);
+  color: rgb(255, 245, 233);
+  padding: 0.3rem 0.7rem;
+  border-radius: 10px;
+  font-size: 20px;
 }

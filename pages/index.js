@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect } from 'react'
 import Navbar from '../components/navbar'
 import styles from '../styles/Home.module.css'
@@ -16,11 +17,15 @@ export default function Home() {
   </Head>  
   <main>
     <Navbar className={styles.navbar}></Navbar>
-        <header className={styles.header}>
-      <div className={styles.testPicture}>
-            
+    <header className={styles.header}>
+          <div className={styles.pictureContainer}>
+            <h1>Looking to impove the health of clients through healthy weight loss and other health promotion services.</h1>
+            <p>Learn more about Heather's approach to weight loss here.</p>
+            <Link href="/about">
+              <a className={styles.learnMoreButton}>Learn more</a>
+            </Link>
       </div>
-  </header>
+    </header>
   </main>
 </div>
   )
