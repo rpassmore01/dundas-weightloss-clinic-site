@@ -24,7 +24,7 @@ export default function Navbar() {
               <a className={styles.navbarTitle}>Dundas Weight Loss Clinic</a>
             </Link>
             <nav className={navClass}>
-              <Link href='/about'>
+              <Link href='#about'>
                   <a>About</a>
                 </Link>
               <Link href='/services'>

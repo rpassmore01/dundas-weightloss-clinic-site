@@ -34,3 +34,12 @@
   border-radius: 10px;
   font-size: 20px;
 }
+
+.headerImage {
+  border-radius: 50%;
+}
+
+.aboutHeader {
+  display: flex;
+  align-items: center;
+}

@@ -25,7 +25,18 @@ export default function Home() {
               <a className={styles.learnMoreButton}>Learn more</a>
             </Link>
       </div>
-    </header>
+        </header>
+        <span id='about'></span>
+        <div className={styles.about}>
+          <div className={styles.aboutHeader}>
+             <Image src='/../public/heather-headshot.jpg' width={300} height={300} className={styles.headerImage}></Image>  
+              <h2>Heather Watson</h2>
+          </div>
+          <div className={styles.aboutBody}>
+            <h3>Work Experience</h3>
+            <p>Heather started her registered nursing career in the early 1990s when she graduated from the University of Toronto.  Early on in her career, she recognized that she wanted to expand her nursing practice, so she completed her Masters of Nursing by the end of the 1990s and Nurse Practitioner-Paediatric training at the start of the millennium.  Heather believes in lifelong learning and has since completed her Heart & Stroke Foundation First Aid and BLS Instructor Certification, CanFitPro Personal Training Certification, Modo Yoga Teacher Training (YTT) – 500 hrs and American Association of Nurse Practitioner – Obesity Management Fundamentals to name a few.</p>
+          </div>
+        </div>
   </main>
 </div>
   )
