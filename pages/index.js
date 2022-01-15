@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 import Navbar from '../components/navbar'
 import styles from '../styles/Home.module.css'
+import Log from '../public/log.svg'
+import Trees from '../public/trees.svg'
 
 export default function Home() {
 
@@ -35,6 +37,20 @@ export default function Home() {
           <div className={styles.aboutBody}>
             <h3>Work Experience</h3>
             <p>Heather started her registered nursing career in the early 1990s when she graduated from the University of Toronto.  Early on in her career, she recognized that she wanted to expand her nursing practice, so she completed her Masters of Nursing by the end of the 1990s and Nurse Practitioner-Paediatric training at the start of the millennium.  Heather believes in lifelong learning and has since completed her Heart & Stroke Foundation First Aid and BLS Instructor Certification, CanFitPro Personal Training Certification, Modo Yoga Teacher Training (YTT) – 500 hrs and American Association of Nurse Practitioner – Obesity Management Fundamentals to name a few.</p>
+            <Trees className={styles.trees} />
+          </div>
+          <div className={styles.experience}>
+            <h2>Experience</h2>
+            <p>When the pandemic started, she returned to work at Lynden Family Practice Clinic to support patient
+              care.  Quickly into her practice she recognized that 60-70% of the client population suffered from
+              unhealthy weights and related consequences.  Her physician colleagues supported the initiation of a
+              weight management clinic.  Coincidentally, Obesity Canada (National Association for Obesity Research,
+              Education and Advocacy) released the Canadian Adult Obesity Clinical Practice Guidelines with a lot
+              of educational opportunities.  For 18 months, she led a weight management clinic with excellent
+              results.  Her clients were achieving healthy weights (not necessarily a BMI less than 25 ), decreased their
+              diabetes medication, avoided taking or decreasing blood pressure medications, showed improved blood
+              cholesterol levels, showed improvements in depressive symptoms etc.  When the CoVid contract position
+              ended at the Family Practice Clinic, she decided to go into private practice.  Thus, Dundas Weight Loss Clinic was founded.  Since then, she has received a Certificate of Obesity Management Fundamentals from the American Association of Nurse Practitioners and plans to complete her Lifestyle Medicine Professional Certification through the American Academy of Lifestyle Medicine.</p>
           </div>
         </div>
   </main>

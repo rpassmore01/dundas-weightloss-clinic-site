@@ -43,3 +43,23 @@
   display: flex;
   align-items: center;
 }
+
+.aboutBody {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.experience {
+  background-color: #231f20;
+  color: white;
+}
+
+.experience h2 {
+  margin-top: 0;
+}
+
+.trees {
+  width: 110%;
+}
