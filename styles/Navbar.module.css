@@ -63,13 +63,16 @@
     width: 40%;
     background-color: antiquewhite;
     transition: transform 0.5s ease-in;
-    z-index: 1;
+    z-index: 2;
   }
 
   @media screen and (max-width: 800px) {
     .navbar nav {
       width: 100%;
       font-size: 40px;
+    }
+    .navbar {
+      height: 10vh;
     }
   }
 

@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 import Navbar from '../components/navbar'
 import styles from '../styles/Home.module.css'
-import Log from '../public/log.svg'
 import Trees from '../public/trees.svg'
 
 export default function Home() {
@@ -21,27 +20,33 @@ export default function Home() {
     <Navbar className={styles.navbar}></Navbar>
     <header className={styles.header}>
           <div className={styles.pictureContainer}>
-            <h1>Looking to impove the health of clients through healthy weight loss and other health promotion services.</h1>
+            <h1>Dundas Weight Loss Clinic</h1>
+            <h2>Looking to impove the health of clients through healthy weight loss and other health promotion services.</h2>
             <p>Learn more about Heather's approach to weight loss here.</p>
             <Link href="/about">
               <a className={styles.learnMoreButton}>Learn more</a>
             </Link>
       </div>
         </header>
-        <span id='about'></span>
+        <span id='bio'></span>
         <div className={styles.about}>
           <div className={styles.aboutHeader}>
              <Image src='/../public/heather-headshot.jpg' width={300} height={300} className={styles.headerImage}></Image>  
+            <div>
               <h2>Heather Watson</h2>
+              <p>Nurse Pratitioner, Yogi and Weight Councilor</p>
+            </div>
           </div>
           <div className={styles.aboutBody}>
-            <h3>Work Experience</h3>
+            <h3>Work Experience and Schooling</h3>
             <p>Heather started her registered nursing career in the early 1990s when she graduated from the University of Toronto.  Early on in her career, she recognized that she wanted to expand her nursing practice, so she completed her Masters of Nursing by the end of the 1990s and Nurse Practitioner-Paediatric training at the start of the millennium.  Heather believes in lifelong learning and has since completed her Heart & Stroke Foundation First Aid and BLS Instructor Certification, CanFitPro Personal Training Certification, Modo Yoga Teacher Training (YTT) – 500 hrs and American Association of Nurse Practitioner – Obesity Management Fundamentals to name a few.</p>
+            <p>Heather’s work experience followed the trend of work availability in the 90s.  She worked at the Hospital for Sick Children in almost every unit including Neurosurgery, Orthopedics, Trauma, General Paediatrics, IV Team, Recovery Room, Research, Out-patient Clinics and the Neonatal Intensive Care Unit.  Her nurse practitioner specialization was in Neonatology where she worked at both the Hospital for Sick Children and McMaster Children’s Hospital.  In 2016, Heather attempted an early retirement with no success (dismal failure actually).  </p>
           </div>
         </div>
-                    <Trees className={styles.trees} />
-          <div className={styles.experience}>
-            <h2>Experience</h2>
+        <div className={styles.treeDiv}><Trees className={styles.trees} /></div>
+        <div className={styles.experience}>
+            <span id='about'></span>
+            <h2>Weight Counciling Expereince</h2>
             <p>When the pandemic started, she returned to work at Lynden Family Practice Clinic to support patient
               care.  Quickly into her practice she recognized that 60-70% of the client population suffered from
               unhealthy weights and related consequences.  Her physician colleagues supported the initiation of a

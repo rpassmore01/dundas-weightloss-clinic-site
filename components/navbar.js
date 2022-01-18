@@ -24,14 +24,14 @@ export default function Navbar() {
               <a className={styles.navbarTitle}>Dundas Weight Loss Clinic</a>
             </Link>
             <nav className={navClass}>
-              <Link href='#about'>
+              <Link href='#bio'>
+                  <a >Bio</a>
+              </Link>
+                <Link href='#about'>
                   <a>About</a>
                 </Link>
-              <Link href='/services'>
+              <Link href='#services'>
                   <a >Services</a>
-              </Link>
-              <Link href='/bio'>
-                  <a >Bio</a>
               </Link>
               <Link href='/book'>
                   <a >Book Apointment</a>
