@@ -113,6 +113,61 @@
   overflow: hidden;
 }
 
+.gradient {
+  background: linear-gradient(#bfb3a4, white);
+  height: 200px;
+}
+
+.servicesContainer {
+  text-align: center;
+  margin-bottom: 10rem;
+}
+
+.servicesContainer h2 {
+  font-size: 40px;
+}
+
+.services {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 6rem;
+}
+
+.priceCard {
+  border-radius: 10px;
+  text-align: center;
+  width: 350px;
+  border: 2px solid #bfb3a4;
+  padding: 0 2rem 0 2rem;
+}
+
+.priceCard p {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.optionsTable p {
+  font-weight: 500;
+}
+
+.services div h3 {
+  font-size: 35px;
+}
+
+.services div:nth-of-type(4) {
+  border: 2px solid var(--color-highlight);
+}
+
+.checkmark {
+  width: 30px;
+  color: rgb(73, 175, 73);
+}
+
+.cross {
+  color: var(--color-highlight);
+  width: 20px;
+}
+
 @media only screen and (max-width: 1000px) {
   .pictureContainer h1 {
     font-size: 60px;
