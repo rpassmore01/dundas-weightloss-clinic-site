@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Vollkorn:wght@300;700&display=swap");
 
+.main {
+  font-family: Vollkorn, sans-serif;
+}
+
 .pictureContainer {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("../public/tews-falls.jpg") no-repeat center;
@@ -9,7 +13,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: Vollkorn, sans-serif;
 }
 
 .pictureContainer h1 {
@@ -39,9 +42,23 @@
   border-radius: 50%;
 }
 
+.about {
+  display: flex;
+  justify-content: center;
+  height: 94vh;
+}
+
 .aboutHeader {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.aboutHeader {
+  border-right: 1px solid black;
+  height: 75%;
+  align-self: center;
 }
 
 .aboutBody {
@@ -49,6 +66,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  max-width: 50%;
 }
 
 .experience {
@@ -62,4 +80,6 @@
 
 .trees {
   width: 110%;
+  position: relative;
+  transform: translateY(10px);
 }
