@@ -80,43 +80,48 @@ export default function Home() {
           <Trees className={styles.trees} />
         </div>
         <div className={styles.experience}>
-          <span id="about"></span>
-          <h2>Weight Counciling Expereince</h2>
-          <p>
-            When the pandemic started, she returned to work at Lynden Family
-            Practice Clinic to support patient care. Quickly into her practice
-            she recognized that 60-70% of the client population suffered from
-            unhealthy weights and related consequences. Her physician colleagues
-            supported the initiation of a weight management clinic.
-            Coincidentally, Obesity Canada (National Association for Obesity
-            Research, Education and Advocacy) released the Canadian Adult
-            Obesity Clinical Practice Guidelines with a lot of educational
-            opportunities. For 18 months, she led a weight management clinic
-            with excellent results. Her clients were achieving healthy weights
-            (not necessarily a BMI less than 25 ), decreased their diabetes
-            medication, avoided taking or decreasing blood pressure medications,
-            showed improved blood cholesterol levels, showed improvements in
-            depressive symptoms etc. When the CoVid contract position ended at
-            the Family Practice Clinic, she decided to go into private practice.
-            Thus, Dundas Weight Loss Clinic was founded. Since then, she has
-            received a Certificate of Obesity Management Fundamentals from the
-            American Association of Nurse Practitioners and plans to complete
-            her Lifestyle Medicine Professional Certification through the
-            American Academy of Lifestyle Medicine.
-          </p>
+          <div className={styles.experienceBody}>
+            <span id="about"></span>
+            <h2>Weight Counciling Expereince</h2>
+            <p>
+              When the pandemic started, she returned to work at Lynden Family
+              Practice Clinic to support patient care. Quickly into her practice
+              she recognized that 60-70% of the client population suffered from
+              unhealthy weights and related consequences. Her physician
+              colleagues supported the initiation of a weight management clinic.
+              Coincidentally, Obesity Canada (National Association for Obesity
+              Research, Education and Advocacy) released the Canadian Adult
+              Obesity Clinical Practice Guidelines with a lot of educational
+              opportunities. For 18 months, she led a weight management clinic
+              with excellent results. Her clients were achieving healthy weights
+              (not necessarily a BMI less than 25 ), decreased their diabetes
+              medication, avoided taking or decreasing blood pressure
+              medications, showed improved blood cholesterol levels, showed
+              improvements in depressive symptoms etc. When the CoVid contract
+              position ended at the Family Practice Clinic, she decided to go
+              into private practice. Thus, Dundas Weight Loss Clinic was
+              founded. Since then, she has received a Certificate of Obesity
+              Management Fundamentals from the American Association of Nurse
+              Practitioners and plans to complete her Lifestyle Medicine
+              Professional Certification through the American Academy of
+              Lifestyle Medicine.
+            </p>
+          </div>
+          <div className={styles.experienceImage}></div>
         </div>
-        <div className={styles.gradient}></div>
         <span id="services"></span>
         <div className={styles.servicesContainer}>
-          <h2>Services</h2>
-          <p>* APPOINTMENTS MUST BE SCHEDULED IN ADVANCE *</p>
-          <p>
-            The initial 1-hour free consultation will be by telephone or video
-            chat (Zoom, FaceTime, Messenger etc). After that, a 1-2 hour
-            in-person appointment is required. In-person appointments will be in
-            office or in special circumstances, in home. Appointment format is
-            negotiable thereafter (telephone, video, in office or in home).
-          </p>
+          <div className={styles.servicesInfoContainer}>
+            <h2>Services</h2>
+            <p>* APPOINTMENTS MUST BE SCHEDULED IN ADVANCE *</p>
+            <p className={styles.servicesInfo}>
+              The initial 1-hour free consultation will be by telephone or video
+              chat (Zoom, FaceTime, Messenger etc). After that, a 1-2 hour
+              in-person appointment is required. In-person appointments will be
+              in office or in special circumstances, in home. Appointment format
+              is negotiable thereafter (telephone, video, in office or in home).
+            </p>
+          </div>
           <div className={styles.services}>
             <div className={styles.priceCard}>
               <h3>Free</h3>

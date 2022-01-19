@@ -93,13 +93,31 @@
 }
 
 .experience {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #bfb3a4;
+}
+
+.experienceBody {
   background-color: #bfb3a4;
   color: black;
   overflow-x: hidden;
+  width: 50%;
+  padding: 0 2rem;
 }
 
-.experience h2 {
+.experienceBody h2 {
   margin-top: 0;
+  font-size: 40px;
+}
+
+.experienceImage {
+  width: 50%;
+  height: 90vh;
+  background: url("../public/heather-india.jpg") no-repeat top;
+  background-size: cover;
+  margin: 0 2rem 4rem 2rem;
 }
 
 .trees {
@@ -113,9 +131,19 @@
   overflow: hidden;
 }
 
-.gradient {
-  background: linear-gradient(#bfb3a4, white);
-  height: 200px;
+.servicesInfo {
+  width: 65%;
+}
+
+.servicesInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.servicesInfoContainer :nth-child(2) {
+  color: var(--color-highlight);
 }
 
 .servicesContainer {
@@ -152,10 +180,6 @@
 
 .services div h3 {
   font-size: 35px;
-}
-
-.services div:nth-of-type(4) {
-  border: 2px solid var(--color-highlight);
 }
 
 .checkmark {
