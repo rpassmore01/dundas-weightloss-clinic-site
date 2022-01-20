@@ -5,15 +5,15 @@ import { useState } from "react";
 
 export default function Navbar() {
   const [navClass, setNavClass] = useState(styles.navbarHidden);
-  const [burgerIcon, setBurgerIcon] = useState("/../public/burger.svg");
+  const [burgerIcon, setBurgerIcon] = useState("/burger.svg");
 
   function handleBurger() {
     if (navClass == styles.navbarHidden) {
       setNavClass(styles.navbarVisible);
-      setBurgerIcon("/../public/x.svg");
+      setBurgerIcon("/x.svg");
     } else {
       setNavClass(styles.navbarHidden);
-      setBurgerIcon("/../public/burger.svg");
+      setBurgerIcon("/burger.svg");
     }
   }
 

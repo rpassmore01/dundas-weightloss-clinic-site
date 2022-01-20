@@ -40,10 +40,10 @@ export default function Home() {
         <div className={styles.bio} id="bio">
           <div className={styles.bioHeader}>
             <Image
-              src="/../public/heather-headshot.jpg"
-              width={300}
-              height={300}
+              src="/heather-headshot.jpg"
               className={styles.headerImage}
+              height={300}
+              width={300}
               alt="Picture of Heather Watson"
             ></Image>
             <div>
