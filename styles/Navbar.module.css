@@ -36,6 +36,22 @@
   color: rgb(255, 245, 233);
   padding: 0.3rem 0.7rem;
   border-radius: 10px;
+  transition: background-color 500ms ease, border 500ms ease, color 500ms ease,
+    transform 300ms ease-in;
+}
+
+.navbar nav a {
+  transition: color 500ms ease, transform 300ms ease-in;
+}
+
+.navbar nav a:hover {
+  transform: translateY(-5px);
+  color: var(--color-highlight);
+}
+
+.navbar nav :nth-child(4):hover {
+  background-color: white;
+  border: 1px solid var(--color-highlight);
 }
 
 .navbarButton {

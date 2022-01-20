@@ -224,7 +224,13 @@
 .location {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 4rem;
+  flex-direction: column;
+}
+
+.location h2 {
+  font-size: 40px;
 }
 
 .map {
@@ -336,5 +342,8 @@
 
   .experienceBody {
     padding-top: 3rem;
+  }
+  .map {
+    padding: 0 7rem;
   }
 }

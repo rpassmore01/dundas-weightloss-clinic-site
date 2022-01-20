@@ -7,16 +7,14 @@ import styles from "../styles/Home.module.css";
 import Trees from "../public/trees.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react/cjs/react.development";
+import Footer from "../components/footer";
 
 export default function Home() {
   useEffect(() => {
     document.querySelector("body").classList.add("body");
   });
-  const location = {
-    address: "1600 Amphitheatre Parkway, Mountain View, california.",
-    lat: 37.42216,
-    lng: -122.08427,
-  };
+
   return (
     <div>
       <Head>
@@ -360,11 +358,13 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.location}>
-          <div>
+          <h2>Location</h2>
+          <p>247 King Street West, Dundas, Ontario</p>
+          <div className={styles.map}>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.178797634249!2d-79.96720588435645!3d43.26862988523067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c847e096e1389%3A0x68458c0a4681abfd!2s247%20King%20St%20W%2C%20Dundas%2C%20ON%20L9H%201V8!5e0!3m2!1sen!2sca!4v1642648064679!5m2!1sen!2sca"
-              width="600"
               height="450"
+              width={600}
               allowFullScreen=""
               loading="lazy"
               className={styles.map}
@@ -372,6 +372,7 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <Footer></Footer>
     </div>
   );
 }
