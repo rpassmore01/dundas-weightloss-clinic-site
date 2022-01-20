@@ -31,7 +31,7 @@ export default function Home() {
               Looking to improve the health of clients through healthy weight
               loss and other health promotion services.
             </h2>
-            <p>Learn more about Heather's approach to weight loss here.</p>
+            <p>Learn more about Heather&apos;s approach to weight loss here.</p>
             <Link href="/#about">
               <a className={styles.learnMoreButton}>Learn more</a>
             </Link>
@@ -44,6 +44,7 @@ export default function Home() {
               width={300}
               height={300}
               className={styles.headerImage}
+              alt="Picture of Heather Watson"
             ></Image>
             <div>
               <h2>Heather Watson</h2>
@@ -78,20 +79,20 @@ export default function Home() {
               of the millennium. Heather believes in lifelong learning and has
               since completed her Heart & Stroke Foundation First Aid and BLS
               Instructor Certification, CanFitPro Personal Training
-              Certification, Modo Yoga Teacher Training (YTT) – 500 hrs and
-              American Association of Nurse Practitioner – Obesity Management
+              Certification, Modo Yoga Teacher Training (YTT) - 500 hrs and
+              American Association of Nurse Practitioner - Obesity Management
               Fundamentals to name a few.
             </p>
             <p>
-              Heather’s work experience followed the trend of work availability
-              in the 90s. She worked at the Hospital for Sick Children in almost
-              every unit including Neurosurgery, Orthopedics, Trauma, General
-              Paediatrics, IV Team, Recovery Room, Research, Out-patient Clinics
-              and the Neonatal Intensive Care Unit. Her nurse practitioner
-              specialization was in Neonatology where she worked at both the
-              Hospital for Sick Children and McMaster Children’s Hospital. In
-              2016, Heather attempted an early retirement with no success
-              (dismal failure actually).{" "}
+              Heather&apos;s work experience followed the trend of work
+              availability in the 90s. She worked at the Hospital for Sick
+              Children in almost every unit including Neurosurgery, Orthopedics,
+              Trauma, General Paediatrics, IV Team, Recovery Room, Research,
+              Out-patient Clinics and the Neonatal Intensive Care Unit. Her
+              nurse practitioner specialization was in Neonatology where she
+              worked at both the Hospital for Sick Children and McMaster
+              Children&apos;s Hospital. In 2016, Heather attempted an early
+              retirement with no success (dismal failure actually).{" "}
             </p>
             <p>
               When the pandemic started, she returned to work at Lynden Family

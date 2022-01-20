@@ -73,7 +73,7 @@ export default function Navbar() {
           handleBurger();
         }}
       >
-        <Image src={burgerIcon} width="32px" height="32px"></Image>
+        <Image src={burgerIcon} width="32px" height="32px" alt=""></Image>
       </button>
     </div>
   );
