@@ -6,12 +6,17 @@ import Navbar from "../components/navbar";
 import styles from "../styles/Home.module.css";
 import Trees from "../public/trees.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faCross, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   useEffect(() => {
     document.querySelector("body").classList.add("body");
   });
+  const location = {
+    address: "1600 Amphitheatre Parkway, Mountain View, california.",
+    lat: 37.42216,
+    lng: -122.08427,
+  };
   return (
     <div>
       <Head>
@@ -25,18 +30,17 @@ export default function Home() {
           <div className={styles.pictureContainer}>
             <h1>Dundas Weight Loss Clinic</h1>
             <h2>
-              Looking to impove the health of clients through healthy weight
+              Looking to improve the health of clients through healthy weight
               loss and other health promotion services.
             </h2>
             <p>Learn more about Heather's approach to weight loss here.</p>
-            <Link href="/about">
+            <Link href="/#about">
               <a className={styles.learnMoreButton}>Learn more</a>
             </Link>
           </div>
         </header>
-        <span id="bio" className={styles.bioJumper}></span>
-        <div className={styles.about}>
-          <div className={styles.aboutHeader}>
+        <div className={styles.bio} id="bio">
+          <div className={styles.bioHeader}>
             <Image
               src="/../public/heather-headshot.jpg"
               width={300}
@@ -45,10 +49,27 @@ export default function Home() {
             ></Image>
             <div>
               <h2>Heather Watson</h2>
-              <p>Nurse Pratitioner, Yogi and Weight Councilor</p>
+              <p>Nurse Practitioner, Yogi and Weight Councilor</p>
+              <br />
+              <table className={styles.contactInfo}>
+                <tbody>
+                  <tr>
+                    <td>Address: </td>
+                    <td>247 King Street West, Dundas, Ontario </td>
+                  </tr>
+                  <tr>
+                    <td>Phone: </td>
+                    <td>905-570-2610</td>
+                  </tr>
+                  <tr>
+                    <td>Email: </td>
+                    <td>dundasweightlossclinic@gmail.com</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-          <div className={styles.aboutBody}>
+          <div className={styles.bioBody}>
             <h3>Work Experience and Schooling</h3>
             <p>
               Heather started her registered nursing career in the early 1990s
@@ -74,15 +95,6 @@ export default function Home() {
               2016, Heather attempted an early retirement with no success
               (dismal failure actually).{" "}
             </p>
-          </div>
-        </div>
-        <div className={styles.treeDiv}>
-          <Trees className={styles.trees} />
-        </div>
-        <div className={styles.experience}>
-          <div className={styles.experienceBody}>
-            <span id="about"></span>
-            <h2>Weight Counciling Expereince</h2>
             <p>
               When the pandemic started, she returned to work at Lynden Family
               Practice Clinic to support patient care. Quickly into her practice
@@ -107,6 +119,114 @@ export default function Home() {
               Lifestyle Medicine.
             </p>
           </div>
+        </div>
+        <div className={styles.treeDiv}>
+          <Trees className={styles.trees} />
+        </div>
+        <div className={styles.experience} id="about">
+          <div className={styles.experienceBody}>
+            <h2>Weight Counseling Experience</h2>
+            <p>
+              Heather recognizes being overweight or suffering from obesity as a
+              chronic disease characterized by the accumulation of excess body
+              fat that can have a negative impact on our physical, mental, or
+              metabolic health as well as our overall quality of life (Obesity
+              Canada, 2020). Genetic, environmental, medical and behavioral
+              factors need to be considered in the assessment and management of
+              unhealthy weights (AANP, 2021). Heather draws from a multitude of
+              weight loss approaches depending on client medical status,
+              preferences, and circumstances. Weight loss strategies are:
+            </p>
+            <table className={styles.experienceList}>
+              <tbody>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.listCheck}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>health focused</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.listCheck}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>
+                      based on medical, scientific, and experiential principles
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.listCheck}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>individualized</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.listCheck}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>negotiable</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.listCheck}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>
+                      focused on building self-esteem, confidence, and
+                      positivity
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.listCheck}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>sustainable for long term weight loss</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.listCheck}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>
+                      intended to educate the client for future, independent
+                      weight management.
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <div className={styles.experienceImage}></div>
         </div>
         <span id="services"></span>
@@ -127,11 +247,41 @@ export default function Home() {
               <h3>Free</h3>
               <p>Initial 1 hour Consultation</p>
               <table className={styles.optionsTable}>
+                <tbody>
+                  <tr>
+                    <td>
+                      <FontAwesomeIcon
+                        icon={faCheck}
+                        className={styles.checkmark}
+                      ></FontAwesomeIcon>
+                    </td>
+                    <td>
+                      <p>Meeting held remotely</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <FontAwesomeIcon
+                        icon={faTimes}
+                        className={styles.cross}
+                      ></FontAwesomeIcon>
+                    </td>
+                    <td>
+                      <p>Meeting held in person</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className={styles.priceCard}>
+              <h3>$100 for first month</h3>
+              <p>First Month Only</p>
+              <table className={styles.optionsTable}>
                 <tr>
                   <td>
                     <FontAwesomeIcon
-                      icon={faCheck}
-                      className={styles.checkmark}
+                      icon={faTimes}
+                      className={styles.cross}
                     ></FontAwesomeIcon>
                   </td>
                   <td>
@@ -141,8 +291,8 @@ export default function Home() {
                 <tr>
                   <td>
                     <FontAwesomeIcon
-                      icon={faTimes}
-                      className={styles.cross}
+                      icon={faCheck}
+                      className={styles.checkmark}
                     ></FontAwesomeIcon>
                   </td>
                   <td>
@@ -207,34 +357,18 @@ export default function Home() {
                 </tr>
               </table>
             </div>
-            <div className={styles.priceCard}>
-              <h3>$100/month</h3>
-              <p>First Month Only</p>
-              <table className={styles.optionsTable}>
-                <tr>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faTimes}
-                      className={styles.cross}
-                    ></FontAwesomeIcon>
-                  </td>
-                  <td>
-                    <p>Meeting held remotely</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className={styles.checkmark}
-                    ></FontAwesomeIcon>
-                  </td>
-                  <td>
-                    <p>Meeting held in person</p>
-                  </td>
-                </tr>
-              </table>
-            </div>
+          </div>
+        </div>
+        <div className={styles.location}>
+          <div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.178797634249!2d-79.96720588435645!3d43.26862988523067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c847e096e1389%3A0x68458c0a4681abfd!2s247%20King%20St%20W%2C%20Dundas%2C%20ON%20L9H%201V8!5e0!3m2!1sen!2sca!4v1642648064679!5m2!1sen!2sca"
+              width="600"
+              height="450"
+              allowFullScreen=""
+              loading="lazy"
+              className={styles.map}
+            ></iframe>
           </div>
         </div>
       </main>

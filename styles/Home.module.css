@@ -49,38 +49,39 @@
   z-index: -1;
 }
 
-.about {
+.bio {
   display: flex;
-  height: 60vh;
+  height: 90vh;
+  padding-top: 10rem;
 }
 
-.aboutHeader {
+.bioHeader {
   display: flex;
   align-items: center;
   width: 50%;
   margin-left: 2rem;
-}
-
-.aboutHeader {
   border-right: 1px solid black;
   height: 75%;
   align-self: center;
+  z-index: -1;
 }
 
-.aboutHeader h2 {
+.bioHeader h2 {
   font-size: 40px;
   margin: 0;
+  font-weight: 500;
 }
 
-.aboutHeader p {
+.bioHeader p {
   margin: 0;
+  font-size: 17px;
 }
 
-.aboutHeader div {
+.bioHeader div {
   margin-left: 2rem;
 }
 
-.aboutBody {
+.bioBody {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -88,8 +89,21 @@
   width: 65%;
 }
 
-.aboutBody p {
+.bioBody p {
   padding: 0 4rem;
+}
+
+.bioBody h3 {
+  font-size: 40px;
+}
+
+.contactInfo {
+  font-size: 17px;
+}
+
+.contactInfo td:nth-child(odd) {
+  font-weight: 700;
+  color: rgb(161, 27, 27);
 }
 
 .experience {
@@ -97,6 +111,7 @@
   align-items: center;
   justify-content: center;
   background-color: #bfb3a4;
+  padding-top: 5rem;
 }
 
 .experienceBody {
@@ -110,6 +125,7 @@
 .experienceBody h2 {
   margin-top: 0;
   font-size: 40px;
+  text-align: center;
 }
 
 .experienceImage {
@@ -118,6 +134,11 @@
   background: url("../public/heather-india.jpg") no-repeat top;
   background-size: cover;
   margin: 0 2rem 4rem 2rem;
+}
+
+.experienceList p {
+  margin: 1rem;
+  font-size: 19px;
 }
 
 .trees {
@@ -140,6 +161,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 20px;
+  padding-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 .servicesInfoContainer :nth-child(2) {
@@ -184,12 +208,60 @@
 
 .checkmark {
   width: 30px;
-  color: rgb(73, 175, 73);
+  color: rgb(46, 124, 46);
 }
 
 .cross {
   color: var(--color-highlight);
   width: 20px;
+}
+
+.listCheck {
+  width: 20px;
+  color: rgb(44, 44, 44);
+}
+
+.location {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.map {
+  border: 0;
+}
+
+@media only screen and (max-width: 1500px) {
+  .bio {
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+  }
+  .bioHeader {
+    border-right: none;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid black;
+    margin: 0;
+  }
+  .bioBody p {
+    padding: 0;
+  }
+  .bioBody {
+    padding: 0;
+  }
+
+  .bioBody h3 {
+    text-align: center;
+  }
+
+  .services {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .priceCard {
+    margin-top: 3rem;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
@@ -223,11 +295,46 @@
   .aboutBody p {
     padding: 0 2rem;
   }
+
+  .bioHeader {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bioBody {
+    width: 90%;
+  }
+
+  .experience {
+    flex-direction: column;
+  }
+
+  .experienceBody {
+    width: 90%;
+  }
+
+  .experienceImage {
+    width: 90%;
+    margin-top: 3rem;
+  }
+
+  .priceCard {
+    max-width: 90%;
+  }
 }
 
 @media only screen and (max-width: 775px) {
   .pictureContainer h1 {
     font-size: 50px;
     text-align: center;
+  }
+
+  .services {
+    padding: 0;
+  }
+
+  .experienceBody {
+    padding-top: 3rem;
   }
 }
