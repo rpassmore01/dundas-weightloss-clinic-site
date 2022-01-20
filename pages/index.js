@@ -27,10 +27,7 @@ export default function Home() {
         <header className={styles.header}>
           <div className={styles.pictureContainer}>
             <h1>Dundas Weight Loss Clinic</h1>
-            <h2>
-              Looking to improve the health of clients through healthy weight
-              loss and other health promotion services.
-            </h2>
+            <h2>Health Focused Weight Loss</h2>
             <p>Learn more about Heather&apos;s approach to weight loss here.</p>
             <Link href="/#about">
               <a className={styles.learnMoreButton}>Learn more</a>
@@ -48,7 +45,7 @@ export default function Home() {
             ></Image>
             <div>
               <h2>Heather Watson</h2>
-              <p>Nurse Practitioner and Weight Counselor</p>
+              <p>Nurse Practitioner and Weight Loss Consultant</p>
               <br />
               <table className={styles.contactInfo}>
                 <tbody>
@@ -57,12 +54,8 @@ export default function Home() {
                     <td>247 King Street West, Dundas, Ontario </td>
                   </tr>
                   <tr>
-                    <td>Phone: </td>
-                    <td>905-570-2610</td>
-                  </tr>
-                  <tr>
                     <td>Email: </td>
-                    <td>dundasweightlossclinic@gmail.com</td>
+                    <td>heatherwatson2445@gmail.com</td>
                   </tr>
                 </tbody>
               </table>
@@ -72,13 +65,13 @@ export default function Home() {
             <h3>Work Experience and Schooling</h3>
             <p>
               Heather started her registered nursing career in the early 1990s
-              when she graduated from the University of Toronto. Early on in her
+              when she graduated from the University of Toronto. Early in her
               career, she recognized that she wanted to expand her nursing
               practice, so she completed her Masters of Nursing by the end of
-              the 1990s and Nurse Practitioner-Paediatric training at the start
-              of the millennium. Heather believes in lifelong learning and has
-              since completed her Heart & Stroke Foundation First Aid and BLS
-              Instructor Certification, CanFitPro Personal Training
+              the 1990s and her Paediatric Nurse Practitioner training at the
+              start of the millennium. Heather believes in lifelong learning and
+              has since completed her Heart & Stroke Foundation First Aid and
+              BLS Instructor Certification, CanFitPro Personal Training
               Certification, Modo Yoga Teacher Training (YTT) - 500 hrs and
               American Association of Nurse Practitioner - Obesity Management
               Fundamentals to name a few.
@@ -86,13 +79,11 @@ export default function Home() {
             <p>
               Heather&apos;s work experience followed the trend of work
               availability in the 90s. She worked at the Hospital for Sick
-              Children in almost every unit including Neurosurgery, Orthopedics,
-              Trauma, General Paediatrics, IV Team, Recovery Room, Research,
-              Out-patient Clinics and the Neonatal Intensive Care Unit. Her
-              nurse practitioner specialization was in Neonatology where she
-              worked at both the Hospital for Sick Children and McMaster
-              Children&apos;s Hospital. In 2016, Heather attempted an early
-              retirement with no success (dismal failure actually).{" "}
+              Children in almost every unit. Her nurse practitioner
+              specialization was in Neonatology where she worked at both the
+              Hospital for Sick Children and McMaster Children&apos;s Hospital.
+              In 2016, Heather attempted an early retirement with no success
+              (dismal failure actually).{" "}
             </p>
             <p>
               When the pandemic started, she returned to work at Lynden Family
@@ -102,20 +93,17 @@ export default function Home() {
               colleagues supported the initiation of a weight management clinic.
               Coincidentally, Obesity Canada (National Association for Obesity
               Research, Education and Advocacy) released the Canadian Adult
-              Obesity Clinical Practice Guidelines with a lot of educational
-              opportunities. For 18 months, she led a weight management clinic
-              with excellent results. Her clients were achieving healthy weights
-              (not necessarily a BMI less than 25 ), decreased their diabetes
-              medication, avoided taking or decreasing blood pressure
-              medications, showed improved blood cholesterol levels, showed
-              improvements in depressive symptoms etc. When the CoVid contract
-              position ended at the Family Practice Clinic, she decided to go
-              into private practice. Thus, Dundas Weight Loss Clinic was
-              founded. Since then, she has received a Certificate of Obesity
-              Management Fundamentals from the American Association of Nurse
-              Practitioners and plans to complete her Lifestyle Medicine
-              Professional Certification through the American Academy of
-              Lifestyle Medicine.
+              Obesity Clinical Practice Guidelines to lead her practice. For 18
+              months, she led a weight management clinic with excellent results.
+              Her clients were achieving improvements in their diabetes, blood
+              lipid profiles, blood pressure, joint soreness, depressive
+              symptoms etc. When the CoVid contract position ended at the Family
+              Practice Clinic, she decided to go into private practice. Thus,
+              Dundas Weight Loss Clinic was founded. Since then, she has
+              received a Certificate of Obesity Management Fundamentals from the
+              American Association of Nurse Practitioners and plans to complete
+              her Lifestyle Medicine Professional Certification through the
+              American Academy of Lifestyle Medicine.
             </p>
           </div>
         </div>
@@ -124,17 +112,18 @@ export default function Home() {
         </div>
         <div className={styles.experience} id="about">
           <div className={styles.experienceBody}>
-            <h2>Weight Counseling Experience</h2>
+            <h2>Weight Consulting Experience</h2>
             <p>
-              Heather recognizes being overweight or suffering from obesity as a
-              chronic disease characterized by the accumulation of excess body
-              fat that can have a negative impact on our physical, mental, or
-              metabolic health as well as our overall quality of life (Obesity
-              Canada, 2020). Genetic, environmental, medical and behavioral
-              factors need to be considered in the assessment and management of
-              unhealthy weights (AANP, 2021). Heather draws from a multitude of
-              weight loss approaches depending on client medical status,
-              preferences, and circumstances. Weight loss strategies are:
+              Heather recognizes unhealthy weights and/or suffering from obesity
+              as a chronic disease characterized by the accumulation of excess
+              body fat. This can have a negative impact on our physical, mental,
+              or metabolic health as well as our overall quality of life
+              (Obesity Canada, 2020). Genetic, environmental, medical and
+              behavioral factors need to be considered in the assessment and
+              management of unhealthy weights (AANP, 2021). Heather draws from a
+              multitude of weight loss approaches depending on client medical
+              status, preferences, and circumstances. Weight loss strategies
+              are:
             </p>
             <table className={styles.experienceList}>
               <tbody>
@@ -233,14 +222,7 @@ export default function Home() {
           <div className={styles.servicesInfoContainer}>
             <h2>Services</h2>
             <p>* APPOINTMENTS MUST BE SCHEDULED IN ADVANCE *</p>
-            <p className={styles.servicesInfo}>
-              The initial one hour free consultation will be by telephone or
-              video chat (Zoom, FaceTime, Messenger etc). After that, a one to
-              two hour in-person appointment is required. In-person appointments
-              will be in office or in special circumstances, in home.
-              Appointment format is negotiable thereafter (telephone, video, in
-              office or in home).
-            </p>
+            <p>Email: heatherwatson2445@gmail.com</p>
           </div>
           <div className={styles.services}>
             <div className={styles.priceCard}>
@@ -262,8 +244,8 @@ export default function Home() {
                   <tr>
                     <td>
                       <FontAwesomeIcon
-                        icon={faTimes}
-                        className={styles.cross}
+                        icon={faCheck}
+                        className={styles.checkmark}
                       ></FontAwesomeIcon>
                     </td>
                     <td>
@@ -275,7 +257,6 @@ export default function Home() {
             </div>
             <div className={styles.priceCard}>
               <h3>$100 for first month</h3>
-              <p>First Month Only</p>
               <table className={styles.optionsTable}>
                 <tr>
                   <td>
@@ -302,36 +283,7 @@ export default function Home() {
               </table>
             </div>
             <div className={styles.priceCard}>
-              <h3>$25/month</h3>
-              <p>Monthly Appointments</p>
-              <table className={styles.optionsTable}>
-                <tr>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className={styles.checkmark}
-                    ></FontAwesomeIcon>
-                  </td>
-                  <td>
-                    <p>Meeting held remotely</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className={styles.checkmark}
-                    ></FontAwesomeIcon>
-                  </td>
-                  <td>
-                    <p>Meeting held in person</p>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div className={styles.priceCard}>
-              <h3>$50/month</h3>
-              <p>Weekly or Bi-weekly Appointments</p>
+              <h3>$30 per appointment</h3>
               <table className={styles.optionsTable}>
                 <tr>
                   <td>
@@ -358,10 +310,15 @@ export default function Home() {
               </table>
             </div>
           </div>
+          <p className={styles.servicesNote}>
+            In special circumstances home visits may be available.
+          </p>
+          <h4>Check your private or group insurance benefits for coverage.</h4>
         </div>
-        <div className={styles.location}>
+        <div className={styles.location} id="location">
           <h2>Location</h2>
           <p>247 King Street West, Dundas, Ontario</p>
+          <p>Shared space with Myers Chiropractic.</p>
           <div className={styles.map}>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.178797634249!2d-79.96720588435645!3d43.26862988523067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c847e096e1389%3A0x68458c0a4681abfd!2s247%20King%20St%20W%2C%20Dundas%2C%20ON%20L9H%201V8!5e0!3m2!1sen!2sca!4v1642648064679!5m2!1sen!2sca"

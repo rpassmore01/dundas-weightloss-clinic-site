@@ -18,7 +18,7 @@
 .pictureContainer h2 {
   color: white;
   font-weight: 700;
-  font-size: 35px;
+  font-size: 40px;
   text-align: center;
   height: fit-content;
   width: 75%;
@@ -27,6 +27,7 @@
 .pictureContainer h1 {
   color: white;
   font-size: 70px;
+  margin-bottom: 0;
 }
 
 .pictureContainer p {
@@ -42,6 +43,15 @@
   padding: 0.3rem 0.7rem;
   border-radius: 10px;
   font-size: 20px;
+  transition: background-color 500ms ease, border 500ms ease, color 500ms ease,
+    transform 300ms ease-in;
+}
+
+.learnMoreButton:hover {
+  transform: translateY(-5px);
+  color: var(--color-highlight);
+  background-color: white;
+  border: 2px solid var(--color-highlight);
 }
 
 .headerImage {
@@ -132,7 +142,7 @@
 .experienceImage {
   width: 50%;
   height: 90vh;
-  background: url("/heather-india.jpg") no-repeat top;
+  background: url("/heather-india-2.jpg") no-repeat top;
   background-size: cover;
   margin: 0 2rem 4rem 2rem;
 }
@@ -180,9 +190,15 @@
   font-size: 40px;
 }
 
+.servicesContainer h4 {
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--color-highlight);
+}
+
 .services {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 0 6rem;
 }
 
@@ -207,6 +223,10 @@
   font-size: 35px;
 }
 
+.servicesNote {
+  margin-top: 3rem;
+}
+
 .checkmark {
   width: 30px;
   color: rgb(46, 124, 46);
@@ -228,12 +248,20 @@
   align-items: center;
   margin-bottom: 4rem;
   flex-direction: column;
+  padding-top: 4rem;
 }
 
 .location h2 {
   font-size: 40px;
 }
 
+.location :nth-child(2) {
+  font-weight: 700;
+}
+
+.location :nth-child(3) {
+  margin-top: 0;
+}
 .map {
   border: 0;
 }
@@ -350,11 +378,11 @@
   }
 
   .pictureContainer h2 {
-    font-size: 22px;
+    font-size: 27px;
   }
 
   .pictureContainer p {
-    font-size: 17;
+    font-size: 20px;
   }
 
   .services {

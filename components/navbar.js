@@ -57,6 +57,15 @@ export default function Navbar() {
             Services
           </a>
         </Link>
+        <Link href="/#location">
+          <a
+            onClick={() => {
+              handleBurger();
+            }}
+          >
+            Location
+          </a>
+        </Link>
         {/*<Link href="/book">
           <a
             onClick={() => {
