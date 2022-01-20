@@ -343,7 +343,8 @@
   .experienceBody {
     padding-top: 3rem;
   }
+
   .map {
-    padding: 0 7rem;
+    width: fit-content;
   }
 }
