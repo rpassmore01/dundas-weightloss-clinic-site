@@ -166,7 +166,7 @@
   margin-bottom: 4rem;
 }
 
-.headerImage .servicesInfoContainer :nth-child(2) {
+.servicesInfoContainer :nth-child(2) {
   color: var(--color-highlight);
 }
 
