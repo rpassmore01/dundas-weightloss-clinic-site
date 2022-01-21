@@ -49,9 +49,6 @@
 
 .learnMoreButton:hover {
   transform: translateY(-5px);
-  color: var(--color-highlight);
-  background-color: white;
-  border: 2px solid var(--color-highlight);
 }
 
 .headerImage {
