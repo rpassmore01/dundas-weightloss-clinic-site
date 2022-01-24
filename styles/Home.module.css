@@ -174,13 +174,17 @@
   margin-bottom: 4rem;
 }
 
-.servicesInfoContainer :nth-child(2) {
-  color: var(--color-highlight);
-}
-
 .servicesContainer {
   text-align: center;
   margin-bottom: 10rem;
+}
+
+.servicesContainer h3 {
+  color: var(--color-highlight);
+}
+
+.servicesContainer ol {
+  text-align: left;
 }
 
 .servicesContainer h2 {
@@ -220,8 +224,8 @@
   font-size: 35px;
 }
 
-.servicesNote {
-  margin-top: 3rem;
+.priceNote {
+  color: var(--color-highlight);
 }
 
 .checkmark {

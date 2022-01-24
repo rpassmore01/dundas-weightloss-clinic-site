@@ -45,7 +45,8 @@ export default function Home() {
             ></Image>
             <div>
               <h2>Heather Watson</h2>
-              <p>Nurse Practitioner and Weight Loss Consultant</p>
+              <p>RN(EC) BA BScN MN</p>
+              <p>Nurse Practitioner-Paediactrics, Weight Loss Consultant</p>
               <br />
               <table className={styles.contactInfo}>
                 <tbody>
@@ -55,7 +56,11 @@ export default function Home() {
                   </tr>
                   <tr>
                     <td>Email: </td>
-                    <td>heatherwatson2445@gmail.com</td>
+                    <td>dundasweightlossclinic@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>Mobile: </td>
+                    <td>905-570-2610</td>
                   </tr>
                 </tbody>
               </table>
@@ -221,8 +226,16 @@ export default function Home() {
         <div className={styles.servicesContainer}>
           <div className={styles.servicesInfoContainer}>
             <h2>Services</h2>
-            <p>* APPOINTMENTS MUST BE SCHEDULED IN ADVANCE *</p>
-            <p>Email: heatherwatson2445@gmail.com</p>
+            <p>Email: dundasweightlossclinic@gmail.com</p>
+            <p>Mobile: 905-570-2610</p>
+            <h3>Process</h3>
+            <ol>
+              <li>No obligation, free one hour consultation.</li>
+              <li>
+                Enroll in the 3 month program for further health assessment,
+                education, support and goal setting
+              </li>
+            </ol>
           </div>
           <div className={styles.services}>
             <div className={styles.priceCard}>
@@ -256,13 +269,45 @@ export default function Home() {
               </table>
             </div>
             <div className={styles.priceCard}>
-              <h3>$100 for first month</h3>
+              <h3>$350</h3>
+              <p>for first 3 months</p>
               <table className={styles.optionsTable}>
                 <tr>
                   <td>
                     <FontAwesomeIcon
-                      icon={faTimes}
-                      className={styles.cross}
+                      icon={faCheck}
+                      className={styles.checkmark}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>Meeting held remotely</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.checkmark}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>Meeting held in person</p>
+                  </td>
+                </tr>
+              </table>
+              <p className={styles.priceNote}>
+                *Initial appointment in person*
+              </p>
+            </div>
+            <div className={styles.priceCard}>
+              <h3>$100</h3>
+              <p>for each 3 month period thereafter</p>
+              <table className={styles.optionsTable}>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.checkmark}
                     ></FontAwesomeIcon>
                   </td>
                   <td>
@@ -283,7 +328,8 @@ export default function Home() {
               </table>
             </div>
             <div className={styles.priceCard}>
-              <h3>$30 per appointment</h3>
+              <h3>$10</h3>
+              <p>per month for maintenance</p>
               <table className={styles.optionsTable}>
                 <tr>
                   <td>
@@ -310,6 +356,9 @@ export default function Home() {
               </table>
             </div>
           </div>
+          <p className={styles.serviceNotice}>
+            * APPOINTMENTS MUST BE SCHEDULED IN ADVANCE *
+          </p>
           <p className={styles.servicesNote}>
             In special circumstances home visits may be available.
           </p>
