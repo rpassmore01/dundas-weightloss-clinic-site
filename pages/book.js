@@ -71,7 +71,6 @@ export default function Book(props) {
 }
 
 export async function getServerSideProps() {
-  console.log(process.env.USER_ID);
   return {
     props: {
       USER_ID: process.env.USER_ID,
