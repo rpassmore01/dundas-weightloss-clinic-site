@@ -7,7 +7,6 @@ import styles from "../styles/Home.module.css";
 import Trees from "../public/trees.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react/cjs/react.development";
 import Footer from "../components/footer";
 
 export default function Home() {
@@ -26,12 +25,16 @@ export default function Home() {
         <Navbar className={styles.navbar}></Navbar>
         <header className={styles.header}>
           <div className={styles.pictureContainer}>
-            <h1>Dundas Weight Loss Clinic</h1>
-            <h2>Health Focused Weight Loss</h2>
-            <p>Learn more about Heather&apos;s approach to weight loss here.</p>
-            <Link href="/#about">
-              <a className={styles.learnMoreButton}>Learn more</a>
-            </Link>
+            <div className={styles.headerContent}>
+              <h1>Dundas Weight Loss Clinic</h1>
+              <h2>Health Focused Weight Loss</h2>
+              <p>
+                Learn more about Heather&apos;s approach to weight loss here.
+              </p>
+              <Link href="/#about">
+                <a className={styles.learnMoreButton}>Learn more</a>
+              </Link>
+            </div>
           </div>
         </header>
         <div className={styles.bio} id="bio">
@@ -236,6 +239,9 @@ export default function Home() {
                 education, support and goal setting
               </li>
             </ol>
+            <Link href="/book">
+              <a className={styles.learnMoreButton}>Book Appointment</a>
+            </Link>
           </div>
           <div className={styles.services}>
             <div className={styles.priceCard}>
@@ -362,7 +368,9 @@ export default function Home() {
           <p className={styles.servicesNote}>
             In special circumstances home visits may be available.
           </p>
-          <h4>Check your private or group insurance benefits for coverage.</h4>
+          <h4 className={styles.insuranceNote}>
+            Check your private or group insurance benefits for coverage.
+          </h4>
         </div>
         <div className={styles.location} id="location">
           <h2>Location</h2>

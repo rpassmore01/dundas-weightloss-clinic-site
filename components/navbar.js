@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <div className={styles.navbar}>
-      <Link href="/">
+      <Link href="/#top">
         <a
           className={styles.navbarTitle}
           onClick={() => {
@@ -66,7 +66,7 @@ export default function Navbar() {
             Location
           </a>
         </Link>
-        {/*<Link href="/book">
+        <Link href="/book">
           <a
             onClick={() => {
               handleBurger();
@@ -74,7 +74,7 @@ export default function Navbar() {
           >
             Book Apointment
           </a>
-          </Link>*/}
+        </Link>
       </nav>
       <button
         className={styles.navbarButton}

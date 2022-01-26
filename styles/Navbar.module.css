@@ -22,7 +22,7 @@
 .navbar nav {
   display: flex;
   justify-content: space-between;
-  width: 40%;
+  width: 50%;
   padding-right: 2rem;
   font-family: "Vollkorn", serif;
   font-weight: 500;
@@ -31,14 +31,14 @@
   align-items: center;
 }
 
-/*.navbar nav :nth-child(4) {
+.navbar nav :nth-child(5) {
   background-color: var(--color-highlight);
   color: rgb(255, 245, 233);
   padding: 0.3rem 0.7rem;
   border-radius: 10px;
   transition: background-color 500ms ease, border 500ms ease, color 500ms ease,
     transform 300ms ease-in;
-}*/
+}
 
 .navbar nav a {
   transition: color 500ms ease, transform 300ms ease-in;
@@ -49,10 +49,9 @@
   color: var(--color-highlight);
 }
 
-/*.navbar nav :nth-child(4):hover {
-  background-color: white;
-  border: 1px solid var(--color-highlight);
-}*/
+.navbar nav :nth-child(5):hover {
+  color: white;
+}
 
 .navbarButton {
   display: none;

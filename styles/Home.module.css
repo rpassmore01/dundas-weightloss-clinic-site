@@ -10,9 +10,17 @@
   background-size: cover;
   height: 92vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerContent {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 90%;
+  height: 100%;
 }
 
 .pictureContainer h2 {
@@ -174,9 +182,16 @@
   margin-bottom: 4rem;
 }
 
+.serviceNotice {
+  margin-top: 3rem;
+}
+
+.insuranceNote {
+  margin-bottom: 0;
+}
+
 .servicesContainer {
   text-align: center;
-  margin-bottom: 10rem;
 }
 
 .servicesContainer h3 {

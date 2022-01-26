@@ -65,6 +65,11 @@
   font-weight: 700;
   font-size: 17px;
   margin: 2rem 0 6rem 0;
+  transition: transform 300ms ease-in;
+}
+
+.form button:hover {
+  transform: translateY(-5px);
 }
 
 .formContainer {
