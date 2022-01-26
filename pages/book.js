@@ -1,22 +1,34 @@
 import Navbar from "../components/navbar";
 import styles from "../styles/Book.module.css";
-import Image from "next/image";
 import Footer from "../components/footer";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 export default function Book(props) {
   const form = useRef();
 
+  const [sentMessage, setSentMessage] = useState();
+
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(
-      props.SERVICE_ID,
-      props.EMAIL_TEMPLATE_ID,
-      form.current,
-      props.USER_ID
-    );
+    emailjs
+      .sendForm(
+        props.SERVICE_ID,
+        props.EMAIL_TEMPLATE_ID,
+        form.current,
+        props.USER_ID
+      )
+      .then(
+        function (response) {
+          setSentMessage("Message sent successfully!");
+        },
+        function (error) {
+          setSentMessage("Message failed please email directly.");
+        }
+      );
+
+    document.getElementById("form").reset();
   };
 
   return (
@@ -32,7 +44,12 @@ export default function Book(props) {
           </h2>
         </div>
         <div className={styles.formContainer}>
-          <form className={styles.form} ref={form} onSubmit={sendEmail}>
+          <form
+            className={styles.form}
+            ref={form}
+            onSubmit={sendEmail}
+            id="form"
+          >
             <h3>Name (required):</h3>
             <input type="text" required={true} name="user_name"></input>
             <h3>Email (required):</h3>
@@ -44,6 +61,7 @@ export default function Book(props) {
             <button type="submit" value="Send">
               Submit
             </button>
+            {sentMessage ? <p>{sentMessage}</p> : <p></p>}
           </form>
         </div>
       </main>
