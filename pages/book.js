@@ -55,7 +55,7 @@ export default function Book(props) {
             <h3>Email (required):</h3>
             <input type="email" required={true} name="user_email"></input>
             <h3>Phone number (required):</h3>
-            <input type="number" required={true} name="phone_number"></input>
+            <input type="tel" required={true} name="phone_number"></input>
             <h3>Message (optional):</h3>
             <textarea name="message"></textarea>
             <button type="submit" value="Send">
