@@ -3,13 +3,16 @@ import styles from "../styles/Book.module.css";
 import Footer from "../components/footer";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Book(props) {
   const form = useRef();
 
   const [sentMessage, setSentMessage] = useState();
+  const [formValidated, setFormValidated] = useState(false);
+  const reRef = useRef();
 
-  const sendEmail = (e) => {
+  function sendEmail(e) {
     e.preventDefault();
 
     emailjs
@@ -29,10 +32,30 @@ export default function Book(props) {
       );
 
     document.getElementById("form").reset();
-  };
+    reRef.current.reset();
+    setFormValidated(false);
+  }
 
-  function handleCaptcha() {
-    setCaptchaVerified(true);
+  async function handleRecaptcha(token) {
+    console.log("Captcha value:", token);
+    const response = await fetch("/api/auth", {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow",
+      referrerPolicy: "no-referrer",
+      body: JSON.stringify(token),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.human) {
+          setFormValidated(true);
+        }
+      });
   }
 
   return (
@@ -62,9 +85,16 @@ export default function Book(props) {
             <input type="tel" required={true} name="phone_number"></input>
             <h3>Message (optional):</h3>
             <textarea name="message"></textarea>
-            <button type="submit" value="Send">
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
+              onChange={handleRecaptcha}
+              ref={reRef}
+              className={styles.recaptcha}
+            />
+            <button type="submit" value="Send" disabled={!formValidated}>
               Submit
             </button>
+
             {sentMessage ? <p>{sentMessage}</p> : <p></p>}
           </form>
         </div>
@@ -75,12 +105,12 @@ export default function Book(props) {
 }
 
 export async function getServerSideProps() {
-  console.log(process.env.RECAPTCHA_KEY);
   return {
     props: {
       USER_ID: process.env.USER_ID,
       EMAIL_TEMPLATE_ID: process.env.EMAIL_TEMPLATE_ID,
       SERVICE_ID: process.env.SERVICE_ID,
+      SECRET_SITE_KEY: process.env.SECRET_SITE_KEY,
     },
   };
 }
