@@ -12,7 +12,9 @@ export default function Book(props) {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    console.log(props.USER_ID);
+    console.log(
+      `${props.USER_ID} ${props.EMAIL_TEMPLATE_ID} ${props.SERVICE_ID}`
+    );
 
     emailjs
       .sendForm(
