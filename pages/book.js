@@ -3,11 +3,13 @@ import styles from "../styles/Book.module.css";
 import Footer from "../components/footer";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Book(props) {
   const form = useRef();
 
   const [sentMessage, setSentMessage] = useState();
+  const [captchaVerified, setCaptchaVerified] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -30,6 +32,10 @@ export default function Book(props) {
 
     document.getElementById("form").reset();
   };
+
+  function handleCaptcha() {
+    setCaptchaVerified(true);
+  }
 
   return (
     <div className={styles.container}>
@@ -58,7 +64,13 @@ export default function Book(props) {
             <input type="tel" required={true} name="phone_number"></input>
             <h3>Message (optional):</h3>
             <textarea name="message"></textarea>
-            <button type="submit" value="Send">
+            <ReCAPTCHA
+              sitekey="6LdmmEAeAAAAAJBMvgHeX_beKq-hxiyXYKOJbq9_"
+              onChange={() => {
+                handleCaptcha();
+              }}
+            />
+            <button type="submit" value="Send" disabled={!captchaVerified}>
               Submit
             </button>
             {sentMessage ? <p>{sentMessage}</p> : <p></p>}
@@ -71,6 +83,7 @@ export default function Book(props) {
 }
 
 export async function getServerSideProps() {
+  console.log(process.env.RECAPTCHA_KEY);
   return {
     props: {
       USER_ID: process.env.USER_ID,
