@@ -6,7 +6,7 @@ import Navbar from "../components/navbar";
 import styles from "../styles/Home.module.css";
 import Trees from "../public/trees.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../components/footer";
 
 export default function Home() {
