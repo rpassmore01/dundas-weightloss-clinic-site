@@ -239,9 +239,9 @@ export default function Home() {
                 education, support and goal setting
               </li>
             </ol>
-            {/*<Link href="/book">
+            <Link href="/book">
               <a className={styles.learnMoreButton}>Book Appointment</a>
-              </Link>*/}
+            </Link>
           </div>
           <div className={styles.services}>
             <div className={styles.priceCard}>

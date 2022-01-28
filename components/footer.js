@@ -21,9 +21,9 @@ export default function Footer() {
         <Link href="/#services">
           <a>Services</a>
         </Link>
-        {/*<Link href="/book">
+        <Link href="/book">
           <a>Book</a>
-  </Link>*/}
+        </Link>
       </div>
     </footer>
   );
