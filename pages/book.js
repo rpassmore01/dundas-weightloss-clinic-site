@@ -3,6 +3,7 @@ import styles from "../styles/Book.module.css";
 import Footer from "../components/footer";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import Head from "next/head";
 
 export default function Book(props) {
   const form = useRef();
