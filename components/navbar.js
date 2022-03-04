@@ -72,7 +72,7 @@ export default function Navbar() {
               handleBurger();
             }}
           >
-            Book Apointment
+            Book Appointment
           </a>
         </Link>
       </nav>
