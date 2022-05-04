@@ -4,6 +4,7 @@ import Footer from "../components/footer";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
+import Head from "next/head";
 
 export default function Book(props) {
   const form = useRef();
@@ -60,6 +61,13 @@ export default function Book(props) {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>Book - Dundas Weight Loss Clinic</title>
+        <meta
+          name="descripton"
+          content="Contact the <b>Dundas Weight Loss Clinic</b> to make an initial 1 hour <b>free</b> appointment."
+        />
+      </Head>
       <Navbar></Navbar>
       <main className={styles.main}>
         <div className={styles.header}>
