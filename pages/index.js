@@ -22,7 +22,24 @@ export default function Home() {
           name="descripton"
           content="The <b>Dundas Weight Loss Clinic</b> is a <b>local</b> weight loss clinic that provides <b>personalized</b> and <b>professional</b> guidance to <b>weight loss</b>."
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <main className={styles.main}>
         <Navbar className={styles.navbar}></Navbar>
