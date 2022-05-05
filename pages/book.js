@@ -5,6 +5,7 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import ReCAPTCHA from "react-google-recaptcha";
 import Head from "next/head";
+import axios from "axios";
 
 export default function Book(props) {
   const form = useRef();
@@ -38,25 +39,11 @@ export default function Book(props) {
   }
 
   async function handleRecaptcha(token) {
-    console.log("Captcha value:", token);
-    const response = await fetch("/api/auth", {
-      method: "POST",
-      mode: "cors",
-      cache: "no-cache",
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      redirect: "follow",
-      referrerPolicy: "no-referrer",
-      body: JSON.stringify(token),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.human) {
-          setFormValidated(true);
-        }
-      });
+    axios
+      .post("/api/auth", {
+        token: token,
+      })
+      .then((res) => setFormValidated(res.data.human));
   }
 
   return (
@@ -67,6 +54,24 @@ export default function Book(props) {
           name="descripton"
           content="Contact the <b>Dundas Weight Loss Clinic</b> to make an initial 1 hour <b>free</b> appointment."
         />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <Navbar></Navbar>
       <main className={styles.main}>
@@ -118,7 +123,6 @@ export async function getServerSideProps() {
       USER_ID: process.env.USER_ID,
       EMAIL_TEMPLATE_ID: process.env.EMAIL_TEMPLATE_ID,
       SERVICE_ID: process.env.SERVICE_ID,
-      SECRET_SITE_KEY: process.env.SECRET_SITE_KEY,
     },
   };
 }
