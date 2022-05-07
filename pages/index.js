@@ -8,6 +8,7 @@ import Trees from "../public/trees.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../components/footer";
+import HeatherHeadshot from "../public/heather-headshot.webp";
 
 export default function Home() {
   useEffect(() => {
@@ -60,7 +61,7 @@ export default function Home() {
         <div className={styles.bio} id="bio">
           <div className={styles.bioHeader}>
             <Image
-              src="/heather-headshot.webp"
+              src={HeatherHeadshot}
               className={styles.headerImage}
               height={300}
               width={300}
