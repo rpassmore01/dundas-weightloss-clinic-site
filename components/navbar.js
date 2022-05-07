@@ -81,6 +81,7 @@ export default function Navbar() {
         onClick={() => {
           handleBurger();
         }}
+        aria-label="menu"
       >
         <Image src={burgerIcon} width="40px" height="40px" alt=""></Image>
       </button>

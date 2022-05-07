@@ -19,7 +19,7 @@ export default function Home() {
       <Head>
         <title>Home - Dundas Weight Loss Clinic</title>
         <meta
-          name="descripton"
+          name="description"
           content="The <b>Dundas Weight Loss Clinic</b> is a <b>local</b> weight loss clinic that provides <b>personalized</b> and <b>professional</b> guidance to <b>weight loss</b>."
         />
         <link
@@ -60,7 +60,7 @@ export default function Home() {
         <div className={styles.bio} id="bio">
           <div className={styles.bioHeader}>
             <Image
-              src="/heather-headshot.jpg"
+              src="/heather-headshot.webp"
               className={styles.headerImage}
               height={300}
               width={300}
@@ -405,6 +405,7 @@ export default function Home() {
               allowFullScreen=""
               loading="lazy"
               className={styles.map}
+              title="google map to Dundas Weight Loss Clinic"
             ></iframe>
           </div>
         </div>

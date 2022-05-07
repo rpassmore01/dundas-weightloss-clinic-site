@@ -51,7 +51,7 @@ export default function Book(props) {
       <Head>
         <title>Book - Dundas Weight Loss Clinic</title>
         <meta
-          name="descripton"
+          name="description"
           content="Contact the <b>Dundas Weight Loss Clinic</b> to make an initial 1 hour <b>free</b> appointment."
         />
         <link

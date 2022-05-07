@@ -12,6 +12,10 @@ module.exports = withNextEnv({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"],
+      i18n: {
+        locales: ["en"],
+        defaultLocale: "en",
+      },
     });
 
     return config;
