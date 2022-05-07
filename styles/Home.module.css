@@ -6,7 +6,7 @@
 
 .pictureContainer {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("/tews-falls.webp") no-repeat center;
+    url("/tews-falls.jpg") no-repeat center;
   background-size: cover;
   height: 92vh;
   display: flex;
@@ -147,7 +147,7 @@
 .experienceImage {
   width: 50%;
   height: 90vh;
-  background: url("/heather-india-2.webp") no-repeat top;
+  background: url("/heather-india-2.jpg") no-repeat top;
   background-size: cover;
   margin: 0 2rem 4rem 2rem;
 }
