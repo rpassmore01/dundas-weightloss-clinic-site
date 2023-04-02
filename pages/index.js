@@ -47,12 +47,12 @@ export default function Home() {
           <div className={styles.pictureContainer}>
             <div className={styles.headerContent}>
               <h1>Dundas Weight Loss Clinic</h1>
-              <h2>Health Focused Weight Loss</h2>
+              <h2>Comprehensive Weight Management Program</h2>
               <p>
-                Learn more about Heather&apos;s approach to weight loss here.
+                FREE ONE HOUR CONSULTATION
               </p>
-              <Link href="/#about">
-                <a className={styles.learnMoreButton}>Learn more</a>
+              <Link href="/book">
+                <a className={styles.learnMoreButton}>Book Now</a>
               </Link>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function Home() {
             <div>
               <h2>Heather Watson</h2>
               <p>RN(EC) BA BScN MN</p>
-              <p>Nurse Practitioner-Paediactrics, Weight Loss Consultant</p>
+              <p>Nurse Practitioner-Paediactrics, Certified Bariatric Educator</p>
               <br />
               <table className={styles.contactInfo}>
                 <tbody>
@@ -141,19 +141,7 @@ export default function Home() {
         </div>
         <div className={styles.experience} id="about">
           <div className={styles.experienceBody}>
-            <h2>Weight Consulting Experience</h2>
-            <p>
-              Heather recognizes unhealthy <b>weights</b> and/or suffering from
-              obesity as a chronic disease characterized by the accumulation of
-              excess body fat. This can have a negative impact on our physical,
-              mental, or metabolic health as well as our overall quality of life
-              (Obesity Canada, 2020). Genetic, environmental, medical and
-              behavioral factors need to be considered in the assessment and
-              management of unhealthy weights (AANP, 2021). Heather draws from a
-              multitude of <b>weight loss</b> approaches depending on client
-              medical status, preferences, and circumstances. Weight loss
-              strategies are:
-            </p>
+            <h2>Individualized Weight Loss Consulting</h2>
             <table className={styles.experienceList}>
               <tbody>
                 <tr>
@@ -164,7 +152,62 @@ export default function Home() {
                     ></FontAwesomeIcon>
                   </td>
                   <td>
-                    <p>health focused</p>
+                    <p>Comprehensive medical, psychological and lifestyle assessment</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.listCheck}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>Intensive nutrition education and dietary management</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.listCheck}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>Cognitive behavioral strategies to support behavior change</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.listCheck}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>Approved, prescription weight loss medication where appropriate</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.listCheck}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>Referral to bariatric surgery where appropriate</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <FontAwesomeIcon
+                      icon={faCheck}
+                      className={styles.listCheck}
+                    ></FontAwesomeIcon>
+                  </td>
+                  <td>
+                    <p>OPTIFAST  provider</p>
                   </td>
                 </tr>
                 <tr>
@@ -176,7 +219,8 @@ export default function Home() {
                   </td>
                   <td>
                     <p>
-                      based on medical, scientific, and experiential principles
+                      Focused on building self-esteem, confidence, and
+                      self-efficacy
                     </p>
                   </td>
                 </tr>
@@ -188,18 +232,7 @@ export default function Home() {
                     ></FontAwesomeIcon>
                   </td>
                   <td>
-                    <p>individualized</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className={styles.listCheck}
-                    ></FontAwesomeIcon>
-                  </td>
-                  <td>
-                    <p>negotiable</p>
+                    <p>Sustainable for long term weight loss</p>
                   </td>
                 </tr>
                 <tr>
@@ -211,33 +244,7 @@ export default function Home() {
                   </td>
                   <td>
                     <p>
-                      focused on building self-esteem, confidence, and
-                      positivity
-                    </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className={styles.listCheck}
-                    ></FontAwesomeIcon>
-                  </td>
-                  <td>
-                    <p>sustainable for long term weight loss</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className={styles.listCheck}
-                    ></FontAwesomeIcon>
-                  </td>
-                  <td>
-                    <p>
-                      intended to educate the client for future, independent
-                      weight management.
+                      Serving Dundas, Ancaster, Brantford and greater Hamilton area
                     </p>
                   </td>
                 </tr>
@@ -248,21 +255,14 @@ export default function Home() {
         </div>
         <span id="services"></span>
         <div className={styles.servicesContainer}>
-          <div className={styles.servicesInfoContainer}>
+            <div className={styles.servicesInfoContainer}>
             <h2>Services</h2>
-            <p>Email: dundasweightlossclinic@gmail.com</p>
-            <p>Mobile: 905-570-2610</p>
-            <h3>Process</h3>
-            <ol>
-              <li>No obligation, free one hour consultation.</li>
-              <li>
-                Enroll in the 3 month program for further health assessment,
-                education, support and goal setting
-              </li>
-            </ol>
-            <Link href="/book">
-              <a className={styles.learnMoreButton}>Book Appointment</a>
-            </Link>
+              <b>NO OBLIGATION, FREE ONE HOUR CONSULTATION.</b>
+              <p>dundasweightlossclinic@gmail.com</p>
+              <p>905-570-2610</p>
+              <Link href="/book">
+                <a className={styles.learnMoreButton}>Book Appointment</a>
+              </Link>
           </div>
           <div className={styles.services}>
             <div className={styles.priceCard}>
@@ -297,38 +297,8 @@ export default function Home() {
             </div>
             <div className={styles.priceCard}>
               <h3>$350</h3>
-              <p>for first 3 months</p>
-              <table className={styles.optionsTable}>
-                <tr>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className={styles.checkmark}
-                    ></FontAwesomeIcon>
-                  </td>
-                  <td>
-                    <p>Meeting held remotely</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className={styles.checkmark}
-                    ></FontAwesomeIcon>
-                  </td>
-                  <td>
-                    <p>Meeting held in person</p>
-                  </td>
-                </tr>
-              </table>
-              <p className={styles.priceNote}>
-                *Initial appointment in person*
-              </p>
-            </div>
-            <div className={styles.priceCard}>
-              <h3>$100</h3>
-              <p>for each 3 month period thereafter</p>
+              <p>For initial 10 hour program</p>
+              <p>Fee paid upfront</p>
               <table className={styles.optionsTable}>
                 <tr>
                   <td>
@@ -355,8 +325,8 @@ export default function Home() {
               </table>
             </div>
             <div className={styles.priceCard}>
-              <h3>$10</h3>
-              <p>per month for maintenance</p>
+              <h3>$35/hr</h3>
+              <p>For ongoing support</p>
               <table className={styles.optionsTable}>
                 <tr>
                   <td>
@@ -384,10 +354,7 @@ export default function Home() {
             </div>
           </div>
           <p className={styles.serviceNotice}>
-            * APPOINTMENTS MUST BE SCHEDULED IN ADVANCE *
-          </p>
-          <p className={styles.servicesNote}>
-            In special circumstances home visits may be available.
+            No additional hidden costs
           </p>
           <h4 className={styles.insuranceNote}>
             Check your private or group insurance benefits for coverage.
