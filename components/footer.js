@@ -7,7 +7,7 @@ export default function Footer() {
       <div className={styles.footerBody}>
         <h2>Dundas Weight Loss Clinic</h2>
         <p>
-          Copyright <span>&copy;</span> 2023 Dundas Weight Loss Clinic.
+          Copyright <span>&copy;</span> 2025 Dundas Weight Loss Clinic.
         </p>
       </div>
 

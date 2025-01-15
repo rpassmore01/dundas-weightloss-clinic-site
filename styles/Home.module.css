@@ -227,7 +227,7 @@
 .services {
   display: flex;
   justify-content: space-evenly;
-  padding: 0 6rem;
+  padding: 0 30rem;
 }
 
 .priceCard {

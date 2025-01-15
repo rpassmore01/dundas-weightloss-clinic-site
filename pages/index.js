@@ -69,7 +69,7 @@ export default function Home() {
             <div>
               <h2>Heather Watson</h2>
               <p>RN(EC) BA BScN MN</p>
-              <p>Nurse Practitioner-Paediactrics, Certified Bariatric Educator</p>
+              <p>Nurse Practitioner-Paediactrics, Certified Bariatric Educator and Diplomate, American College of Lifestyle Medicine</p>
               <br />
               <table className={styles.contactInfo}>
                 <tbody>
@@ -84,6 +84,10 @@ export default function Home() {
                   <tr>
                     <td>Mobile: </td>
                     <td>905-570-2610</td>
+                  </tr>
+                  <tr>
+                    <td>Fax: </td>
+                    <td>438-600-9815</td>
                   </tr>
                 </tbody>
               </table>
@@ -100,7 +104,7 @@ export default function Home() {
               start of the millennium. Heather believes in lifelong learning and
               has since completed her Heart & Stroke Foundation First Aid and
               BLS Instructor Certification, CanFitPro Personal Training
-              Certification, Modo Yoga Teacher Training (YTT) - 500 hrs and
+              Certification, and Modo Yoga Teacher Training (YTT) - 500 hrs and
               American Association of Nurse Practitioner - Obesity Management
               Fundamentals to name a few.
             </p>
@@ -132,7 +136,7 @@ export default function Home() {
               Obesity Management Fundamentals from the American Association of
               Nurse Practitioners and plans to complete her Lifestyle Medicine
               Professional Certification through the American Academy of
-              Lifestyle Medicine.
+              Lifestyle Medicine. Since then, she has recieved multiple additional courses in Obesity Medicine from Obesity Canada, ASCEND Global Obesity, and the American College of Nurse Practitioners. She is a Certified Bariatric Educator and Diplomate for the American College of Lifestyle Medicine.
             </p>
           </div>
         </div>
@@ -296,9 +300,7 @@ export default function Home() {
               </table>
             </div>
             <div className={styles.priceCard}>
-              <h3>$350</h3>
-              <p>For initial 10 hour program</p>
-              <p>Fee paid upfront</p>
+              <h3>$40/hr</h3>
               <table className={styles.optionsTable}>
                 <tr>
                   <td>
@@ -308,7 +310,7 @@ export default function Home() {
                     ></FontAwesomeIcon>
                   </td>
                   <td>
-                    <p>Meeting held remotely</p>
+                    <p>In person and remote appointments</p>
                   </td>
                 </tr>
                 <tr>
@@ -319,24 +321,7 @@ export default function Home() {
                     ></FontAwesomeIcon>
                   </td>
                   <td>
-                    <p>Meeting held in person</p>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div className={styles.priceCard}>
-              <h3>$35/hr</h3>
-              <p>For ongoing support</p>
-              <table className={styles.optionsTable}>
-                <tr>
-                  <td>
-                    <FontAwesomeIcon
-                      icon={faCheck}
-                      className={styles.checkmark}
-                    ></FontAwesomeIcon>
-                  </td>
-                  <td>
-                    <p>Meeting held remotely</p>
+                    <p>No upfront fees</p>
                   </td>
                 </tr>
                 <tr>
@@ -347,14 +332,14 @@ export default function Home() {
                     ></FontAwesomeIcon>
                   </td>
                   <td>
-                    <p>Meeting held in person</p>
+                    <p>Pay as you go</p>
                   </td>
                 </tr>
               </table>
             </div>
           </div>
           <p className={styles.serviceNotice}>
-            No additional hidden costs
+            No hidden costs
           </p>
           <h4 className={styles.insuranceNote}>
             Check your private or group insurance benefits for coverage.
