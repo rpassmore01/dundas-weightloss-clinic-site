@@ -96,47 +96,13 @@ export default function Home() {
           <div className={styles.bioBody}>
             <h3>Work Experience and Schooling</h3>
             <p>
-              Heather started her registered nursing career in the early 1990s
-              when she graduated from the University of Toronto. Early in her
-              career, she recognized that she wanted to expand her nursing
-              practice, so she completed her Masters of Nursing by the end of
-              the 1990s and her Paediatric Nurse Practitioner training at the
-              start of the millennium. Heather believes in lifelong learning and
-              has since completed her Heart & Stroke Foundation First Aid and
-              BLS Instructor Certification, CanFitPro Personal Training
-              Certification, and Modo Yoga Teacher Training (YTT) - 500 hrs and
-              American Association of Nurse Practitioner - Obesity Management
-              Fundamentals to name a few.
+            Heather started her registered nursing career in the early 1990s when she graduated from the University of Toronto. Early in her career, she recognized that she wanted to expand her nursing practice, so she completed her Masters of Nursing by the end of the 1990s and her Paediatric Nurse Practitioner training at the start of the millennium. Heather believes in lifelong learning and has since completed her Heart & Stroke Foundation First Aid and BLS Instructor Certification, CanFitPro Personal Training Certification, and Modo Yoga Teacher Training (YTT) - 500 hrs.
             </p>
             <p>
-              Heather&apos;s work experience followed the trend of work
-              availability in the 90s. She worked at the Hospital for Sick
-              Children in almost every unit. Her nurse practitioner
-              specialization was in Neonatology where she worked at both the
-              Hospital for Sick Children and McMaster Children&apos;s Hospital.
-              In 2016, Heather attempted an early retirement with no success
-              (dismal failure actually).{" "}
+Heather's work experience followed the trend of work availability in the 90s. She worked at the Hospital for Sick Children in almost every unit. Her nurse practitioner specialization was in Neonatology where she worked at both the Hospital for Sick Children and McMaster Children's Hospital. In 2016, Heather attempted an early retirement with no success (dismal failure actually).
             </p>
             <p>
-              When the pandemic started, she returned to work at Lynden Family
-              Practice Clinic to support patient care. Quickly into her practice
-              she recognized that 60-70% of the client population suffered from
-              unhealthy <b>weights</b> and related consequences. Her physician
-              colleagues supported the initiation of a{" "}
-              <b>weight management clinic</b>. Coincidentally, Obesity Canada
-              (National Association for Obesity Research, Education and
-              Advocacy) released the Canadian Adult Obesity Clinical Practice
-              Guidelines to lead her practice. For 18 months, she led a weight
-              management clinic with excellent results. Her clients were
-              achieving improvements in their diabetes, blood lipid profiles,
-              blood pressure, joint soreness, depressive symptoms etc. When the
-              CoVid contract position ended at the Family Practice Clinic, she
-              decided to go into private practice. Thus, Dundas Weight Loss
-              Clinic was founded. Since then, she has received a Certificate of
-              Obesity Management Fundamentals from the American Association of
-              Nurse Practitioners and plans to complete her Lifestyle Medicine
-              Professional Certification through the American Academy of
-              Lifestyle Medicine. Since then, she has recieved multiple additional courses in Obesity Medicine from Obesity Canada, ASCEND Global Obesity, and the American College of Nurse Practitioners. She is a Certified Bariatric Educator and Diplomate for the American College of Lifestyle Medicine.
+When the pandemic started, she returned to work at Lynden Family Practice Clinic to support patient care. Quickly into her practice she recognized that approximately 40% of the client population suffered from unhealthy <b>weights</b> and related consequences. Her physician colleagues supported the initiation of a <b>weight management clinic</b>. Coincidentally, Obesity Canada (national association for obesity practice standards, research, education and advocacy) released the Canadian Adult Obesity Clinical Practice Guidelines to lead her practice. For 18 months, she led a weight management clinic with excellent results. Her clients were achieving improvements in their diabetes, blood lipid profiles, blood pressure, joint soreness, depressive symptoms etc. When the CoVid contract position ended at the family practice clinic, she decided to go into private practice. Thus, Dundas Weight Loss Clinic was founded. Since then, she has received multiple certifications to support her obesity medicine practice from Obesity Canada, ASCEND Global Obesity, the American Association of Nurse Practitioners and the American College of Lifestyle Medicine. She is a Certified Bariatric Educator and Diplomate for the American College of Lifestyle Medicine.
             </p>
           </div>
         </div>
