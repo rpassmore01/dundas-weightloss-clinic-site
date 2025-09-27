@@ -8,7 +8,7 @@ export default function Navbar() {
   const [burgerIcon, setBurgerIcon] = useState("/burger.svg");
 
   function handleBurger() {
-    if (navClass == styles.navbarHidden) {
+    if (navClass === styles.navbarHidden) {
       setNavClass(styles.navbarVisible);
       setBurgerIcon("/x.svg");
     } else {
@@ -19,61 +19,29 @@ export default function Navbar() {
 
   return (
     <div className={styles.navbar}>
-      <Link href="/#top">
-        <a
-          className={styles.navbarTitle}
-          onClick={() => {
-            handleBurger();
-          }}
-        >
+      <Link href="/#top" className={styles.navbarTitle} onClick={() => handleBurger()}>
           Dundas Weight Loss Clinic
-        </a>
       </Link>
+
       <nav className={navClass}>
-        <Link href="/#bio">
-          <a
-            onClick={() => {
-              handleBurger();
-            }}
-          >
-            Bio
-          </a>
+        <Link href="/#bio" onClick={() => handleBurger()}>
+          Bio
         </Link>
-        <Link href="/#about">
-          <a
-            onClick={() => {
-              handleBurger();
-            }}
-          >
-            About
-          </a>
+
+        <Link href="/#about" onClick={() => handleBurger()}>
+          About
         </Link>
-        <Link href="/#services">
-          <a
-            onClick={() => {
-              handleBurger();
-            }}
-          >
-            Services
-          </a>
+
+        <Link href="/#services" onClick={() => handleBurger()}>
+          Services
         </Link>
-        <Link href="/#location">
-          <a
-            onClick={() => {
-              handleBurger();
-            }}
-          >
-            Location
-          </a>
+
+        <Link href="/#location" onClick={() => handleBurger()}>
+          Location
         </Link>
-        <Link href="/book">
-          <a
-            onClick={() => {
-              handleBurger();
-            }}
-          >
-            Book Appointment
-          </a>
+
+        <Link href="/book" onClick={() => handleBurger()}>
+          Book Appointment
         </Link>
       </nav>
       <button
@@ -83,7 +51,7 @@ export default function Navbar() {
         }}
         aria-label="menu"
       >
-        <Image src={burgerIcon} width="40px" height="40px" alt=""></Image>
+        <Image src={burgerIcon} width="40" height="40" alt=""></Image>
       </button>
     </div>
   );
