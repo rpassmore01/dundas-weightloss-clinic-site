@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect } from "react";
 import Navbar from "../components/navbar";
 import styles from "../styles/Home.module.css";
@@ -8,6 +7,7 @@ import Trees from "../public/trees.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../components/footer";
+import Link from "next/link";
 
 export default function Home() {
   useEffect(() => {
@@ -51,8 +51,8 @@ export default function Home() {
               <p>
                 FREE ONE HOUR CONSULTATION
               </p>
-              <Link href="/book">
-                <a className={styles.learnMoreButton}>Book Now</a>
+              <Link className={styles.learnMoreButton} href="/book">
+                Book Now
               </Link>
             </div>
           </div>
@@ -230,8 +230,8 @@ When the pandemic started, she returned to work at Lynden Family Practice Clinic
               <b>NO OBLIGATION, FREE ONE HOUR CONSULTATION.</b>
               <p>dundasweightlossclinic@gmail.com</p>
               <p>905-570-2610</p>
-              <Link href="/book">
-                <a className={styles.learnMoreButton}>Book Appointment</a>
+              <Link className={styles.learnMoreButton} href="/book">
+                Book Appointment
               </Link>
           </div>
           <div className={styles.services}>
