@@ -4,3 +4,4 @@
 2. Access Digital Ocean server and pull those changes to the server.
 3. Run `npm run build` in the project folder.
 4. Run `pm2 restart dundas-weight-loss-clinic`
+5. 
