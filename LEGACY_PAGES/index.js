@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect } from "react";
-import Navbar from "../components/navbar";
+import Navbar from "../src/components/navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import Footer from "../components/footer";
+import Footer from "../src/components/footer";
 import Link from "next/link";
 
 export default function Home() {
