@@ -1,5 +1,4 @@
 import Navbar from "../components/navbar";
-import styles from "../styles/Book.module.css";
 import Footer from "../components/footer";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
@@ -9,7 +8,6 @@ import axios from "axios";
 
 export default function Book(props) {
   const form = useRef();
-
   const [sentMessage, setSentMessage] = useState();
   const [formValidated, setFormValidated] = useState(false);
   const reRef = useRef();
@@ -25,12 +23,8 @@ export default function Book(props) {
         props.USER_ID
       )
       .then(
-        function (response) {
-          setSentMessage("Message sent successfully!");
-        },
-        function (error) {
-          setSentMessage("Message failed please email directly.");
-        }
+        () => setSentMessage("Message sent successfully!"),
+        () => setSentMessage("Message failed, please email directly.")
       );
 
     document.getElementById("form").reset();
@@ -40,79 +34,125 @@ export default function Book(props) {
 
   async function handleRecaptcha(token) {
     axios
-      .post("/api/auth", {
-        token: token,
-      })
+      .post("/api/auth", { token })
       .then((res) => setFormValidated(res.data.human));
   }
 
   return (
-    <div className={styles.container}>
+    <div className="min-h-screen flex flex-col bg-white">
       <Head>
         <title>Book - Dundas Weight Loss Clinic</title>
         <meta
           name="description"
-          content="Contact the <b>Dundas Weight Loss Clinic</b> to make an initial 1 hour <b>free</b> appointment."
+          content="Contact the Dundas Weight Loss Clinic to make an initial 1 hour free appointment."
         />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
       </Head>
-      <Navbar></Navbar>
-      <main className={styles.main}>
-        <div className={styles.header}>
-          <h1>Contact Me!</h1>
-          <h2>
+
+      <Navbar />
+
+      <main className="flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 flex-grow">
+        <div className="text-center max-w-2xl mb-10">
+          <h1 className="text-4xl font-bold font-serif mb-4">Contact Me!</h1>
+          <h2 className="text-lg text-gray-700 font-serif leading-relaxed">
             From here you can let me know a little bit about yourself and what
-            you&apos;re looking for. I will get back to via email to book a
+            you&apos;re looking for. I will get back to you via email to book a
             meeting.
           </h2>
         </div>
-        <div className={styles.formContainer}>
+
+        <div className="w-full max-w-2xl bg-gray-200 rounded-xl shadow-lg p-8">
           <form
-            className={styles.form}
             ref={form}
             onSubmit={sendEmail}
             id="form"
+            className="flex flex-col space-y-6"
           >
-            <h3>Name (required):</h3>
-            <input type="text" required={true} name="user_name"></input>
-            <h3>Email (required):</h3>
-            <input type="email" required={true} name="user_email"></input>
-            <h3>Phone number (required):</h3>
-            <input type="tel" required={true} name="phone_number"></input>
-            <h3>Message (optional):</h3>
-            <textarea name="message"></textarea>
-            <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
-              onChange={handleRecaptcha}
-              ref={reRef}
-              className={styles.recaptcha}
-            />
-            <button type="submit" value="Send" disabled={!formValidated}>
-              Submit
-            </button>
+            {/* Name */}
+            <div>
+              <label className="block text-lg font-medium mb-2">
+                Name <span className="text-sky-600">*</span>
+              </label>
+              <input
+                type="text"
+                name="user_name"
+                requisky
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-lg focus:ring-2 focus:ring-sky-600 focus:outline-none"
+              />
+            </div>
 
-            {sentMessage ? <p>{sentMessage}</p> : <p></p>}
+            {/* Email */}
+            <div>
+              <label className="block text-lg font-medium mb-2">
+                Email <span className="text-sky-600">*</span>
+              </label>
+              <input
+                type="email"
+                name="user_email"
+                requisky
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-lg focus:ring-2 focus:ring-sky-600 focus:outline-none"
+              />
+            </div>
+
+            {/* Phone */}
+            <div>
+              <label className="block text-lg font-medium mb-2">
+                Phone number <span className="text-sky-600">*</span>
+              </label>
+              <input
+                type="tel"
+                name="phone_number"
+                requisky
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-lg focus:ring-2 focus:ring-sky-600 focus:outline-none"
+              />
+            </div>
+
+            {/* Message */}
+            <div>
+              <label className="block text-lg font-medium mb-2">
+                Message (optional)
+              </label>
+              <textarea
+                name="message"
+                rows={5}
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-lg focus:ring-2 focus:ring-sky-600 focus:outline-none resize-y"
+              />
+            </div>
+
+            {/* reCAPTCHA */}
+            <div className="flex justify-center">
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
+                onChange={handleRecaptcha}
+                ref={reRef}
+              />
+            </div>
+
+            {/* Submit */}
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                disabled={!formValidated}
+                className={`px-6 py-3 rounded-lg text-lg font-semibold shadow transition transform ${
+                  formValidated
+                    ? "bg-sky-600 text-white hover:bg-sky-700 hover:-translate-y-1"
+                    : "bg-gray-400 text-white cursor-not-allowed"
+                }`}
+              >
+                Submit
+              </button>
+            </div>
+
+            {/* Feedback */}
+            {sentMessage && (
+              <p className="text-center text-lg font-medium mt-4">
+                {sentMessage}
+              </p>
+            )}
           </form>
         </div>
       </main>
-      <Footer></Footer>
+
+      <Footer />
     </div>
   );
 }
