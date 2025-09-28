@@ -24,10 +24,10 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 text-lg font-medium ">
-          <Link href="/" className="hover:text-sky-700 transition">Home</Link>
-          <Link href="/team" className="hover:text-sky-700 transition">Team</Link>
-          <Link href="/resources" className="hover:text-sky-700 transition">Resources</Link>
+        <nav className="hidden md:flex items-center gap-8 text-lg font-medium">
+          <Link href="/" className="text-gray-900 hover:text-sky-700 transition">Home</Link>
+          <Link href="/team" className="text-gray-900 hover:text-sky-700 transition">Team</Link>
+          {/*<Link href="/resources" className="text-gray-900 hover:text-sky-700 transition">Resources</Link>*/}
           <Link
             href="/book"
             className="inline-block bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-xl text-lg shadow-lg"
@@ -35,6 +35,7 @@ export default function Navbar() {
             Book Appointment
           </Link>
         </nav>
+
 
         {/* Mobile Menu Button */}
         <button
@@ -58,7 +59,7 @@ export default function Navbar() {
       >
         <Link href="/" onClick={toggleMenu}>Home</Link>
         <Link href="/team" onClick={toggleMenu}>Team</Link>
-        <Link href="/resources" onClick={toggleMenu}>Resources</Link>
+        {/*<Link href="/resources" onClick={toggleMenu}>Resources</Link>*/}
         <Link
           href="/book"
           onClick={toggleMenu}

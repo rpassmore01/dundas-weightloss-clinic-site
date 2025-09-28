@@ -46,17 +46,21 @@ export default function BookPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <main className="flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 flex-grow">
-        <div className="text-center max-w-2xl mb-10">
-          <h1 className="text-4xl font-bold  mb-4">Contact Me!</h1>
-          <h2 className="text-lg text-gray-700  leading-relaxed">
-            Let me know a little bit about yourself and what you&apos;re
-            looking for. I&apos;ll get back to you via email to book a meeting.
-          </h2>
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-gray-100">
+      <main className="flex flex-col items-center py-16 px-4 sm:px-6 lg:px-8 flex-grow">
+        {/* Header */}
+        <div className="text-center max-w-2xl mb-12">
+          <h1 className="text-5xl font-extrabold tracking-tight mb-4">
+            Contact Me
+          </h1>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Share a little bit about yourself and what you&apos;re looking for. I
+            will follow up by email to book a meeting.
+          </p>
         </div>
 
-        <div className="w-full max-w-2xl bg-gray-200 rounded-xl shadow-lg p-8">
+        {/* Card */}
+        <div className="w-full max-w-2xl bg-white rounded-2xl shadow-xl border border-gray-200 p-10">
           <form
             ref={form}
             onSubmit={sendEmail}
@@ -65,52 +69,52 @@ export default function BookPage() {
           >
             {/* Name */}
             <div>
-              <label className="block text-lg font-medium mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Name <span className="text-sky-600">*</span>
               </label>
               <input
                 type="text"
                 name="user_name"
                 required
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-lg focus:ring-2 focus:ring-sky-600 focus:outline-none"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-sky-600 focus:border-sky-600 focus:outline-none"
               />
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-lg font-medium mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Email <span className="text-sky-600">*</span>
               </label>
               <input
                 type="email"
                 name="user_email"
                 required
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-lg focus:ring-2 focus:ring-sky-600 focus:outline-none"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-sky-600 focus:border-sky-600 focus:outline-none"
               />
             </div>
 
             {/* Phone */}
             <div>
-              <label className="block text-lg font-medium mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Phone number <span className="text-sky-600">*</span>
               </label>
               <input
                 type="tel"
                 name="phone_number"
                 required
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-lg focus:ring-2 focus:ring-sky-600 focus:outline-none"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-sky-600 focus:border-sky-600 focus:outline-none"
               />
             </div>
 
             {/* Message */}
             <div>
-              <label className="block text-lg font-medium mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Message (optional)
               </label>
               <textarea
                 name="message"
                 rows={5}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-lg focus:ring-2 focus:ring-sky-600 focus:outline-none resize-y"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-sky-600 focus:border-sky-600 focus:outline-none resize-y"
               />
             </div>
 
@@ -128,10 +132,10 @@ export default function BookPage() {
               <button
                 type="submit"
                 disabled={!formValidated}
-                className={`px-6 py-3 rounded-lg text-lg font-semibold shadow transition transform ${
+                className={`px-8 py-3 rounded-lg text-base font-semibold shadow-lg transition-transform duration-200 ${
                   formValidated
-                    ? "bg-sky-600 text-white hover:bg-sky-700 hover:-translate-y-1"
-                    : "bg-gray-400 text-white cursor-not-allowed"
+                    ? "bg-sky-600 text-white hover:bg-sky-700 hover:-translate-y-0.5"
+                    : "bg-gray-300 text-gray-600 cursor-not-allowed"
                 }`}
               >
                 Submit
@@ -140,7 +144,7 @@ export default function BookPage() {
 
             {/* Feedback */}
             {sentMessage && (
-              <p className="text-center text-lg font-medium mt-4">
+              <p className="text-center text-base font-medium mt-6 text-gray-700">
                 {sentMessage}
               </p>
             )}
