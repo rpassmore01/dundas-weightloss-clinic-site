@@ -20,7 +20,7 @@ export default function Testimonial({ numStars, message, date, name }) {
 
     return (
         <section className="w-full flex items-center justify-center px-4">
-            <figure className="max-w-3xl w-full rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8 m-5">
+            <figure className="max-w-3xl w-full rounded-2xl shadow-lg border border-gray-300 p-6 sm:p-8 mb-5 bg-gray-100">
                 <div className="flex items-start gap-4">
                     <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-gray-100 ring-1 ring-gray-200">
                         <div className="flex h-full w-full items-center justify-center text-lg font-semibold text-gray-600">{name[0]}</div>

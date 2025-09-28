@@ -17,7 +17,7 @@ export default function Navbar() {
         {/* Brand */}
         <Link
           href="/#top"
-          className="font-serif text-2xl md:text-3xl font-bold text-gray-900"
+          className="text-2xl md:text-3xl font-bold text-gray-900"
           onClick={() => setIsOpen(false)}
         >
           Dundas Weight Loss Clinic
@@ -30,7 +30,7 @@ export default function Navbar() {
           <Link href="/resources" className="hover:text-sky-700 transition">Resources</Link>
           <Link
             href="/book"
-            className="bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-lg shadow transition"
+            className="inline-block bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-xl text-lg shadow-lg"
           >
             Book Appointment
           </Link>
@@ -53,9 +53,8 @@ export default function Navbar() {
 
       {/* Mobile Nav */}
       <div
-        className={`md:hidden fixed top-16 left-0 w-full h-[calc(100vh-4rem)] bg-sky-50 flex flex-col items-center justify-center gap-8 text-2xl  font-medium transform transition-transform duration-300 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`md:hidden fixed top-16 left-0 w-full h-[calc(100vh-4rem)] bg-sky-50 flex flex-col items-center justify-center gap-8 text-2xl  font-medium transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <Link href="/" onClick={toggleMenu}>Home</Link>
         <Link href="/team" onClick={toggleMenu}>Team</Link>
