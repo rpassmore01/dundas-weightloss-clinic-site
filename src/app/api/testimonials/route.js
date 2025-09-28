@@ -1,6 +1,15 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
+
+function requireAuth() {
+  const isAuthed = cookies().get("auth")?.value === "true";
+  if (!isAuthed) {
+    return false;
+  }
+  return true;
+}
 
 const filePath = path.join(process.cwd(), "data", "testimonials.json");
 
@@ -24,6 +33,8 @@ export async function GET() {
 }
 
 export async function POST(req) {
+  if (!requireAuth()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
   const body = await req.json();
   const testimonials = await readTestimonials();
 
@@ -42,6 +53,8 @@ export async function POST(req) {
 }
 
 export async function PUT(req) {
+  if (!requireAuth()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
   const body = await req.json();
   const testimonials = await readTestimonials();
 
@@ -64,6 +77,8 @@ export async function PUT(req) {
 }
 
 export async function DELETE(req) {
+  if (!requireAuth()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
   const { id } = await req.json();
   let testimonials = await readTestimonials();
 
