@@ -50,34 +50,6 @@ export default function TeamPage() {
           </div>
         </div>
       </section>
-
-      {/* Experience Section */}
-      <section id="about" className="bg-gray-200 py-16">
-        <div className="container mx-auto flex flex-col lg:flex-row items-center gap-12 px-6">
-          <div className="lg:w-1/2">
-            <h2 className="text-4xl font-bold text-center lg:text-left mb-8">Individualized Weight Loss Consulting</h2>
-            <ul className="space-y-4">
-              {[
-                "Comprehensive medical, psychological and lifestyle assessment",
-                "Intensive nutrition education and dietary management",
-                "Cognitive behavioral strategies to support behavior change",
-                "Approved, prescription weight loss medication where appropriate",
-                "Referral to bariatric surgery where appropriate",
-                "OPTIFAST provider",
-                "Focused on building self-esteem, confidence, and self-efficacy",
-                "Sustainable for long term weight loss",
-                "Serving Dundas, Ancaster, Brantford and greater Hamilton area",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start space-x-3">
-                  <FontAwesomeIcon icon={faCheck} size="sm" className="text-sky-600  mt-1 w-4 h-4" />
-                  <p>{item}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="lg:w-1/2 h-[400px] rounded-xl shadow-lg bg-cover bg-center" style={{ backgroundImage: "url('/heather-india-2.jpg')" }}></div>
-        </div>
-      </section>
     </main>
   );
 }
