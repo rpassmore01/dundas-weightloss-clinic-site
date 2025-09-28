@@ -4,7 +4,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 
 
-export default function Testimonial({ numStars, message, date, name }) {
+export default function Testimonial({ stars, message, date, name }) {
 
     function getTime() {
         const postTime = new Date(date)
@@ -37,7 +37,7 @@ export default function Testimonial({ numStars, message, date, name }) {
 
                         <div className="mt-1 flex items-center gap-2">
                             <div className="flex items-center gap-1" aria-label="5 out of 5 stars">
-                                {Array.from({ length: numStars }).map((_, i) => (
+                                {Array.from({ length: stars }).map((_, i) => (
                                     <FontAwesomeIcon
                                         key={i}
                                         icon={faStar}

@@ -2,13 +2,20 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import TestimonialsCarousel from "../components/testimonialCarousel";
-const testimonials = [
-  { numStars: 5, message: 'Super helpful and fast!', date: '2025-08-15', name: 'Jane Doe' },
-  { numStars: 4, message: 'Great experience overall.', date: '2025-07-02', name: 'Alex P.' },
-  { numStars: 5, message: 'Highly recommend!', date: '2025-06-10', name: 'Chris L.' },
-];
+import { headers } from "next/headers";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const headersList = headers();
+  const host = headersList.get('host');
+  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http'; // Adjust based on your setup
+  const baseUrl = `${protocol}://${host}`;
+  const testimonialData = await fetch(`${baseUrl}/api/testimonials`).then(response => {
+    if (!response.ok) { throw new Error(`Failed to load testimonials with error code ${response.status}.`) }
+    return response.json()
+  }).catch(
+    //Errors
+  )
+
   return (
     <main>
       {/* Hero Section */}
@@ -70,7 +77,7 @@ export default function HomePage() {
       <section className="pb-15 bg-white odd:bg-gradient-to-b odd:from-gray-50 odd:via-white odd:to-gray-100 even:bg-white" id="testimonials">
         <h2 className="text-4xl font-bold leading-tight text-gray-900 text-center p-10">Testimonials</h2>
         <div className="">
-          <TestimonialsCarousel items={testimonials} autoPlay intervalMs={5000} />
+          <TestimonialsCarousel items={testimonialData} autoPlay intervalMs={5000} />
         </div>
       </section>
 
