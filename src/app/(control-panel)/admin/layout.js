@@ -1,6 +1,7 @@
 import '../../../globals.css';
 import {cookies} from "next/headers";
 import {Roboto} from 'next/font/google';
+import AdminSidebar from "../../../components/adminSidebar";
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -15,7 +16,12 @@ export default async function AdminLayout({children}) {
     <html lang="en" className={roboto.className}>
     <body className="bg-gray-50">
 
-    { isAuthed ? children : (
+    { isAuthed ? (
+      <div className="flex">
+        <AdminSidebar />
+        <main className="flex-1 p-6">{children}</main>
+      </div>
+    ) : (
       <div className="p-8 max-w-md mx-auto">
         <h1 className="text-xl font-bold mb-4">Admin Login</h1>
         <form action="/api/auth" method="POST" className="space-y-4">
