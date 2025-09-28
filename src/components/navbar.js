@@ -24,7 +24,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 text-lg font-medium font-serif">
+        <nav className="hidden md:flex items-center gap-8 text-lg font-medium ">
           <Link href="/" className="hover:text-sky-700 transition">Home</Link>
           <Link href="/team" className="hover:text-sky-700 transition">Team</Link>
           <Link href="/resources" className="hover:text-sky-700 transition">Resources</Link>
@@ -53,7 +53,7 @@ export default function Navbar() {
 
       {/* Mobile Nav */}
       <div
-        className={`md:hidden fixed top-16 left-0 w-full h-[calc(100vh-4rem)] bg-sky-50 flex flex-col items-center justify-center gap-8 text-2xl font-serif font-medium transform transition-transform duration-300 ${
+        className={`md:hidden fixed top-16 left-0 w-full h-[calc(100vh-4rem)] bg-sky-50 flex flex-col items-center justify-center gap-8 text-2xl  font-medium transform transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

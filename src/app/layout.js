@@ -1,6 +1,13 @@
 import '../globals.css';
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import {Roboto} from 'next/font/google'
+
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata = {
   title: "Dundas Weight Loss Clinic",
@@ -18,8 +25,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-    <body className="bg-gray-50 font-serif">
+    <html lang="en" className={roboto.className}>
+    <body className="bg-gray-50">
       <Navbar />
        {children}
       <Footer />

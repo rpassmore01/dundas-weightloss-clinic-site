@@ -49,8 +49,8 @@ export default function BookPage() {
     <div className="min-h-screen flex flex-col">
       <main className="flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 flex-grow">
         <div className="text-center max-w-2xl mb-10">
-          <h1 className="text-4xl font-bold font-serif mb-4">Contact Me!</h1>
-          <h2 className="text-lg text-gray-700 font-serif leading-relaxed">
+          <h1 className="text-4xl font-bold  mb-4">Contact Me!</h1>
+          <h2 className="text-lg text-gray-700  leading-relaxed">
             Let me know a little bit about yourself and what you&apos;re
             looking for. I&apos;ll get back to you via email to book a meeting.
           </h2>
