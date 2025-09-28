@@ -2,6 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import TestimonialsCarousel from "../components/testimonialCarousel";
+const testimonials = [
+  { numStars: 5, message: 'Super helpful and fast!', date: '2025-08-15', name: 'Jane Doe' },
+  { numStars: 4, message: 'Great experience overall.', date: '2025-07-02', name: 'Alex P.' },
+  { numStars: 5, message: 'Highly recommend!', date: '2025-06-10', name: 'Chris L.' },
+];
 
 export default function HomePage() {
   return (
@@ -32,8 +38,11 @@ export default function HomePage() {
       </header>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="">
-
+      <section  className="" id="testimonials">
+        <h2 className="text-center text-5xl p-5">Testimonials</h2>
+        <div className="">
+          <TestimonialsCarousel items={testimonials} autoPlay intervalMs={5000} />
+        </div>
       </section>
 
       {/* Bio Section */}
@@ -48,22 +57,22 @@ export default function HomePage() {
             </div>
             <table className="mt-6 text-left text-sm">
               <tbody>
-              <tr>
-                <td className="font-bold text-sky-700 pr-2">Address:</td>
-                <td>247 King Street West, Dundas, Ontario</td>
-              </tr>
-              <tr>
-                <td className="font-bold text-sky-700 pr-2">Email:</td>
-                <td>dundasweightlossclinic@gmail.com</td>
-              </tr>
-              <tr>
-                <td className="font-bold text-sky-700 pr-2">Mobile:</td>
-                <td>905-570-2610</td>
-              </tr>
-              <tr>
-                <td className="font-bold text-sky-700 pr-2">Fax:</td>
-                <td>438-600-9815</td>
-              </tr>
+                <tr>
+                  <td className="font-bold text-sky-700 pr-2">Address:</td>
+                  <td>247 King Street West, Dundas, Ontario</td>
+                </tr>
+                <tr>
+                  <td className="font-bold text-sky-700 pr-2">Email:</td>
+                  <td>dundasweightlossclinic@gmail.com</td>
+                </tr>
+                <tr>
+                  <td className="font-bold text-sky-700 pr-2">Mobile:</td>
+                  <td>905-570-2610</td>
+                </tr>
+                <tr>
+                  <td className="font-bold text-sky-700 pr-2">Fax:</td>
+                  <td>438-600-9815</td>
+                </tr>
               </tbody>
             </table>
           </div>
