@@ -1,7 +1,5 @@
 "use client";
 
-import Navbar from "../../components/navbar";
-import Footer from "../../components/footer";
 import React, { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -10,6 +8,7 @@ export default function BookPage() {
   const [sentMessage, setSentMessage] = useState();
   const [formValidated, setFormValidated] = useState(false);
   const reRef = useRef();
+  const [captchaToken, setCaptchaToken] = useState(null);
 
   async function sendEmail(e) {
     e.preventDefault();
@@ -25,46 +24,35 @@ export default function BookPage() {
       const res = await fetch("/api/book", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ formData }),
+        body: JSON.stringify({ formData, token: captchaToken }),
       });
 
-      if (res.ok) {
-        setSentMessage("Message sent successfully!");
-      } else {
-        setSentMessage("Message failed, please email directly.");
-      }
-    } catch {
-      setSentMessage("Server error, please email directly.");
-    }
+      const data = await res.json();
+      setSentMessage(data.success ? "Message sent successfully!" : data.error);
 
-    document.getElementById("form").reset();
-    reRef.current.reset();
-    setFormValidated(false);
+      // reset form + captcha
+      form.current.reset();
+      reRef.current.reset();
+      setFormValidated(false);
+      setCaptchaToken(null);
+    } catch {
+      setSentMessage("Server error, please try again later.");
+    }
   }
 
-  async function handleRecaptcha(token) {
-    try {
-      const res = await fetch("/api/validate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token }),
-      });
-      const data = await res.json();
-      setFormValidated(data.human);
-    } catch {
-      setFormValidated(false);
-    }
+  function handleRecaptcha(token) {
+    setCaptchaToken(token);
+    setFormValidated(true);
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col">
       <main className="flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8 flex-grow">
         <div className="text-center max-w-2xl mb-10">
           <h1 className="text-4xl font-bold font-serif mb-4">Contact Me!</h1>
           <h2 className="text-lg text-gray-700 font-serif leading-relaxed">
-            From here you can let me know a little bit about yourself and what
-            you&apos;re looking for. I will get back to you via email to book a
-            meeting.
+            Let me know a little bit about yourself and what you&apos;re
+            looking for. I&apos;ll get back to you via email to book a meeting.
           </h2>
         </div>
 
