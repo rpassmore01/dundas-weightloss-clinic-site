@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
@@ -38,77 +37,181 @@ export default function HomePage() {
       </header>
 
       {/* Testimonials Section */}
-      <section  className="" id="testimonials">
-        <h2 className="text-center text-5xl p-5">Testimonials</h2>
+      <section className="pb-10 bg-white odd:bg-gradient-to-b odd:from-gray-50 odd:via-white odd:to-gray-100 even:bg-white" id="testimonials">
+        <h2 className="text-4xl font-bold leading-tight text-gray-900 text-center p-5">Testimonials</h2>
         <div className="">
           <TestimonialsCarousel items={testimonials} autoPlay intervalMs={5000} />
         </div>
       </section>
 
-      {/* What We Do Section */}
-      <section id="about" className="bg-gray-200 py-16">
-        <div className="container mx-auto flex flex-col lg:flex-row items-center gap-12 px-6">
-          <div className="lg:w-1/2">
-            <h2 className="text-4xl font-bold text-center lg:text-left mb-8">Individualized Weight Loss Consulting</h2>
-            <ul className="space-y-4">
-              {[
-                "Comprehensive medical, psychological and lifestyle assessment",
-                "Intensive nutrition education and dietary management",
-                "Cognitive behavioral strategies to support behavior change",
-                "Approved, prescription weight loss medication where appropriate",
-                "Referral to bariatric surgery where appropriate",
-                "OPTIFAST provider",
-                "Focused on building self-esteem, confidence, and self-efficacy",
-                "Sustainable for long term weight loss",
-                "Serving Dundas, Ancaster, Brantford and greater Hamilton area",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start space-x-3">
-                  <FontAwesomeIcon icon={faCheck} size="sm" className="text-sky-600  mt-1 w-4 h-4" />
-                  <p>{item}</p>
-                </li>
-              ))}
-            </ul>
+      <section id="about" className="relative overflow-hidden py-20 bg-gradient-to-b from-gray-50 via-white to-gray-100 odd:bg-gradient-to-b odd:from-gray-50 odd:via-white odd:to-gray-100 even:bg-white">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-12">
+            {/* LEFT: headline / copy / chips / CTA */}
+            <div className="lg:col-span-5">
+              <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50/60 px-3 py-1 text-xs font-medium text-sky-700">
+                <span className="h-2 w-2 rounded-full bg-sky-500" />
+                Individualized Care
+              </div>
+
+              <h2 className="text-4xl font-bold leading-tight text-gray-900">
+                Individualized Weight Loss Consulting
+              </h2>
+
+              <p className="mt-4 text-gray-600">
+                Evidence-informed care tailored to your medical history, lifestyle, and goals—so results are realistic and sustainable.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                {['Medical', 'Nutrition', 'Behavior Change', 'Accountability', 'Local to Hamilton'].map((chip, i) => (
+                  <span key={i} className="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-700 shadow-sm">
+                    {chip}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-8 flex items-center gap-3">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                >
+                  Book a consultation
+                </a>
+                <span className="text-sm text-gray-500">
+                  Want to get in touch?{' '}
+                  <a href="#contact" className="text-sky-700 underline underline-offset-2">Talk to us</a>
+                </span>
+              </div>
+            </div>
+
+            {/* RIGHT: spread checklist + compact info card */}
+            <div className="lg:col-span-7">
+              {/* Two-column checklist */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  'Comprehensive medical, psychological and lifestyle assessment',
+                  'Intensive nutrition education and dietary management',
+                  'Cognitive behavioral strategies to support behavior change',
+                  'Approved, prescription weight loss medication where appropriate',
+                  'Referral to bariatric surgery where appropriate',
+                  'OPTIFAST provider',
+                  'Focused on building self-esteem, confidence, and self-efficacy',
+                  'Sustainable for long term weight loss',
+                  'Serving Dundas, Ancaster, Brantford and greater Hamilton area',
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 rounded-xl bg-white/70 p-3 ring-1 ring-gray-200 backdrop-blur-sm">
+                    <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-sky-100 text-sky-700 ring-1 ring-sky-200">
+                      <FontAwesomeIcon icon={faCheck} className="h-3 w-3" />
+                    </span>
+                    <p className="text-sm text-gray-800">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="lg:w-1/2 h-[400px] rounded-xl shadow-lg bg-cover bg-center" style={{ backgroundImage: "url('/heather-india-2.jpg')" }}></div>
         </div>
       </section>
+      {/* Services Section (compact + balanced) */}
+      <section id="services" className="relative overflow-hidden py-12 bg-gradient-to-b from-gray-50 via-white to-gray-100 odd:bg-gradient-to-b odd:from-gray-50 odd:via-white odd:to-gray-100 even:bg-white">
+        <div className="mx-auto max-w-5xl px-6 lg:px-8">
+          {/* Header */}
+          <div className="mb-6">
+            <h2 className="text-4xl font-bold leading-tight text-gray-900">Services</h2>
+          </div>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 text-center container mx-auto px-6">
-        <div className="mb-12 space-y-4">
-          <h2 className="text-5xl font-bold">Services</h2>
-          <b className="text-xl block">NO OBLIGATION, FREE ONE HOUR CONSULTATION.</b>
-          <p>dundasweightlossclinic@gmail.com</p>
-          <p>905-570-2610</p>
-          <Link href="/book" className="inline-block bg-sky-600 hover:bg-sky-700 text-red px-6 py-3 rounded-xl text-lg shadow-lg">
-            Book Appointment
-          </Link>
-        </div>
-        <div className="flex flex-col md:flex-row justify-center gap-8">
-          <div className="border-2 border-gray-300 rounded-xl p-6 shadow-md w-80">
-            <h3 className="text-3xl font-bold text-sky-600">Free</h3>
-            <p className="mt-2 font-semibold">Initial 1 hour Consultation</p>
-            <ul className="mt-4 space-y-2 text-left">
-              <li className="flex items-center space-x-2"><FontAwesomeIcon icon={faCheck} size="sm" className="text-sky-600  mt-1 w-4 h-4" /> <span>Meeting held remotely</span></li>
-              <li className="flex items-center space-x-2"><FontAwesomeIcon icon={faCheck} size="sm" className="text-sky-600  mt-1 w-4 h-4" /> <span>Meeting held in person</span></li>
-            </ul>
+          {/* Parent grid: LEFT = What to expect (centered), RIGHT = nested pricing grid */}
+          <div className="grid items-center gap-5 lg:grid-cols-12">
+            {/* LEFT: What to expect (compact) */}
+            <div className="lg:col-span-6">
+              <div className="mx-auto max-w-3xl rounded-2xl border border-gray-200 bg-white px-5 py-5 shadow-sm sm:px-6 sm:py-6">
+                <h3 className="text-base font-semibold text-gray-900">What to expect</h3>
+                <p className="mt-2 text-sm leading-snug text-gray-600">
+                  Clear milestones, regular check-ins, and tailored adjustments to keep you moving forward.
+                </p>
+
+                <div className="mt-4 grid grid-cols-2 gap-3">
+                  {[
+                    'Personalized plan from your assessment',
+                    'Regular accountability check-ins',
+                    'Medication / referrals when appropriate',
+                    'Nutrition education & practical tools',
+                    'Behavior change strategies that stick',
+                    'Simple, sustainable habit building',
+                  ].map((line, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 ring-1 ring-emerald-200">
+                        <FontAwesomeIcon icon={faCheck} className="h-2.5 w-2.5" />
+                      </span>
+                      <p className="text-[13px] leading-snug text-gray-800">{line}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* single-line footnote to avoid extra height */}
+                <p className="mt-3 text-xs text-gray-600">
+                  No hidden costs. <span className="font-semibold text-sky-700">Check your private or group insurance benefits.</span>
+                </p>
+              </div>
+            </div>
+
+            {/* RIGHT: Pricing (nested grid keeps cards equal height without stretching the section) */}
+            <div className="lg:col-span-6">
+              <div className="grid gap-5 md:grid-rows-2 auto-rows-fr">
+                {/* Free card */}
+                <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+                  <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50/70 px-2.5 py-0.5 text-[11px] font-semibold text-sky-700">
+                    NO OBLIGATION, FREE ONE HOUR CONSULTATION.
+                  </div>
+                  <h3 className="text-xl font-bold text-sky-700">Free</h3>
+                  <p className="mt-0.5 text-sm font-semibold text-gray-900">Initial 1-hour Consultation</p>
+                  <ul className="mt-3 space-y-1.5 text-left">
+                    <li className="flex items-start gap-2">
+                      <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-sky-100 text-sky-700 ring-1 ring-sky-200">
+                        <FontAwesomeIcon icon={faCheck} className="h-2.5 w-2.5" />
+                      </span>
+                      <span className="text-sm">Meeting held remotely</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-sky-100 text-sky-700 ring-1 ring-sky-200">
+                        <FontAwesomeIcon icon={faCheck} className="h-2.5 w-2.5" />
+                      </span>
+                      <span className="text-sm">Meeting held in person</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* $40/hr card */}
+                <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+                  <h3 className="text-xl font-bold text-sky-700">$40/hr</h3>
+                  <ul className="mt-3 space-y-1.5 text-left">
+                    <li className="flex items-start gap-2">
+                      <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-sky-100 text-sky-700 ring-1 ring-sky-200">
+                        <FontAwesomeIcon icon={faCheck} className="h-2.5 w-2.5" />
+                      </span>
+                      <span className="text-sm">In-person and remote appointments</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-sky-100 text-sky-700 ring-1 ring-sky-200">
+                        <FontAwesomeIcon icon={faCheck} className="h-2.5 w-2.5" />
+                      </span>
+                      <span className="text-sm">No upfront fees</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center rounded-full bg-sky-100 text-sky-700 ring-1 ring-sky-200">
+                        <FontAwesomeIcon icon={faCheck} className="h-2.5 w-2.5" />
+                      </span>
+                      <span className="text-sm">Pay as you go</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="border-2 border-gray-300 rounded-xl p-6 shadow-md w-80">
-            <h3 className="text-3xl font-bold text-sky-600">$40/hr</h3>
-            <ul className="mt-4 space-y-2 text-left">
-              <li className="flex items-center space-x-2"><FontAwesomeIcon icon={faCheck} size="sm" className="text-sky-600  mt-1 w-4 h-4" /> <span>In person and remote appointments</span></li>
-              <li className="flex items-center space-x-2"><FontAwesomeIcon icon={faCheck} size="sm" className="text-sky-600  mt-1 w-4 h-4" /> <span>No upfront fees</span></li>
-              <li className="flex items-center space-x-2"><FontAwesomeIcon icon={faCheck} size="sm" className="text-sky-600  mt-1 w-4 h-4" /> <span>Pay as you go</span></li>
-            </ul>
-          </div>
         </div>
-        <p className="mt-8 text-lg">No hidden costs</p>
-        <h4 className="text-xl font-bold text-sky-600 mt-2">Check your private or group insurance benefits for coverage.</h4>
       </section>
-
       {/* Location Section */}
-      <section id="location" className="py-20 bg-gray-100 text-center">
-        <h2 className="text-4xl font-bold mb-4">Location</h2>
+      <section id="location" className="py-20 bg-gray-100 text-center odd:bg-gradient-to-b odd:from-gray-50 odd:via-white odd:to-gray-100 even:bg-white">
+        <h2 className="text-4xl font-bold leading-tight text-gray-900 mb-4">Location</h2>
         <p className="font-semibold">247 King Street West, Dundas, Ontario</p>
         <p className="mb-6">Sharing space with Myers Chiropractic.</p>
         <div className="flex justify-center">
