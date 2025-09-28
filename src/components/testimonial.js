@@ -1,16 +1,19 @@
 'use client'
-import { Star } from "lucide-react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-export default function Testimonial({numStars, message, date, name}) {
+
+
+export default function Testimonial({ numStars, message, date, name }) {
 
     function getTime() {
         const postTime = new Date(date)
         const numMonths = Math.floor((postTime.getTime() - Date.now()) * -1 / 2628000000)
-        if (numMonths >=12){
-            const years = Math.floor(numMonths/12)
+        if (numMonths >= 12) {
+            const years = Math.floor(numMonths / 12)
             return years == 1 ? "1 year ago" : String(years) + " years ago"
         }
-        else{
+        else {
             return String(numMonths) + " months ago"
         }
     }
@@ -35,8 +38,10 @@ export default function Testimonial({numStars, message, date, name}) {
                         <div className="mt-1 flex items-center gap-2">
                             <div className="flex items-center gap-1" aria-label="5 out of 5 stars">
                                 {Array.from({ length: numStars }).map((_, i) => (
-                                    <Star
+                                    <FontAwesomeIcon
                                         key={i}
+                                        icon={faStar}
+                                        size="sm"
                                         className="h-4 w-4 fill-yellow-400 text-yellow-400"
                                     />
                                 ))}
