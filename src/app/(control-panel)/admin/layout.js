@@ -1,11 +1,21 @@
-import { cookies } from "next/headers";
+import '../../../globals.css';
+import {cookies} from "next/headers";
+import {Roboto} from 'next/font/google';
 
-export default async function AdminLayout({ children }) {
+const roboto = Roboto({
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+export default async function AdminLayout({children}) {
   const cookieStore = await cookies();
   const isAuthed = cookieStore.get("auth")?.value === "true";
 
-  if (!isAuthed) {
-    return (
+  return (
+    <html lang="en" className={roboto.className}>
+    <body className="bg-gray-50">
+
+    { isAuthed ? children : (
       <div className="p-8 max-w-md mx-auto">
         <h1 className="text-xl font-bold mb-4">Admin Login</h1>
         <form action="/api/auth" method="POST" className="space-y-4">
@@ -16,7 +26,7 @@ export default async function AdminLayout({ children }) {
             className="w-full p-2 border rounded"
           />
 
-          <input type="hidden" name="returnTo" value="/admin" />
+          <input type="hidden" name="returnTo" value="/admin"/>
           <button
             type="submit"
             className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
@@ -25,8 +35,9 @@ export default async function AdminLayout({ children }) {
           </button>
         </form>
       </div>
-    );
-  }
+    )}
 
-  return <div>{children}</div>;
+    </body>
+    </html>
+  );
 }

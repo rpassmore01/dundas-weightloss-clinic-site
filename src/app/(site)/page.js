@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import TestimonialsCarousel from "../components/testimonialCarousel";
+import TestimonialsCarousel from "../../components/testimonialCarousel";
 import { headers } from "next/headers";
 
 export default async function HomePage() {
   const headersList = headers();
   const host = headersList.get('host');
-  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http'; // Adjust based on your setup
+  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
   const baseUrl = `${protocol}://${host}`;
   const testimonialData = await fetch(`${baseUrl}/api/testimonials`).then(response => {
     if (!response.ok) { throw new Error(`Failed to load testimonials with error code ${response.status}.`) }
@@ -29,10 +29,10 @@ export default async function HomePage() {
         role="banner"
         aria-label="Dundas Weight Loss Clinic hero"
       >
-        {/* gradient scrim for legibility */}
+        {/* gradien for legibility */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/30"></div>
 
-        {/* soft decorative glow (subtle) */}
+        {/* glow */}
         <div
           className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full blur-3xl opacity-30"
           style={{ background: 'radial-gradient(circle at 30% 70%, rgba(56,189,248,.35), rgba(6,182,212,.15) 45%, transparent 60%)' }}
@@ -46,7 +46,7 @@ export default async function HomePage() {
                 Comprehensive care · Evidence-informed
               </div>
 
-              <h1 className="mt-3 text-6xl md:text-7xl font-bold leading-tight tracking-tight text-white">
+              <h1 className="mt-3 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-white">
                 Dundas Weight Loss Clinic
               </h1>
 
@@ -72,16 +72,15 @@ export default async function HomePage() {
         </div>
       </header>
 
-
       {/* Testimonials Section */}
-      <section className="pb-15 bg-white odd:bg-gradient-to-b odd:from-gray-50 odd:via-white odd:to-gray-100 even:bg-white" id="testimonials">
+      <section className="pb-15" id="testimonials">
         <h2 className="text-4xl font-bold leading-tight text-gray-900 text-center p-10">Testimonials</h2>
         <div className="">
           <TestimonialsCarousel items={testimonialData} autoPlay intervalMs={5000} />
         </div>
       </section>
 
-      <section id="about" className="relative overflow-hidden py-20 bg-gradient-to-b from-gray-50 via-white to-gray-100 odd:bg-gradient-to-b odd:from-gray-50 odd:via-white odd:to-gray-100 even:bg-white">
+      <section id="about" className="relative overflow-hidden py-20 bg-gray-100">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12">
             {/* LEFT: headline / copy / chips / CTA */}
@@ -104,14 +103,14 @@ export default async function HomePage() {
 
               <div className="mt-8 flex items-center gap-3">
                 <a
-                  href="#contact"
+                  href="/book"
                   className="inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-2.5 text-md font-semibold text-white shadow-sm transition hover:bg-sky-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                 >
                   Book a consultation
                 </a>
                 <span className="text-md text-gray-500">
                   Want to get in touch?{' '}
-                  <a href="#contact" className="text-sky-700 underline underline-offset-2">Talk to us</a>
+                  <a href="/book" className="text-sky-700 underline underline-offset-2">Talk to us</a>
                 </span>
               </div>
             </div>
@@ -143,11 +142,12 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-      {/* Services Section (compact + balanced) */}
-      <section id="services" className="relative overflow-hidden py-12 bg-gradient-to-b from-gray-50 via-white to-gray-100 odd:bg-gradient-to-b odd:from-gray-50 odd:via-white odd:to-gray-100 even:bg-white">
+
+      {/* Services Section */}
+      <section id="services" className="relative overflow-hidden py-12">
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
           {/* Header */}
-          <div className="mb-6">
+          <div className="mb-6 text-center lg:text-left ">
             <h2 className="text-4xl font-bold leading-tight text-gray-900">Services</h2>
           </div>
 
@@ -155,7 +155,7 @@ export default async function HomePage() {
           <div className="grid items-center gap-5 lg:grid-cols-12">
             {/* LEFT: What to expect (compact) */}
             <div className="lg:col-span-6">
-              <div className="mx-auto max-w-3xl rounded-2xl border border-gray-200 bg-white px-5 py-5 shadow-sm sm:px-6 sm:py-6">
+              <div className="mx-auto rounded-2xl border border-gray-200 bg-white px-5 py-5 shadow-sm sm:px-6 sm:py-6">
                 <h3 className="text-lg font-semibold text-gray-900">What to expect</h3>
                 <p className="mt-2 text-lg leading-snug text-gray-600">
                   Clear milestones, regular check-ins, and tailored adjustments to keep you moving forward.
@@ -242,7 +242,7 @@ export default async function HomePage() {
         </div>
       </section>
       {/* Location Section */}
-      <section id="location" className="py-20 bg-gray-100 text-center odd:bg-gradient-to-b odd:from-gray-50 odd:via-white odd:to-gray-100 even:bg-white">
+      <section id="location" className="py-20 text-center bg-gray-100">
         <h2 className="text-4xl font-bold mb-4">Location</h2>
         <p className="font-semibold">247 King Street West, Dundas, Ontario</p>
         <p className="mb-6">Sharing space with Myers Chiropractic.</p>

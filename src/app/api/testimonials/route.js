@@ -18,7 +18,12 @@ async function readTestimonials() {
     const data = await fs.readFile(filePath, "utf-8");
     return data ? JSON.parse(data) : [];
   } catch (err) {
-    if (err.code === "ENOENT") return [];
+    if (err.code === "ENOENT") {
+      await fs.mkdir(path.dirname(filePath), { recursive: true });
+      await fs.writeFile(filePath, JSON.stringify([], null, 2));
+      return [];
+    }
+
     throw err;
   }
 }
