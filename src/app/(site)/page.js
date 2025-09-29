@@ -5,7 +5,7 @@ import TestimonialsCarousel from "../../components/testimonialCarousel";
 import { headers } from "next/headers";
 
 export default async function HomePage() {
-  const headersList = headers();
+  const headersList = await headers();
   const host = headersList.get('host');
   const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
   const baseUrl = `${protocol}://${host}`;
