@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTachometerAlt, faUsers, faCog, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faTachometerAlt, faUsers, faCog, faStar, faBook } from "@fortawesome/free-solid-svg-icons";
 
 const navItems = [
-  { name: "Dashboard", href: "/admin/dashboard", icon: faTachometerAlt },
-  { name: "Users", href: "/admin/users", icon: faUsers },
-  { name: "Settings", href: "/admin/settings", icon: faCog },
+  { name: "Dashboard", href: "/admin", icon: faTachometerAlt },
+  // { name: "Users", href: "/admin/users", icon: faUsers },
+  // { name: "Settings", href: "/admin/settings", icon: faCog },
+  { name: "Resources", href: "/admin/resources", icon: faBook },
   { name: "Testimonials", href: "/admin/testimonials", icon: faStar },
 ];
 
@@ -23,7 +24,7 @@ export default function AdminSidebar() {
 
       <nav className="flex-1 p-4 space-y-2">
         {navItems.map((item) => {
-          const isActive = pathname.startsWith(item.href);
+          const isActive = pathname === item.href;
           return (
             <Link
               key={item.name}
