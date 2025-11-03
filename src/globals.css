@@ -1,6 +1,6 @@
-@import "tailwindcss";
+@import 'tailwindcss' layer(utilities);
 
-@tailwind utilities;
+@import 'tailwindcss/utilities' layer(utilities);
 
 html,
 body {

@@ -30,7 +30,7 @@ export default async function HomePage() {
         aria-label="Dundas Weight Loss Clinic hero"
       >
         {/* gradien for legibility */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/30"></div>
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/70 via-black/50 to-black/30"></div>
 
         {/* glow */}
         <div
