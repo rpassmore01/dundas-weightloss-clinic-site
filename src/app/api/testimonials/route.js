@@ -3,12 +3,9 @@ import path from "path";
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
-function requireAuth() {
-  const isAuthed = cookies().get("auth")?.value === "true";
-  if (!isAuthed) {
-    return false;
-  }
-  return true;
+async function requireAuth() {
+  const cookieStore = await cookies(); // ✅ cookies() is async in your Next.js
+  return cookieStore.get("auth")?.value === "true";
 }
 
 const filePath = path.join(process.cwd(), "data", "testimonials.json");
@@ -23,7 +20,6 @@ async function readTestimonials() {
       await fs.writeFile(filePath, JSON.stringify([], null, 2));
       return [];
     }
-
     throw err;
   }
 }
@@ -38,7 +34,8 @@ export async function GET() {
 }
 
 export async function POST(req) {
-  if (!requireAuth()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!(await requireAuth()))
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await req.json();
   const testimonials = await readTestimonials();
@@ -58,7 +55,8 @@ export async function POST(req) {
 }
 
 export async function PUT(req) {
-  if (!requireAuth()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!(await requireAuth()))
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await req.json();
   const testimonials = await readTestimonials();
@@ -82,7 +80,8 @@ export async function PUT(req) {
 }
 
 export async function DELETE(req) {
-  if (!requireAuth()) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!(await requireAuth()))
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { id } = await req.json();
   let testimonials = await readTestimonials();
