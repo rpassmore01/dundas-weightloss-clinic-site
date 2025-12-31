@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 
 export const runtime = "nodejs"; // needed for fs + file handling
 
-// ✅ Next.js: cookies() is async in route handlers
+// Next.js: cookies() is async in route handlers
 async function requireAuth() {
   const cookieStore = await cookies();
   return cookieStore.get("auth")?.value === "true";

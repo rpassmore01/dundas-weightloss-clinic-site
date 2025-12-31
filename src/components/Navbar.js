@@ -44,6 +44,10 @@ export default function Navbar() {
             Home
           </Link>
 
+          <Link href="/blogs" className="text-gray-900 hover:text-sky-700 transition">
+            Blogs
+          </Link>
+
           <Link href="/team" className="text-gray-900 hover:text-sky-700 transition">
             Team
           </Link>

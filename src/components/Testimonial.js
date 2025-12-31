@@ -2,8 +2,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-
-
 export default function Testimonial({ stars, message, date, name }) {
 
     function getTime() {
@@ -11,7 +9,7 @@ export default function Testimonial({ stars, message, date, name }) {
         const numMonths = Math.floor((postTime.getTime() - Date.now()) * -1 / 2628000000)
         if (numMonths >= 12) {
             const years = Math.floor(numMonths / 12)
-            return years == 1 ? "1 year ago" : String(years) + " years ago"
+            return years === 1 ? "1 year ago" : String(years) + " years ago"
         }
         else {
             return String(numMonths) + " months ago"

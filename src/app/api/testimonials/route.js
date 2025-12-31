@@ -1,10 +1,10 @@
-import { promises as fs } from "fs";
+import {promises as fs} from "fs";
 import path from "path";
-import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
+import {NextResponse} from "next/server";
+import {cookies} from "next/headers";
 
 async function requireAuth() {
-  const cookieStore = await cookies(); // ✅ cookies() is async in your Next.js
+  const cookieStore = await cookies();
   return cookieStore.get("auth")?.value === "true";
 }
 

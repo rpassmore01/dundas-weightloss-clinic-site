@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Testimonial from './testimonial';
+import Testimonial from './Testimonial';
 
 export default function TestimonialsCarousel({
   items = [],
@@ -64,7 +64,8 @@ export default function TestimonialsCarousel({
     return () => document.removeEventListener('visibilitychange', onVis);
   }, []);
 
-  if (!items || count === 0) return null;
+  if (!items || count === 0)
+    return null;
 
   return (
       <div

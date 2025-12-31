@@ -1,6 +1,7 @@
 @import 'tailwindcss' layer(utilities);
-
 @import 'tailwindcss/utilities' layer(utilities);
+
+@plugin "@tailwindcss/typography";
 
 html,
 body {

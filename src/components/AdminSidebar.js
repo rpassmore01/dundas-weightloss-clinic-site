@@ -3,12 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTachometerAlt, faUsers, faCog, faStar, faBook } from "@fortawesome/free-solid-svg-icons";
+import { faTachometerAlt, faParagraph, faStar, faBook } from "@fortawesome/free-solid-svg-icons";
 
 const navItems = [
   { name: "Dashboard", href: "/admin", icon: faTachometerAlt },
-  // { name: "Users", href: "/admin/users", icon: faUsers },
-  // { name: "Settings", href: "/admin/settings", icon: faCog },
+  { name: "Blogs", href: "/admin/blogs", icon: faParagraph },
   { name: "Resources", href: "/admin/resources", icon: faBook },
   { name: "Testimonials", href: "/admin/testimonials", icon: faStar },
 ];

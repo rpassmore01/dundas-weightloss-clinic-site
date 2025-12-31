@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import TestimonialsCarousel from "../../components/testimonialCarousel";
+import TestimonialsCarousel from "../../components/TestimonialCarousel";
 import { headers } from "next/headers";
 
 export default async function HomePage() {

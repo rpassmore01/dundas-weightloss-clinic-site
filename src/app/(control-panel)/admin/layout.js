@@ -1,7 +1,7 @@
 import '../../../globals.css';
 import {cookies} from "next/headers";
 import {Roboto} from 'next/font/google';
-import AdminSidebar from "../../../components/adminSidebar";
+import AdminSidebar from "../../../components/AdminSidebar";
 
 const roboto = Roboto({
   subsets: ['latin'],
