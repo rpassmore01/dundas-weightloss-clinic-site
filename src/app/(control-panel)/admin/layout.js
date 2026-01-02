@@ -17,9 +17,11 @@ export default async function AdminLayout({children}) {
     <body className="bg-gray-50">
 
     { isAuthed ? (
-      <div className="flex">
+      <div className="flex h-screen overflow-hidden">
         <AdminSidebar />
-        <main className="flex-1 p-6">{children}</main>
+        <main className="flex-1 p-6 overflow-y-auto">
+          {children}
+        </main>
       </div>
     ) : (
       <div className="p-8 max-w-md mx-auto">

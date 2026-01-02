@@ -1,14 +1,7 @@
-import CopyButton from "./copybutton";
-export const dynamic = "force-dynamic"; // always fetch latest
-import { headers } from "next/headers";
-
+import CopyButton from "./CopyButton";
 
 async function getResources() {
-    const headersList = await headers();
-    const host = headersList.get('host');
-    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-    const baseUrl = `${protocol}://${host}`;
-    const res = await fetch(`${baseUrl}/api/resources`, { cache: "no-store" });
+    const res = await fetch(`${process.env.BASEURL}/api/resources`, { cache: "no-store" });
     if (!res.ok) return [];
     return res.json();
 }

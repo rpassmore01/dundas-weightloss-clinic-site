@@ -33,13 +33,14 @@ export async function POST(req) {
   if (!(await requireAuth()))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-  const { title, body, date } = await req.json();
+  const { title, body, description, date } = await req.json();
 
   const blogs = readBlogs();
 
   const newBlog = {
     id: blogs.length ? blogs[blogs.length - 1].id + 1 : 1,
     title,
+    description,
     body,
     date,
   };

@@ -2,11 +2,7 @@ import Link from "next/link";
 import {headers} from "next/headers";
 
 async function getBlogs() {
-  const headersList = await headers();
-  const host = headersList.get('host');
-  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-  const baseUrl = `${protocol}://${host}`;
-  const res = await fetch(`${baseUrl}/api/blogs`, {
+  const res = await fetch(`${process.env.BASEURL}/api/blogs`, {
     cache: "no-store",
   });
   return res.json();

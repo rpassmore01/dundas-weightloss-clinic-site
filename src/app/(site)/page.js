@@ -2,14 +2,9 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import TestimonialsCarousel from "../../components/TestimonialCarousel";
-import { headers } from "next/headers";
 
 export default async function HomePage() {
-  const headersList = await headers();
-  const host = headersList.get('host');
-  const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-  const baseUrl = `${protocol}://${host}`;
-  const testimonialData = await fetch(`${baseUrl}/api/testimonials`).then(response => {
+  const testimonialData = await fetch(`${process.env.BASEURL}/api/testimonials`).then(response => {
     if (!response.ok) { throw new Error(`Failed to load testimonials with error code ${response.status}.`) }
     return response.json()
   }).catch(

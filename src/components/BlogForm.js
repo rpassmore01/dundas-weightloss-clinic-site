@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import RichTextEditor from "./RichTextEditor";
+import ClientSideRichTextEditor from "./texteditor/ClientSideRichTextEditor";
 
 export default function BlogForm({ blog, onSave, onCancel }) {
   const isNew = !blog?.id;
 
   const [title, setTitle] = useState(blog?.title || "");
   const [body, setBody] = useState(blog?.body || "");
+  const [description, setDescription] = useState(blog?.description || "");
   const [date, setDate] = useState(
     blog?.date || new Date().toISOString().split("T")[0]
   );
@@ -47,18 +48,31 @@ export default function BlogForm({ blog, onSave, onCancel }) {
         />
       </div>
 
+      {/* Title */}
+      <div>
+        <label className="block text-base font-medium text-gray-900 mb-2">
+          Description
+        </label>
+        <input
+          className="w-full rounded-xl border border-gray-300 px-4 py-3 text-lg focus:outline-none focus:ring-1 focus:ring-gray-400"
+          placeholder="Enter a description"
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+        />
+      </div>
+
       {/* Content */}
       <div>
         <label className="block text-base font-medium text-gray-900 mb-3">
           Content
         </label>
-        <RichTextEditor value={body} onChange={setBody} />
+        <ClientSideRichTextEditor value={body} onChange={setBody} />
       </div>
 
       {/* Actions */}
       <div className="flex gap-4 pt-6">
         <button
-          onClick={() => onSave({ title, body, date })}
+          onClick={() => onSave({ title, body, date, description })}
           className="rounded-xl bg-sky-600 px-8 py-3 text-white text-base font-medium hover:bg-sky-700 transition"
         >
           {isNew ? "Create Post" : "Save Changes"}

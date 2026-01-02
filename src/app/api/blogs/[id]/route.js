@@ -40,7 +40,7 @@ export async function PUT(req, context) {
 
   const { id } = await context.params;
 
-  const { title, body, date } = await req.json();
+  const { title, body, description, date } = await req.json();
   const blogs = readBlogs();
 
   const index = blogs.findIndex((b) => Number(b.id) === Number(id));
@@ -52,6 +52,7 @@ export async function PUT(req, context) {
   blogs[index] = {
     ...blogs[index],
     title,
+    description,
     body,
     date,
   };

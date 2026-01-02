@@ -21,3 +21,45 @@ a {
 body {
   overflow-x: hidden;
 }
+
+.prose span[style] {
+  font-size: inherit;
+}
+
+/* Make links clear in blogs Text Editor */
+.ck a {
+  color: #007bff !important;
+  text-decoration: underline !important;
+}
+
+/* Make links clear in blogs Text Editor */
+.ck a:visited {
+  color: #6610f2 !important;
+}
+
+/* Bullet pints get cut off by default in blogs Text Editor */
+.ck-editor__editable_inline {
+  padding: 0 30px !important;
+}
+
+
+/* Blog Editor Font Sizes */
+.text-tiny {
+  font-size: 0.75rem;
+}
+
+.text-small {
+  font-size: 0.875rem;
+}
+
+.text-default {
+  font-size: 1rem;
+}
+
+.text-big {
+  font-size: 1.25rem;
+}
+
+.text-huge {
+  font-size: 2rem;
+}

@@ -32,13 +32,13 @@ export default function BlogsEditPage() {
     }
 
     setEditingBlog(null);
-    loadBlogs();
+    await loadBlogs();
   }
 
   async function deleteBlog(id) {
     if (!confirm("Delete this blog post?")) return;
     await fetch(`/api/blogs/${id}`, { method: "DELETE" });
-    loadBlogs();
+    await loadBlogs();
   }
 
   return (
@@ -61,6 +61,7 @@ export default function BlogsEditPage() {
                 setEditingBlog({
                   title: "",
                   body: "",
+                  description: "",
                   date: new Date().toISOString().split("T")[0],
                 })
               }

@@ -8,7 +8,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-build-classic": "^41.4.2",
     "@ckeditor/ckeditor5-react": "^11.0.1",
     "@emailjs/browser": "^4.4.1",
     "@emailjs/nodejs": "^5.0.2",
@@ -20,6 +19,8 @@
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.19",
     "axios": "^1.13.2",
+    "ckeditor5": "^47.3.0",
+    "ckeditor5-premium-features": "^47.3.0",
     "cookie": "^1.1.1",
     "dotenv-load": "^3.0.0",
     "emailjs": "^5.0.0",
