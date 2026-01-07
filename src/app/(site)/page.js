@@ -11,6 +11,23 @@ export default async function HomePage() {
     //Errors
   )
 
+  // Blogs (latest)
+  let latestBlog = null;
+  try {
+    const res = await fetch(`${process.env.BASEURL}/api/blogs`, { cache: "no-store" });
+    if (!res.ok) throw new Error(`Failed to load blogs (${res.status})`);
+    const json = await res.json();
+    const blogs = Array.isArray(json) ? json : [];
+
+    latestBlog =
+      blogs
+        .slice()
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0] ?? null;
+  } catch (e) {
+    console.error(e);
+    latestBlog = null;
+  }
+
   return (
     <main>
       {/* Hero Section */}
@@ -33,7 +50,7 @@ export default async function HomePage() {
           style={{ background: 'radial-gradient(circle at 30% 70%, rgba(56,189,248,.35), rgba(6,182,212,.15) 45%, transparent 60%)' }}
         />
 
-        <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-3">
+        <div className="relative mx-auto w-full max-w-6xl px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-12">
             <div className="lg:col-span-8">
               {/* pill badge */}
@@ -68,9 +85,11 @@ export default async function HomePage() {
       </header>
 
       {/* Testimonials Section */}
-      <section className="pb-15" id="testimonials">
-        <h2 className="text-4xl font-bold leading-tight text-gray-900 text-center p-10">Testimonials</h2>
-        <div className="">
+      <section className="py-20" id="testimonials">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <h2 className="text-4xl font-bold leading-tight text-gray-900 mb-10">
+            Testimonials
+          </h2>
           <TestimonialsCarousel items={testimonialData} autoPlay intervalMs={5000} />
         </div>
       </section>
@@ -140,15 +159,12 @@ export default async function HomePage() {
 
       {/* Services Section */}
       <section id="services" className="relative overflow-hidden py-12">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8">
-          {/* Header */}
-          <div className="mb-6 text-center lg:text-left ">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="mb-6">
             <h2 className="text-4xl font-bold leading-tight text-gray-900">Services</h2>
           </div>
 
-          {/* Parent grid: LEFT = What to expect (centered), RIGHT = nested pricing grid */}
           <div className="grid items-center gap-5 lg:grid-cols-12">
-            {/* LEFT: What to expect (compact) */}
             <div className="lg:col-span-6">
               <div className="mx-auto rounded-2xl border border-gray-200 bg-white px-5 py-5 shadow-sm sm:px-6 sm:py-6">
                 <h3 className="text-lg font-semibold text-gray-900">What to expect</h3>
@@ -174,17 +190,14 @@ export default async function HomePage() {
                   ))}
                 </div>
 
-                {/* single-line footnote to avoid extra height */}
                 <p className="mt-3 text-md text-gray-600">
                   No hidden costs. <span className="font-semibold text-sky-700">Check your private or group insurance benefits.</span>
                 </p>
               </div>
             </div>
 
-            {/* RIGHT: Pricing (nested grid keeps cards equal height without stretching the section) */}
             <div className="lg:col-span-6">
               <div className="grid gap-5 md:grid-rows-2 auto-rows-fr">
-                {/* Free card */}
                 <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
                   <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50/70 px-2.5 py-0.5 text-[11px] font-semibold text-sky-700">
                     NO OBLIGATION, FREE ONE HOUR CONSULTATION.
@@ -207,7 +220,6 @@ export default async function HomePage() {
                   </ul>
                 </div>
 
-                {/* $40/hr card */}
                 <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
                   <h3 className="text-xl font-bold text-sky-700">$40/hr</h3>
                   <ul className="mt-3 space-y-1.5 text-left">
@@ -236,21 +248,87 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Blog Section */}
+      <section id="blog" className="relative overflow-hidden py-20 bg-gray-100">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-4xl font-bold leading-tight text-gray-900">Blog</h2>
+              <p className="mt-2 text-lg text-gray-600">
+                Practical, evidence-informed guidance on weight management and healthy habits.
+              </p>
+            </div>
+
+            <Link
+              href="/blogs"
+              className="inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-2.5 text-md font-semibold text-white shadow-sm transition hover:bg-sky-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+            >
+              View all posts
+            </Link>
+          </div>
+
+          {latestBlog ? (
+            <article className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition">
+              <p className="text-sm font-semibold text-sky-700">Most recent</p>
+
+              <h3 className="mt-2 text-2xl font-semibold text-gray-900">
+                {latestBlog.title}
+              </h3>
+
+              <p className="mt-2 text-sm text-gray-500">
+                {latestBlog.date ? new Date(latestBlog.date).toLocaleDateString() : ""}
+              </p>
+
+              {/* 4-line truncated HTML preview (formatting preserved) */}
+              <div
+                className="mt-4 text-md text-gray-700 line-clamp-4
+             [&_p]:my-0 [&_ul]:my-0 [&_ol]:my-0 [&_li]:my-0
+             [&_a]:text-sky-700 [&_a]:underline [&_a]:underline-offset-2"
+                dangerouslySetInnerHTML={{
+                  __html: latestBlog.content || latestBlog.body || "",
+                }}
+              />
+              <div className="mt-5">
+                <Link
+                  href={`/blogs/${latestBlog.id}`}
+                  className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-md font-semibold text-gray-900 shadow-sm transition hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                >
+                  Read more →
+                </Link>
+              </div>
+            </article>
+          ) : (
+            <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+              <p className="text-gray-600">No blog posts yet.</p>
+              <Link
+                href="/blogs"
+                className="mt-4 inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-2.5 text-md font-semibold text-white shadow-sm transition hover:bg-sky-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              >
+                Go to blog
+              </Link>
+            </div>
+          )}
+
+        </div>
+      </section>
       {/* Location Section */}
-      <section id="location" className="py-20 text-center bg-gray-100">
-        <h2 className="text-4xl font-bold mb-4">Location</h2>
-        <p className="font-semibold">247 King Street West, Dundas, Ontario</p>
-        <p className="mb-6">Sharing space with Myers Chiropractic.</p>
-        <div className="flex justify-center">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.178797634249!2d-79.96720588435645!3d43.26862988523067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c847e096e1389%3A0x68458c0a4681abfd!2s247%20King%20St%20W%2C%20Dundas%2C%20ON%20L9H%201V8!5e0!3m2!1sen!2sca!4v1642648064679!5m2!1sen!2sca"
-            height="450"
-            width="600"
-            allowFullScreen=""
-            loading="lazy"
-            className="w-full max-w-3xl h-[450px] rounded-xl shadow-lg"
-            title="google map to Dundas Weight Loss Clinic"
-          ></iframe>
+      <section id="location" className="py-20 text-center">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <h2 className="text-4xl font-bold mb-4">Location</h2>
+          <p className="font-semibold">247 King Street West, Dundas, Ontario</p>
+          <p className="mb-6">Sharing space with Myers Chiropractic.</p>
+          <div className="flex justify-center">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.178797634249!2d-79.96720588435645!3d43.26862988523067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c847e096e1389%3A0x68458c0a4681abfd!2s247%20King%20St%20W%2C%20Dundas%2C%20ON%20L9H%201V8!5e0!3m2!1sen!2sca!4v1642648064679!5m2!1sen!2sca"
+              height="450"
+              width="600"
+              allowFullScreen=""
+              loading="lazy"
+              className="w-full max-w-3xl h-[450px] rounded-xl shadow-lg"
+              title="google map to Dundas Weight Loss Clinic"
+            ></iframe>
+          </div>
         </div>
       </section>
     </main>
