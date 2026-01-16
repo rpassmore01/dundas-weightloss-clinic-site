@@ -2,29 +2,25 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import TestimonialsCarousel from "../../components/TestimonialCarousel";
+import { listTestimonials } from "../../../lib/testimonials";
+import { listBlogs } from "../../../lib/blogs";
 
 export default async function HomePage() {
-  const testimonialData = await fetch(`${process.env.BASEURL}/api/testimonials`).then(response => {
-    if (!response.ok) { throw new Error(`Failed to load testimonials with error code ${response.status}.`) }
-    return response.json()
-  }).catch(
-    //Errors
-  )
+  // Get testimonial and blog data straight from /data since this is a server component
+  let testimonialData = [];
+  try {
+    testimonialData = await listTestimonials();
+  } catch (e) {
+    console.error("Failed to load testimonials:", e);
+    testimonialData = [];
+  }
 
-  // Blogs (latest)
   let latestBlog = null;
   try {
-    const res = await fetch(`${process.env.BASEURL}/api/blogs`, { cache: "no-store" });
-    if (!res.ok) throw new Error(`Failed to load blogs (${res.status})`);
-    const json = await res.json();
-    const blogs = Array.isArray(json) ? json : [];
-
-    latestBlog =
-      blogs
-        .slice()
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0] ?? null;
+    const blogs = await listBlogs(); // already sorted newest-first
+    latestBlog = blogs?.[0] ?? null;
   } catch (e) {
-    console.error(e);
+    console.error("Failed to load blogs:", e);
     latestBlog = null;
   }
 
@@ -35,8 +31,8 @@ export default async function HomePage() {
         className="relative isolate flex items-center bg-cover bg-center"
         style={{
           backgroundImage: "url('/tews-falls.jpg')",
-          minHeight: '420px',
-          height: '60svh',
+          minHeight: "420px",
+          height: "60svh",
         }}
         role="banner"
         aria-label="Dundas Weight Loss Clinic hero"
@@ -47,7 +43,10 @@ export default async function HomePage() {
         {/* glow */}
         <div
           className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full blur-3xl opacity-30"
-          style={{ background: 'radial-gradient(circle at 30% 70%, rgba(56,189,248,.35), rgba(6,182,212,.15) 45%, transparent 60%)' }}
+          style={{
+            background:
+              "radial-gradient(circle at 30% 70%, rgba(56,189,248,.35), rgba(6,182,212,.15) 45%, transparent 60%)",
+          }}
         />
 
         <div className="relative mx-auto w-full max-w-6xl px-6 lg:px-8">
@@ -69,10 +68,12 @@ export default async function HomePage() {
               <p className="mt-3 text-md md:text-lg font-semibold text-white">
                 FREE ONE HOUR CONSULTATION
               </p>
+
               {/* location line to match other sections */}
               <p className="mt-4 text-lg text-white/70">
                 Serving Dundas · Ancaster · Brantford · Hamilton
               </p>
+
               <Link
                 href="/book"
                 className="inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm transition hover:bg-sky-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 mt-5"

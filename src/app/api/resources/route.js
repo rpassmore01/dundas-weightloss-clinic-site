@@ -24,7 +24,7 @@ async function ensureDataFiles() {
   }
 }
 
-// ✅ robust read (handles empty/invalid json instead of 500)
+// robust read (handles empty/invalid json instead of 500)
 async function readResources() {
   await ensureDataFiles();
   try {
@@ -73,7 +73,7 @@ async function parseRequest(req) {
   if (contentType.includes("multipart/form-data")) {
     const fd = await req.formData();
 
-    // ✅ needed for PUT when sending FormData
+    // needed for PUT when sending FormData
     const idRaw = fd.get("id");
     const id = idRaw ? Number(idRaw) : undefined;
 

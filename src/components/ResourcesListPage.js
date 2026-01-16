@@ -1,19 +1,19 @@
 import CopyButton from "./CopyButton";
-
-async function getResources() {
-    const res = await fetch(`${process.env.BASEURL}/api/resources`, { cache: "no-store" });
-    if (!res.ok) return [];
-    return res.json();
-}
-
+import { listResources } from "../../lib/resources";
 export default async function ResourcesListPage({
     audience = "client", // "client" | "professional"
     title,
     subtitle,
 }) {
-    const all = await getResources();
-    const isClient = audience === "client";
+    let all = [];
+    try {
+        all = await listResources(); 
+    } catch (e) {
+        console.error("Failed to load resources:", e);
+        all = [];
+    }
 
+    const isClient = audience === "client";
     const resources = (Array.isArray(all) ? all : []).filter((r) => r.client === isClient);
 
     return (
@@ -35,9 +35,7 @@ export default async function ResourcesListPage({
                             {/* Left: text */}
                             <div className="min-w-0">
                                 <h2 className="text-xl font-semibold text-gray-900">{r.title}</h2>
-                                {r.description ? (
-                                    <p className="text-gray-700 mt-1">{r.description}</p>
-                                ) : null}
+                                {r.description ? <p className="text-gray-700 mt-1">{r.description}</p> : null}
                             </div>
 
                             {/* Right: actions */}

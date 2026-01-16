@@ -1,19 +1,17 @@
 import Link from "next/link";
-import {headers} from "next/headers";
-
-async function getBlog(id) {
-  const res = await fetch(
-    `${process.env.BASEURL}/api/blogs/${id}`,
-    { cache: "no-store" }
-  );
-
-  if (!res.ok) return null;
-  return res.json();
-}
+import { getBlogById } from "../../../../../lib/blogs";
 
 export default async function BlogPostPage({ params }) {
-  let slug = await params
-  const blog = await getBlog(slug.id);
+  const { id } = await params;
+
+  let blog = null;
+  try {
+    blog = await getBlogById(id);
+  } catch (e) {
+    // getBlogById throws on not found (status 404)
+    console.error("Failed to load blog:", e);
+    blog = null;
+  }
 
   if (!blog) {
     return (
@@ -33,12 +31,10 @@ export default async function BlogPostPage({ params }) {
           ← Back to blogs
         </Link>
 
-        <h1 className="text-4xl font-bold mb-4">
-          {blog.title}
-        </h1>
+        <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
 
         <p className="text-sm text-gray-500 mb-10">
-          {new Date(blog.date).toLocaleDateString()}
+          {blog.date ? new Date(blog.date).toLocaleDateString() : ""}
         </p>
 
         <div
