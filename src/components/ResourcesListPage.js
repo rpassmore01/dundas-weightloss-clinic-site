@@ -7,14 +7,14 @@ async function getResources() {
 }
 
 export default async function ResourcesListPage({
-    audience = "client", // "client" | "professional"
+    audience = "patient", // "patient" | "professional"
     title,
     subtitle,
 }) {
     const all = await getResources();
-    const isClient = audience === "client";
+    const isPatient = audience === "patient";
 
-    const resources = (Array.isArray(all) ? all : []).filter((r) => r.client === isClient);
+    const resources = (Array.isArray(all) ? all : []).filter((r) => r.patient === isPatient);
 
     return (
         <main className="container mx-auto px-6 lg:px-20 py-16">
@@ -23,7 +23,7 @@ export default async function ResourcesListPage({
 
             {resources.length === 0 ? (
                 <p className="text-gray-700">
-                    No {isClient ? "client" : "professional"} resources available yet.
+                    No {isPatient ? "patient" : "professional"} resources available yet.
                 </p>
             ) : (
                 <ul className="space-y-4">

@@ -297,7 +297,7 @@ export default function ResourcesAdminPage() {
             <p className="font-semibold">
               {r.title}{" "}
               <span className="text-sm font-normal text-gray-500">
-                • {r.client ? "Client" : "Professional"} • {r.file ? "File" : "Link"}
+                • {r.client ? "Patient" : "Professional"} • {r.file ? "File" : "Link"}
               </span>
             </p>
             <p className="text-sm text-gray-500">{r.description}</p>
