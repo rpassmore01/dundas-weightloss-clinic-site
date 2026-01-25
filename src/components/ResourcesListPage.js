@@ -1,20 +1,21 @@
 import CopyButton from "./CopyButton";
 import { listResources } from "../../lib/resources";
+
 export default async function ResourcesListPage({
-    audience = "client", // "client" | "professional"
+    audience = "patient", // "patient" | "professional"
     title,
     subtitle,
 }) {
     let all = [];
     try {
-        all = await listResources(); 
+        all = await listResources();
     } catch (e) {
         console.error("Failed to load resources:", e);
         all = [];
     }
 
-    const isClient = audience === "client";
-    const resources = (Array.isArray(all) ? all : []).filter((r) => r.client === isClient);
+  const isPatient = audience === "patient";
+  const resources = (Array.isArray(all) ? all : []).filter((r) => r.patient === isPatient);
 
     return (
         <main className="container mx-auto px-6 lg:px-20 py-16">

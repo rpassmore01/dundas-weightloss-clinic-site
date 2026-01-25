@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import {faArrowRight, faCheck} from "@fortawesome/free-solid-svg-icons";
 import TestimonialsCarousel from "../../components/TestimonialCarousel";
 import { listTestimonials } from "../../../lib/testimonials";
 import { listBlogs } from "../../../lib/blogs";
@@ -37,7 +37,7 @@ export default async function HomePage() {
         role="banner"
         aria-label="Dundas Weight Loss Clinic hero"
       >
-        {/* gradien for legibility */}
+        {/* gradient for legibility */}
         <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/70 via-black/50 to-black/30"></div>
 
         {/* glow */}
@@ -295,7 +295,8 @@ export default async function HomePage() {
                   href={`/blogs/${latestBlog.id}`}
                   className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-md font-semibold text-gray-900 shadow-sm transition hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                 >
-                  Read more →
+                  Read more
+                  <FontAwesomeIcon icon={faArrowRight} className="ml-1 h-5 w-5" />
                 </Link>
               </div>
             </article>

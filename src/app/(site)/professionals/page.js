@@ -1,4 +1,4 @@
-import ResourcesListPage from "../../../../components/ResourcesListPage";
+import ResourcesListPage from "../../../components/ResourcesListPage";
 export default function ProfessionalResourcesPage() {
   return (
     <ResourcesListPage
