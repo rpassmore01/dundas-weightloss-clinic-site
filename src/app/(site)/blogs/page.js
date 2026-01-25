@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { listBlogs } from "../../../../lib/blogs";
 
 export default async function BlogsPage() {

@@ -14,8 +14,8 @@ export default async function ResourcesListPage({
         all = [];
     }
 
-  const isPatient = audience === "patient";
-  const resources = (Array.isArray(all) ? all : []).filter((r) => r.patient === isPatient);
+    const isPatient = audience === "patient";
+    const resources = (Array.isArray(all) ? all : []).filter((r) => r.patient === isPatient);
 
     return (
         <main className="container mx-auto px-6 lg:px-20 py-16">

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faArrowRight, faCheck} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faCheck } from "@fortawesome/free-solid-svg-icons";
 import TestimonialsCarousel from "../../components/TestimonialCarousel";
 import { listTestimonials } from "../../../lib/testimonials";
 import { listBlogs } from "../../../lib/blogs";
@@ -57,7 +57,7 @@ export default async function HomePage() {
                 Comprehensive care · Evidence-informed
               </div>
 
-              <h1 className="mt-3 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-white">
+              <h1 className="mt-3 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight text-white">
                 Dundas Weight Loss Clinic
               </h1>
 

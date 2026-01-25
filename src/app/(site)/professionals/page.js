@@ -1,4 +1,5 @@
 import ResourcesListPage from "../../../components/ResourcesListPage";
+
 export default function ProfessionalResourcesPage() {
   return (
     <ResourcesListPage

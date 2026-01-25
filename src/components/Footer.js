@@ -1,13 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
-import Link from "next/link";
-import { faCircle } from "@fortawesome/free-solid-svg-icons";
+
 export default function Footer() {
   return (
     <footer className="bg-sky-800 text-gray-100 py-6 px-4 md:px-10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Clinic Name */}
-        <div className=" text-center md:text-left">
+        <div className="text-center md:text-left">
           <h2 className="text-xl font-bold">Dundas Weight Loss Clinic</h2>
         </div>
         <a

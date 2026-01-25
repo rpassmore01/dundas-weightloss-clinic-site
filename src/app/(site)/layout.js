@@ -1,13 +1,12 @@
-import '../../globals.css';
+import "../../globals.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import {Roboto} from 'next/font/google';
-
+import { Roboto } from "next/font/google";
 
 const roboto = Roboto({
-  subsets: ['latin'],
-  display: 'swap',
-})
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata = {
   title: "Dundas Weight Loss Clinic",

@@ -48,7 +48,7 @@ export default function BlogForm({ blog, onSave, onCancel }) {
         />
       </div>
 
-      {/* Title */}
+      {/* Description */}
       <div>
         <label className="block text-base font-medium text-gray-900 mb-2">
           Description
