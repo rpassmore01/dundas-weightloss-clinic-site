@@ -20,32 +20,34 @@ export default async function BlogsPage() {
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {blogs.map((blog) => (
             <article
               key={blog.id}
-              className="group border border-gray-100 bg-white rounded-2xl shadow-sm hover:shadow-md hover:border-sky-200 transition-all duration-200 p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+              className="group border border-gray-100 bg-white rounded-2xl shadow-sm hover:shadow-md hover:border-sky-200 transition-all duration-200 p-5 md:p-6"
             >
-              <div className="flex-1">
-                <h2 className="text-2xl font-semibold mb-2 text-gray-900 group-hover:text-sky-700 transition-colors">
-                  {blog.title}
-                </h2>
+              <div className="flex flex-col md:flex-row md:items-center gap-4">
+                <div className="flex-1 min-w-0">
+                  <h2 className="text-xl md:text-2xl font-semibold text-gray-900 group-hover:text-sky-700 transition-colors">
+                    {blog.title}
+                  </h2>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {blog.date ? new Date(blog.date).toLocaleDateString() : ""}
+                  </p>
+                  <p className="text-gray-600 line-clamp-2 text-sm md:text-base mt-2">
+                    {blog.description}
+                  </p>
+                </div>
 
-                <p className="text-sm text-gray-500 mb-3">
-                  {blog.date ? new Date(blog.date).toLocaleDateString() : ""}
-                </p>
-
-                <p className="text-gray-600 mb-4 md:mb-0 line-clamp-2">
-                  {blog.description}
-                </p>
+                <div className="shrink-0">
+                  <Link
+                    href={`/blogs/${blog.id}`}
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm rounded-lg bg-sky-600 text-white font-medium hover:bg-sky-700 active:bg-sky-800 transition-colors"
+                  >
+                    Read more
+                  </Link>
+                </div>
               </div>
-
-              <Link
-                href={`/blogs/${blog.id}`}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600 text-white font-medium hover:bg-sky-700 active:bg-sky-800 transition-colors shadow-sm hover:shadow"
-              >
-                Read more
-              </Link>
             </article>
           ))}
 
