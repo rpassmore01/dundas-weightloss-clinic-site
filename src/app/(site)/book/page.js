@@ -46,7 +46,7 @@ export default function BookPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-linear-to-b from-white to-gray-100">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-50 to-white">
       <main className="flex flex-col items-center py-16 px-4 sm:px-6 lg:px-8 grow">
         {/* Header */}
         <div className="text-center max-w-2xl mb-12">

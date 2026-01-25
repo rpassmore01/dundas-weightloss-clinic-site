@@ -24,7 +24,7 @@ export default async function BlogPostPage({ params }) {
   }
 
   return (
-    <main className="bg-white min-h-screen">
+    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <article className="max-w-3xl mx-auto px-6 py-20">
         <Link
           href="/blogs"

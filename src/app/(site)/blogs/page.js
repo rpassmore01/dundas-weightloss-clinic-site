@@ -11,18 +11,23 @@ export default async function BlogsPage() {
   }
 
   return (
-    <main className="bg-white min-h-screen">
+    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <section className="max-w-5xl mx-auto px-6 py-20">
-        <h1 className="text-4xl font-bold mb-10 text-sky-700">Blogs</h1>
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-3">Blog</h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Insights, tips, and updates on weight management and healthy living.
+          </p>
+        </div>
 
         <div className="space-y-6">
           {blogs.map((blog) => (
             <article
               key={blog.id}
-              className="border border-gray-200 bg-gray-50 rounded-2xl p-6 transition flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+              className="group border border-gray-100 bg-white rounded-2xl shadow-sm hover:shadow-md hover:border-sky-200 transition-all duration-200 p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
             >
               <div className="flex-1">
-                <h2 className="text-2xl font-semibold mb-2 text-gray-800">
+                <h2 className="text-2xl font-semibold mb-2 text-gray-900 group-hover:text-sky-700 transition-colors">
                   {blog.title}
                 </h2>
 
@@ -30,21 +35,26 @@ export default async function BlogsPage() {
                   {blog.date ? new Date(blog.date).toLocaleDateString() : ""}
                 </p>
 
-                <p className="text-gray-600 mb-4 md:mb-0">
+                <p className="text-gray-600 mb-4 md:mb-0 line-clamp-2">
                   {blog.description}
                 </p>
               </div>
 
               <Link
                 href={`/blogs/${blog.id}`}
-                className="inline-block text-sky-600 font-medium hover:underline"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600 text-white font-medium hover:bg-sky-700 active:bg-sky-800 transition-colors shadow-sm hover:shadow"
               >
-                Read more →
+                Read more
               </Link>
             </article>
           ))}
 
-          {blogs.length === 0 && <p className="text-gray-500">No blog posts yet.</p>}
+          {blogs.length === 0 && (
+            <div className="text-center py-16 bg-white rounded-2xl shadow-sm border border-gray-100">
+              <p className="text-gray-600 text-lg">No blog posts yet.</p>
+              <p className="text-gray-400 text-sm mt-2">Check back soon for updates.</p>
+            </div>
+          )}
         </div>
       </section>
     </main>

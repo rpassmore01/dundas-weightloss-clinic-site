@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function TeamPage() {
   return (
-    <main>
+    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Bio Section */}
       <section id="bio" className="py-20 container mx-auto px-6 lg:px-20">
         {/* Top Bio */}
