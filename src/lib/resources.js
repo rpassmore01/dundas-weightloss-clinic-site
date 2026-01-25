@@ -1,7 +1,7 @@
 // lib/resources.js
 import { promises as fs } from "fs";
 import path from "path";
-import { cookies } from "next/headers";
+import { isAuthenticated } from "./auth";
 
 const jsonPath = path.join(process.cwd(), "data", "resources.json");
 const uploadsDir = path.join(process.cwd(), "data", "resources");
@@ -16,10 +16,6 @@ async function ensureDataFiles() {
   }
 }
 
-async function requireAuth() {
-  const cookieStore = await cookies();
-  return cookieStore.get("auth")?.value === "true";
-}
 
 // robust read (handles empty/invalid json)
 async function readResources() {
@@ -134,7 +130,7 @@ export async function getResourceFile(fileParam) {
 }
 
 export async function createResourceFromFormData(formData) {
-  if (!(await requireAuth())) {
+  if (!(await isAuthenticated())) {
     const err = new Error("Unauthorized");
     err.status = 401;
     throw err;
@@ -187,7 +183,7 @@ export async function createResourceFromFormData(formData) {
 }
 
 export async function createResourceFromJson(body) {
-  if (!(await requireAuth())) {
+  if (!(await isAuthenticated())) {
     const err = new Error("Unauthorized");
     err.status = 401;
     throw err;
@@ -219,7 +215,7 @@ export async function createResourceFromJson(body) {
  * - If updating to link: deletes old stored file (if any)
  */
 export async function updateResourceFromFormData(formData) {
-  if (!(await requireAuth())) {
+  if (!(await isAuthenticated())) {
     const err = new Error("Unauthorized");
     err.status = 401;
     throw err;
@@ -309,7 +305,7 @@ export async function updateResourceFromFormData(formData) {
 }
 
 export async function updateResourceFromJson(body) {
-  if (!(await requireAuth())) {
+  if (!(await isAuthenticated())) {
     const err = new Error("Unauthorized");
     err.status = 401;
     throw err;
@@ -376,7 +372,7 @@ export async function updateResourceFromJson(body) {
 }
 
 export async function deleteResourceById(id) {
-  if (!(await requireAuth())) {
+  if (!(await isAuthenticated())) {
     const err = new Error("Unauthorized");
     err.status = 401;
     throw err;

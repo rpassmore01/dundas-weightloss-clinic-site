@@ -1,12 +1,7 @@
 import {promises as fs} from "fs";
 import path from "path";
 import {NextResponse} from "next/server";
-import {cookies} from "next/headers";
-
-async function requireAuth() {
-  const cookieStore = await cookies();
-  return cookieStore.get("auth")?.value === "true";
-}
+import { isAuthenticated } from "../../../lib/auth";
 
 const filePath = path.join(process.cwd(), "data", "testimonials.json");
 
@@ -34,7 +29,7 @@ export async function GET() {
 }
 
 export async function POST(req) {
-  if (!(await requireAuth()))
+  if (!(await isAuthenticated()))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await req.json();
@@ -55,7 +50,7 @@ export async function POST(req) {
 }
 
 export async function PUT(req) {
-  if (!(await requireAuth()))
+  if (!(await isAuthenticated()))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await req.json();
@@ -80,7 +75,7 @@ export async function PUT(req) {
 }
 
 export async function DELETE(req) {
-  if (!(await requireAuth()))
+  if (!(await isAuthenticated()))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { id } = await req.json();

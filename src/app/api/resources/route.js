@@ -1,15 +1,10 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
+import { isAuthenticated } from "../../../lib/auth";
 
 export const runtime = "nodejs"; // needed for fs + file handling
 
-// Next.js: cookies() is async in route handlers
-async function requireAuth() {
-  const cookieStore = await cookies();
-  return cookieStore.get("auth")?.value === "true";
-}
 
 const jsonPath = path.join(process.cwd(), "data", "resources.json");
 const uploadsDir = path.join(process.cwd(), "data", "resources");
@@ -144,7 +139,7 @@ export async function GET(req) {
 }
 
 export async function POST(req) {
-  if (!(await requireAuth()))
+  if (!(await isAuthenticated()))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const resources = await readResources();
@@ -199,7 +194,7 @@ export async function POST(req) {
 }
 
 export async function PUT(req) {
-  if (!(await requireAuth()))
+  if (!(await isAuthenticated()))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const resources = await readResources();
@@ -283,7 +278,7 @@ export async function PUT(req) {
 }
 
 export async function DELETE(req) {
-  if (!(await requireAuth()))
+  if (!(await isAuthenticated()))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { id } = await req.json();

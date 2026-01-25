@@ -1,16 +1,15 @@
-import "../../../globals.css";
-import { cookies } from "next/headers";
-import { Roboto } from "next/font/google";
+import '../../../globals.css';
+import {Roboto} from 'next/font/google';
 import AdminSidebar from "../../../components/AdminSidebar";
+import { isAuthenticated } from "../../../lib/auth";
 
 const roboto = Roboto({
-  subsets: ["latin"],
-  display: "swap",
-});
+  subsets: ['latin'],
+  display: 'swap',
+})
 
-export default async function AdminLayout({ children }) {
-  const cookieStore = await cookies();
-  const isAuthed = cookieStore.get("auth")?.value === "true";
+export default async function AdminLayout({children}) {
+  const isAuthed = await isAuthenticated();
 
   return (
     <html lang="en" className={roboto.className}>

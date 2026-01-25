@@ -1,7 +1,7 @@
 // lib/testimonials.js
 import { promises as fs } from "fs";
 import path from "path";
-import { cookies } from "next/headers";
+import { isAuthenticated } from "./auth";
 
 const filePath = path.join(process.cwd(), "data", "testimonials.json");
 
@@ -16,11 +16,6 @@ async function ensureFileExists() {
     }
     throw err;
   }
-}
-
-async function requireAuth() {
-  const cookieStore = await cookies();
-  return cookieStore.get("auth")?.value === "true";
 }
 
 async function readTestimonials() {
@@ -48,7 +43,7 @@ export async function listTestimonials() {
 }
 
 export async function addTestimonial(body) {
-  if (!(await requireAuth())) {
+  if (!(await isAuthenticated())) {
     const err = new Error("Unauthorized");
     err.status = 401;
     throw err;
@@ -65,7 +60,7 @@ export async function addTestimonial(body) {
 }
 
 export async function updateTestimonial(body) {
-  if (!(await requireAuth())) {
+  if (!(await isAuthenticated())) {
     const err = new Error("Unauthorized");
     err.status = 401;
     throw err;
@@ -91,7 +86,7 @@ export async function updateTestimonial(body) {
 }
 
 export async function deleteTestimonial(id) {
-  if (!(await requireAuth())) {
+  if (!(await isAuthenticated())) {
     const err = new Error("Unauthorized");
     err.status = 401;
     throw err;

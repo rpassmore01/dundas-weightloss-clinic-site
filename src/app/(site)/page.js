@@ -2,8 +2,8 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faCheck } from "@fortawesome/free-solid-svg-icons";
 import TestimonialsCarousel from "../../components/TestimonialCarousel";
-import { listTestimonials } from "../../../lib/testimonials";
-import { listBlogs } from "../../../lib/blogs";
+import { listTestimonials } from "../../lib/testimonials";
+import { listBlogs } from "../../lib/blogs";
 
 export default async function HomePage() {
   // Get testimonial and blog data straight from /data since this is a server component

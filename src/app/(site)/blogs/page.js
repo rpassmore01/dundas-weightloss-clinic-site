@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { listBlogs } from "../../../../lib/blogs";
+import { listBlogs } from "../../../lib/blogs";
 
 export default async function BlogsPage() {
   let blogs = [];

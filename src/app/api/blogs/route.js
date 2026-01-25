@@ -1,14 +1,10 @@
 import fs from "fs";
 import path from "path";
-import {cookies} from "next/headers";
 import {NextResponse} from "next/server";
+import { isAuthenticated } from "../../../lib/auth";
 
 const dataPath = path.join(process.cwd(), "data", "blogs.json");
 
-async function requireAuth() {
-  const cookieStore = await cookies();
-  return cookieStore.get("auth")?.value === "true";
-}
 
 function readBlogs() {
   if (!fs.existsSync(dataPath)) {
@@ -30,7 +26,7 @@ export async function GET() {
 }
 
 export async function POST(req) {
-  if (!(await requireAuth()))
+  if (!(await isAuthenticated()))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { title, body, description, date } = await req.json();

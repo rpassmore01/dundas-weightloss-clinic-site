@@ -1,6 +1,7 @@
 import speakeasy from "speakeasy";
 import { NextResponse } from "next/server";
 import { serialize } from "cookie";
+import { createSession, clearSession } from "../../../lib/auth";
 
 export async function POST(req) {
   const body = await req.text();
@@ -23,13 +24,23 @@ export async function POST(req) {
   const redirectUrl = new URL(returnTo, origin);
   const res = NextResponse.redirect(redirectUrl);
 
+  const session = createSession();
   res.headers.set(
     "Set-Cookie",
-    serialize("auth", "true", {
-      httpOnly: true,
-      path: "/",
-      maxAge: 60 * 60, // 1 hour
-    })
+    serialize(session.name, session.value, session.options)
+  );
+
+  return res;
+}
+
+export async function DELETE() {
+  // Logout endpoint
+  const session = clearSession();
+  const res = NextResponse.json({ success: true });
+
+  res.headers.set(
+    "Set-Cookie",
+    serialize(session.name, session.value, session.options)
   );
 
   return res;

@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTachometerAlt, faParagraph, faStar, faBook } from "@fortawesome/free-solid-svg-icons";
+import { faTachometerAlt, faParagraph, faStar, faBook, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 const navItems = [
   { name: "Dashboard", href: "/admin", icon: faTachometerAlt },
@@ -14,6 +15,20 @@ const navItems = [
 
 export default function AdminSidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    try {
+      await fetch("/api/auth", { method: "DELETE" });
+      router.push("/admin");
+      router.refresh();
+    } catch (error) {
+      console.error("Logout failed:", error);
+      setIsLoggingOut(false);
+    }
+  };
 
   return (
     <aside className="w-64 h-screen bg-sky-900 text-white flex flex-col">
@@ -40,6 +55,17 @@ export default function AdminSidebar() {
           );
         })}
       </nav>
+
+      <div className="p-4 border-t border-sky-800">
+        <button
+          onClick={handleLogout}
+          disabled={isLoggingOut}
+          className="flex items-center w-full px-3 py-2 rounded-lg transition hover:bg-sky-700 disabled:opacity-50"
+        >
+          <FontAwesomeIcon icon={faSignOutAlt} className="mr-3 h-5 w-5" />
+          {isLoggingOut ? "Logging out..." : "Logout"}
+        </button>
+      </div>
     </aside>
   );
 }

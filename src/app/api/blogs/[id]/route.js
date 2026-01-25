@@ -1,14 +1,10 @@
 import fs from "fs";
 import path from "path";
-import {cookies} from "next/headers";
 import {NextResponse} from "next/server";
+import { isAuthenticated } from "../../../../lib/auth";
 
 const dataPath = path.join(process.cwd(), "data", "blogs.json");
 
-async function requireAuth() {
-  const cookieStore = await cookies();
-  return cookieStore.get("auth")?.value === "true";
-}
 
 function readBlogs() {
   if (!fs.existsSync(dataPath)) {
@@ -35,7 +31,7 @@ export async function GET(req, context) {
 }
 
 export async function PUT(req, context) {
-  if (!(await requireAuth()))
+  if (!(await isAuthenticated()))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const { id } = await context.params;
@@ -63,7 +59,7 @@ export async function PUT(req, context) {
 }
 
 export async function DELETE(req, context) {
-  if (!(await requireAuth()))
+  if (!(await isAuthenticated()))
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
 

@@ -1,7 +1,7 @@
 // lib/blogs.js
 import { promises as fs } from "fs";
 import path from "path";
-import { cookies } from "next/headers";
+import { isAuthenticated } from "./auth";
 
 const dataPath = path.join(process.cwd(), "data", "blogs.json");
 
@@ -18,10 +18,6 @@ async function ensureFileExists() {
     }
 }
 
-async function requireAuth() {
-    const cookieStore = await cookies();
-    return cookieStore.get("auth")?.value === "true";
-}
 
 async function readBlogs() {
     await ensureFileExists();
@@ -60,7 +56,7 @@ export async function getBlogById(id) {
 }
 
 export async function createBlog(body) {
-    if (!(await requireAuth())) {
+    if (!(await isAuthenticated())) {
         const err = new Error("Unauthorized");
         err.status = 401;
         throw err;
@@ -84,7 +80,7 @@ export async function createBlog(body) {
 }
 
 export async function updateBlogById(id, updates) {
-    if (!(await requireAuth())) {
+    if (!(await isAuthenticated())) {
         const err = new Error("Unauthorized");
         err.status = 401;
         throw err;
@@ -113,7 +109,7 @@ export async function updateBlogById(id, updates) {
 }
 
 export async function deleteBlogById(id) {
-    if (!(await requireAuth())) {
+    if (!(await isAuthenticated())) {
         const err = new Error("Unauthorized");
         err.status = 401;
         throw err;

@@ -1,5 +1,5 @@
 import CopyButton from "./CopyButton";
-import { listResources } from "../../lib/resources";
+import { listResources } from "../lib/resources";
 
 export default async function ResourcesListPage({
     audience = "patient", // "patient" | "professional"

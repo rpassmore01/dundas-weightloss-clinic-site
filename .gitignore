@@ -40,3 +40,7 @@ package-lock.json
 
 # Data
 /data
+
+# Backups (ignore zip files but keep the folder)
+/backups/*.zip
+
