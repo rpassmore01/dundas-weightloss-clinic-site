@@ -24,7 +24,7 @@ export default async function ResourcesListPage({
 
             {resources.length === 0 ? (
                 <p className="text-gray-700">
-                    No {isClient ? "client" : "professional"} resources available yet.
+                    No {isPatient ? "client" : "professional"} resources available yet.
                 </p>
             ) : (
                 <ul className="space-y-4">
