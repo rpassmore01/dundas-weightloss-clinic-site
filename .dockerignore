@@ -1,0 +1,39 @@
+# Dependencies
+node_modules
+
+# Next.js build output
+.next
+
+# Git
+.git
+.gitignore
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files (these should be passed at runtime)
+.env
+.env.*
+!.env.example
+
+# Testing
+coverage
+.nyc_output
+
+# Backups
+backups
+
+# Misc
+README.md
+*.md
