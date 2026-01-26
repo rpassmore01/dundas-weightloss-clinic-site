@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { listBlogs } from "../../../lib/blogs";
 
+export const dynamic = "force-dynamic";
+
 export default async function BlogsPage() {
   let blogs = [];
   try {

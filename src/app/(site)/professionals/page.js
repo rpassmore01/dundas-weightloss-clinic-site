@@ -1,5 +1,7 @@
 import ResourcesListPage from "../../../components/ResourcesListPage";
 
+export const dynamic = "force-dynamic";
+
 export default function ProfessionalResourcesPage() {
   return (
     <ResourcesListPage
