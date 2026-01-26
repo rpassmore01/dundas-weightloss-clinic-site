@@ -46,7 +46,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 # Copy data directory for the application
-COPY --from=builder --chown=nextjs:nodejs /app/data ./data
+# COPY --from=builder --chown=nextjs:nodejs /app/data ./data
 
 USER nextjs
 
