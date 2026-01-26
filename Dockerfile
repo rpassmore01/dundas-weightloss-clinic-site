@@ -24,6 +24,12 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Create data directory with empty JSON files (since /data is gitignored)
+RUN mkdir -p data && \
+    echo '[]' > data/blogs.json && \
+    echo '[]' > data/testimonials.json && \
+    echo '[]' > data/resources.json
+
 # Build the application
 RUN npm run build
 
@@ -44,9 +50,7 @@ COPY --from=builder /app/public ./public
 # Copy standalone build
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-# Copy data directory for the application
-# COPY --from=builder --chown=nextjs:nodejs /app/data ./data
+COPY --from=builder --chown=nextjs:nodejs /app/data ./data
 
 USER nextjs
 
