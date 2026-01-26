@@ -30,6 +30,10 @@ RUN mkdir -p data && \
     echo '[]' > data/testimonials.json && \
     echo '[]' > data/resources.json
 
+# This is the reCAPTCHA site key for the application (PUBLIC KEY)
+ARG NEXT_PUBLIC_SITE_KEY=6LfepUAeAAAAABcadQcPWRD5pmnzouQ94rHxhv8g
+ENV NEXT_PUBLIC_SITE_KEY=$NEXT_PUBLIC_SITE_KEY
+
 # Build the application
 RUN npm run build
 
