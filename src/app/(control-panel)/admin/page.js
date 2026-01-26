@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 
 export default function ControlHomePage() {
   const [isBackingUp, setIsBackingUp] = useState(false);
@@ -62,9 +64,7 @@ export default function ControlHomePage() {
           <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 max-w-md">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 bg-sky-100 rounded-xl flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
+                <FontAwesomeIcon icon={faDownload} className="h-5 w-5 text-sky-600" />
               </div>
               <h3 className="text-lg font-medium text-sky-900">Create Backup</h3>
             </div>

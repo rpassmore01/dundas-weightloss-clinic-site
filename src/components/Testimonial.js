@@ -34,7 +34,7 @@ export default function Testimonial({ stars, message, date, name }) {
                             </figcaption>
                         </div>
 
-                        <div className="mt-1 flex items-center gap-2">
+                        <div className="mt-1 flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
                             <div className="flex items-center gap-1" aria-label={`${stars} out of 5 stars`}>
                                 {Array.from({ length: stars }).map((_, i) => (
                                     <FontAwesomeIcon

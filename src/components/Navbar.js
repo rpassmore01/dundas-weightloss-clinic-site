@@ -48,7 +48,7 @@ export default function Navbar() {
         {/* Brand */}
         <Link
           href="/#top"
-          className="text-2xl md:text-3xl font-bold text-gray-900"
+          className="text-xl md:text-2xl font-bold text-gray-900"
           onClick={closeMobileMenu}
         >
           Dundas Weight Loss Clinic
