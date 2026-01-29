@@ -23,7 +23,7 @@ export default function Footer() {
         {/* Links / Copyright */}
         <div className="text-center md:text-right text-sm md:text-base">
           <p>
-            Copyright <span>&copy;</span> 2025 Dundas Weight Loss Clinic.
+            Copyright <span>&copy;</span> 2026 Dundas Weight Loss Clinic.
           </p>
         </div>
       </div>
