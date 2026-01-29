@@ -8,6 +8,19 @@ const dataFiles = [
   { name: "blogs.json", defaultContent: [] },
   { name: "resources.json", defaultContent: [] },
   { name: "testimonials.json", defaultContent: [] },
+  {
+    name: "analytics.json",
+    defaultContent: {
+      totalPageViews: 0,
+      uniqueVisitors: 0,
+      pageViews: {},
+      dailyStats: {},
+      referrers: {},
+      devices: { desktop: 0, mobile: 0, tablet: 0 },
+      browsers: {}
+    }
+  },
+  { name: "visitors.json", defaultContent: { visitors: {} } },
 ];
 
 const dataDirs = [

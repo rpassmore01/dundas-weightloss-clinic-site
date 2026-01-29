@@ -43,9 +43,9 @@ export default function BlogsEditPage() {
 
   return (
     <main>
-      <section className="w-full px-6 py-12 space-y-10">
+      <section className="w-full space-y-8">
         {/* Header */}
-        <div className="mb-6 flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-semibold text-sky-900">
               Blog Manager

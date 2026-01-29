@@ -4,10 +4,11 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTachometerAlt, faParagraph, faStar, faBook, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { faTachometerAlt, faParagraph, faStar, faBook, faSignOutAlt, faChartLine } from "@fortawesome/free-solid-svg-icons";
 
 const navItems = [
   { name: "Dashboard", href: "/admin", icon: faTachometerAlt },
+  { name: "Analytics", href: "/admin/analytics", icon: faChartLine },
   { name: "Blogs", href: "/admin/blogs", icon: faParagraph },
   { name: "Resources", href: "/admin/resources", icon: faBook },
   { name: "Testimonials", href: "/admin/testimonials", icon: faStar },
