@@ -1,9 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-export default function Testimonial({ stars, message, date, name }) {
+const CHARACTER_LIMIT = 200;
+
+export default function Testimonial({ stars, message, date, name, onInteraction }) {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const shouldTruncate = message.length > CHARACTER_LIMIT;
+
     function getTimeAgo() {
         const postTime = new Date(date);
         const msPerMonth = 2628000000;
@@ -16,6 +22,15 @@ export default function Testimonial({ stars, message, date, name }) {
 
         return `${numMonths} months ago`;
     }
+
+    const displayMessage = shouldTruncate && !isExpanded
+        ? message.slice(0, CHARACTER_LIMIT).trimEnd() + "..."
+        : message;
+
+    const handleReadMoreClick = () => {
+        setIsExpanded(!isExpanded);
+        if (onInteraction) onInteraction();
+    };
 
     return (
         <section className="w-full flex items-center justify-center px-4">
@@ -51,7 +66,15 @@ export default function Testimonial({ stars, message, date, name }) {
                 </div>
 
                 <blockquote className="mt-5 text-gray-800 leading-7">
-                    {message}
+                    {displayMessage}
+                    {shouldTruncate && (
+                        <button
+                            onClick={handleReadMoreClick}
+                            className="ml-1 text-sky-500 hover:text-sky-600 font-medium hover:underline focus:outline-none focus:underline"
+                        >
+                            {isExpanded ? "Read less" : "Read more"}
+                        </button>
+                    )}
                 </blockquote>
             </figure>
         </section>

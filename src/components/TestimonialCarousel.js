@@ -11,6 +11,7 @@ export default function TestimonialsCarousel({
   className = '',
 }) {
   const [index, setIndex] = useState(0);
+  const [autoPlayDisabled, setAutoPlayDisabled] = useState(false);
   const count = items.length;
 
   // timer refs
@@ -27,7 +28,13 @@ export default function TestimonialsCarousel({
     timerRef.current = null;
   };
 
+  const disableAutoPlay = () => {
+    setAutoPlayDisabled(true);
+    stop();
+  };
+
   const schedule = (delay) => {
+    if (autoPlayDisabled) return;
     stop();
     nextAtRef.current = Date.now() + delay;
     timerRef.current = setTimeout(() => {
@@ -44,7 +51,7 @@ export default function TestimonialsCarousel({
   };
 
   const resume = () => {
-    if (!autoPlay || count <= 1) return;
+    if (!autoPlay || count <= 1 || autoPlayDisabled) return;
     const delay = remainingRef.current ?? intervalMs;
     remainingRef.current = null;
     schedule(delay);
@@ -96,7 +103,7 @@ export default function TestimonialsCarousel({
         >
           {items.map((t, i) => (
             <div key={i} className="shrink-0 grow-0 basis-full">
-              <Testimonial {...t} />
+              <Testimonial {...t} onInteraction={disableAutoPlay} />
             </div>
           ))}
         </div>
@@ -107,14 +114,14 @@ export default function TestimonialsCarousel({
         <>
           <button
             aria-label="Previous testimonial"
-            onClick={() => { pause(); go(-1); resume(); }}
+            onClick={() => { disableAutoPlay(); go(-1); }}
             className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 shadow hover:bg-white"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
           <button
             aria-label="Next testimonial"
-            onClick={() => { pause(); go(1); resume(); }}
+            onClick={() => { disableAutoPlay(); go(1); }}
             className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 shadow hover:bg-white"
           >
             <ChevronRight className="h-5 w-5" />
@@ -129,7 +136,7 @@ export default function TestimonialsCarousel({
             <button
               key={i}
               aria-label={`Go to testimonial ${i + 1}`}
-              onClick={() => { pause(); goTo(i); resume(); }}
+              onClick={() => { disableAutoPlay(); goTo(i); }}
               className={`h-2 rounded-full transition-all ${i === index ? "w-6 bg-gray-900" : "w-2 bg-gray-300"}`}
             />
           ))}
