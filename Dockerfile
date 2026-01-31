@@ -56,6 +56,9 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/data ./data
 
+# Create backups directory and set permissions
+RUN mkdir -p backups && chown nextjs:nodejs backups
+
 USER nextjs
 
 EXPOSE 3000
