@@ -66,7 +66,7 @@ export async function DELETE(req, context) {
   const { id } = await context.params;
 
   const blogs = readBlogs();
-  const filtered = blogs.filter((b) => Number(b.id) === Number(id));
+  const filtered = blogs.filter((b) => Number(b.id) !== Number(id));
 
   writeBlogs(filtered);
 

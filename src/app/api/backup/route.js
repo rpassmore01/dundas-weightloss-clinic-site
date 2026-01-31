@@ -1,6 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import archiver from "archiver";
+import AdmZip from "adm-zip";
 import { isAuthenticated } from "../../../lib/auth";
 
 const dataDir = path.join(process.cwd(), "data");
@@ -88,6 +89,51 @@ export async function GET() {
   } catch (error) {
     console.error("Backup error:", error);
     return new Response(JSON.stringify({ error: "Failed to create backup: " + error.message }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}
+
+export async function POST(request) {
+  if (!(await isAuthenticated())) {
+    return new Response(JSON.stringify({ error: "Unauthorized" }), {
+      status: 401,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  try {
+    const formData = await request.formData();
+    const file = formData.get("file");
+
+    if (!file) {
+      return new Response(JSON.stringify({ error: "No file provided" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    // Convert file to buffer
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+
+    // Ensure data directory exists
+    await fs.mkdir(dataDir, { recursive: true });
+
+    // Use adm-zip to extract
+    const zip = new AdmZip(buffer);
+    
+    // Extract to data directory, overwriting existing files
+    zip.extractAllTo(dataDir, true);
+
+    return new Response(JSON.stringify({ message: "Backup restored successfully" }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    console.error("Restore error:", error);
+    return new Response(JSON.stringify({ error: "Failed to restore backup: " + error.message }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
     });

@@ -1,14 +1,18 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDownload, faChartLine, faEye, faUsers, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faDownload, faUpload, faChartLine, faEye, faUsers, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
 export default function ControlHomePage() {
   const [isBackingUp, setIsBackingUp] = useState(false);
+  const [isRestoring, setIsRestoring] = useState(false);
   const [backupMessage, setBackupMessage] = useState("");
+  const [restoreMessage, setRestoreMessage] = useState("");
   const [analytics, setAnalytics] = useState(null);
+  const [importMode, setImportMode] = useState(false);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     fetch("/api/analytics")
@@ -51,6 +55,45 @@ export default function ControlHomePage() {
     } finally {
       setIsBackingUp(false);
     }
+  };
+
+  const handleRestore = async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    setIsRestoring(true);
+    setRestoreMessage("");
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("/api/backup", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || "Restore failed");
+      }
+
+      setRestoreMessage("Backup restored successfully!");
+      // Clear file input
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
+    } catch (error) {
+      setRestoreMessage(`Error: ${error.message}`);
+    } finally {
+      setIsRestoring(false);
+    }
+  };
+
+  const toggleImportMode = () => {
+    setImportMode(!importMode);
+    setBackupMessage("");
+    setRestoreMessage("");
   };
 
   return (
@@ -124,37 +167,89 @@ export default function ControlHomePage() {
           </div>
 
           {/* Data Management Widget */}
-          <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 w-full md:w-auto md:max-w-md">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 bg-sky-100 rounded-xl flex items-center justify-center">
-                <FontAwesomeIcon icon={faDownload} className="h-5 w-5 text-sky-600" />
+          <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 w-full md:w-auto md:max-w-md relative">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-3">
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${importMode ? "bg-amber-100" : "bg-sky-100"}`}>
+                  <FontAwesomeIcon icon={importMode ? faUpload : faDownload} className={`h-5 w-5 ${importMode ? "text-amber-600" : "text-sky-600"}`} />
+                </div>
+                <h3 className="text-lg font-medium text-sky-900">
+                  {importMode ? "Restore Backup" : "Create Backup"}
+                </h3>
               </div>
-              <h3 className="text-lg font-medium text-sky-900">Create Backup</h3>
+              <button 
+                onClick={toggleImportMode}
+                className="px-3 py-1.5 text-xs font-medium rounded-lg border border-gray-200 hover:bg-gray-50 text-gray-600 transition-colors"
+              >
+                {importMode ? "Switch to Export" : "Switch to Import"}
+              </button>
             </div>
 
-            <p className="text-gray-500 text-sm mb-5">
-              Download a zip file containing all data files (blogs, resources, testimonials).
-              A copy will also be saved to the server&apos;s backups folder.
-            </p>
+            {importMode ? (
+              <>
+                <p className="text-gray-500 text-sm mb-5">
+                  Upload a previously downloaded backup zip file to restore your data.
+                  <span className="block mt-1 text-amber-600 font-medium">Warning: This will overwrite existing data!</span>
+                </p>
 
-            <button
-              onClick={handleBackup}
-              disabled={isBackingUp}
-              className="rounded-xl bg-sky-600 px-5 py-3 text-white text-sm font-medium hover:bg-sky-700 disabled:bg-sky-400 disabled:cursor-not-allowed transition"
-            >
-              {isBackingUp ? "Creating Backup..." : "Download Backup"}
-            </button>
+                <div className="space-y-3">
+                  <input
+                    type="file"
+                    accept=".zip"
+                    onChange={handleRestore}
+                    ref={fileInputRef}
+                    disabled={isRestoring}
+                    className="block w-full text-sm text-gray-500
+                      file:mr-4 file:py-2 file:px-4
+                      file:rounded-xl file:border-0
+                      file:text-sm file:font-medium
+                      file:bg-amber-50 file:text-amber-700
+                      hover:file:bg-amber-100
+                      cursor-pointer"
+                  />
+                  
+                  {isRestoring && <p className="text-sm text-amber-600">Restoring data...</p>}
+                </div>
 
-            {backupMessage && (
-              <p
-                className={`mt-4 text-sm ${
-                  backupMessage.startsWith("Error")
-                    ? "text-red-600"
-                    : "text-emerald-600"
-                }`}
-              >
-                {backupMessage}
-              </p>
+                {restoreMessage && (
+                  <p
+                    className={`mt-4 text-sm ${
+                      restoreMessage.startsWith("Error")
+                        ? "text-red-600"
+                        : "text-emerald-600"
+                    }`}
+                  >
+                    {restoreMessage}
+                  </p>
+                )}
+              </>
+            ) : (
+              <>
+                <p className="text-gray-500 text-sm mb-5">
+                  Download a zip file containing all data files (blogs, resources, testimonials).
+                  A copy will also be saved to the server&apos;s backups folder.
+                </p>
+
+                <button
+                  onClick={handleBackup}
+                  disabled={isBackingUp}
+                  className="rounded-xl bg-sky-600 px-5 py-3 text-white text-sm font-medium hover:bg-sky-700 disabled:bg-sky-400 disabled:cursor-not-allowed transition w-full md:w-auto"
+                >
+                  {isBackingUp ? "Creating Backup..." : "Download Backup"}
+                </button>
+
+                {backupMessage && (
+                  <p
+                    className={`mt-4 text-sm ${
+                      backupMessage.startsWith("Error")
+                        ? "text-red-600"
+                        : "text-emerald-600"
+                    }`}
+                  >
+                    {backupMessage}
+                  </p>
+                )}
+              </>
             )}
           </div>
         </div>
