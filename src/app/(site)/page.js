@@ -102,6 +102,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Closing Notice */}
+      <section className="py-10">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
+            <p className="text-lg font-semibold text-amber-900">
+              Dundas Weight Loss Clinic will no longer be accepting new patients as of April 1st, 2026. All new consults will be sent to Wave Metabolics.
+            </p>
+            <p className="mt-2 text-md text-amber-800">
+              Please note that the services listed below are those previously offered by Dundas Weight Loss Clinic and are not the same as those offered by Wave Metabolics.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section id="services" className="relative overflow-hidden py-12">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
