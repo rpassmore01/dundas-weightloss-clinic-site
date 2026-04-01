@@ -1,33 +1,7 @@
-import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faArrowRight, faCheck} from "@fortawesome/free-solid-svg-icons";
-import TestimonialsCarousel from "../../components/TestimonialCarousel";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
-export default async function HomePage() {
-  const testimonialData = await fetch(`${process.env.BASEURL}/api/testimonials`).then(response => {
-    if (!response.ok) { throw new Error(`Failed to load testimonials with error code ${response.status}.`) }
-    return response.json()
-  }).catch(
-    //Errors
-  )
-
-  // Blogs (latest)
-  let latestBlog = null;
-  try {
-    const res = await fetch(`${process.env.BASEURL}/api/blogs`, { cache: "no-store" });
-    if (!res.ok) throw new Error(`Failed to load blogs (${res.status})`);
-    const json = await res.json();
-    const blogs = Array.isArray(json) ? json : [];
-
-    latestBlog =
-      blogs
-        .slice()
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0] ?? null;
-  } catch (e) {
-    console.error(e);
-    latestBlog = null;
-  }
-
+export default function HomePage() {
   return (
     <main>
       {/* Hero Section */}
@@ -73,26 +47,10 @@ export default async function HomePage() {
               <p className="mt-4 text-lg text-white/70">
                 Serving Dundas · Ancaster · Brantford · Hamilton
               </p>
-              <Link
-                href="/book"
-                className="inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-2.5 text-lg font-semibold text-white shadow-sm transition hover:bg-sky-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 mt-5"
-              >
-                Book Now
-              </Link>
             </div>
           </div>
         </div>
       </header>
-
-      {/* Testimonials Section */}
-      <section className="py-20" id="testimonials">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <h2 className="text-4xl font-bold leading-tight text-gray-900 mb-10">
-            Testimonials
-          </h2>
-          <TestimonialsCarousel items={testimonialData} autoPlay intervalMs={5000} />
-        </div>
-      </section>
 
       <section id="about" className="relative overflow-hidden py-20 bg-gray-100">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
@@ -113,19 +71,6 @@ export default async function HomePage() {
                     {chip}
                   </span>
                 ))}
-              </div>
-
-              <div className="mt-8 flex items-center gap-3">
-                <a
-                  href="/book"
-                  className="inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-2.5 text-md font-semibold text-white shadow-sm transition hover:bg-sky-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
-                >
-                  Book a consultation
-                </a>
-                <span className="text-md text-gray-500">
-                  Want to get in touch?{' '}
-                  <a href="/book" className="text-sky-700 underline underline-offset-2">Talk to us</a>
-                </span>
               </div>
             </div>
 
@@ -249,72 +194,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Blog Section */}
-      <section id="blog" className="relative overflow-hidden py-20 bg-gray-100">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h2 className="text-4xl font-bold leading-tight text-gray-900">Blog</h2>
-              <p className="mt-2 text-lg text-gray-600">
-                Practical, evidence-informed guidance on weight management and healthy habits.
-              </p>
-            </div>
-
-            <Link
-              href="/blogs"
-              className="inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-2.5 text-md font-semibold text-white shadow-sm transition hover:bg-sky-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
-            >
-              View all posts
-            </Link>
-          </div>
-
-          {latestBlog ? (
-            <article className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition">
-              <p className="text-sm font-semibold text-sky-700">Most recent</p>
-
-              <h3 className="mt-2 text-2xl font-semibold text-gray-900">
-                {latestBlog.title}
-              </h3>
-
-              <p className="mt-2 text-sm text-gray-500">
-                {latestBlog.date ? new Date(latestBlog.date).toLocaleDateString() : ""}
-              </p>
-
-              {/* 4-line truncated HTML preview (formatting preserved) */}
-              <div
-                className="mt-4 text-md text-gray-700 line-clamp-4
-             [&_p]:my-0 [&_ul]:my-0 [&_ol]:my-0 [&_li]:my-0
-             [&_a]:text-sky-700 [&_a]:underline [&_a]:underline-offset-2"
-                dangerouslySetInnerHTML={{
-                  __html: latestBlog.content || latestBlog.body || "",
-                }}
-              />
-              <div className="mt-5">
-                <Link
-                  href={`/blogs/${latestBlog.id}`}
-                  className="inline-flex items-center justify-center rounded-xl border border-gray-200 bg-white px-5 py-2.5 text-md font-semibold text-gray-900 shadow-sm transition hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
-                >
-                  Read more
-                  <FontAwesomeIcon icon={faArrowRight} className="ml-1 h-5 w-5" />
-                </Link>
-              </div>
-            </article>
-          ) : (
-            <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <p className="text-gray-600">No blog posts yet.</p>
-              <Link
-                href="/blogs"
-                className="mt-4 inline-flex items-center justify-center rounded-xl bg-sky-600 px-5 py-2.5 text-md font-semibold text-white shadow-sm transition hover:bg-sky-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
-              >
-                Go to blog
-              </Link>
-            </div>
-          )}
-
-        </div>
-      </section>
       {/* Location Section */}
-      <section id="location" className="py-20 text-center">
+      <section id="location" className="py-20 text-center bg-gray-100">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-4">Location</h2>
           <p className="font-semibold">247 King Street West, Dundas, Ontario</p>

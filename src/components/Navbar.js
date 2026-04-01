@@ -7,13 +7,8 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/blogs", label: "Blogs" },
   { href: "/team", label: "Team" },
-  { href: "/patients", label: "Patients" },
-  { href: "/professionals", label: "Professionals" },
 ];
-
-const ctaLink = { href: "/book", label: "Book Appointment" };
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,12 +65,6 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <Link
-            href={ctaLink.href}
-            className="inline-block bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-xl text-lg shadow-lg transition"
-          >
-            {ctaLink.label}
-          </Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -114,13 +103,6 @@ export default function Navbar() {
           </Link>
         ))}
 
-        <Link
-          href={ctaLink.href}
-          onClick={closeMobileMenu}
-          className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-3 rounded-lg shadow transition"
-        >
-          {ctaLink.label}
-        </Link>
       </div>
     </header>
   );
