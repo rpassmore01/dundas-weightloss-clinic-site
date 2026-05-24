@@ -33,7 +33,15 @@ export default function ClosingBanner() {
           Dundas Weight Loss Clinic will no longer be accepting new patients as of{" "}
           <span className="font-semibold">April 1st, 2026</span>. All new consults will be
           sent to{" "}
-          <span className="font-semibold">Wave Metabolics</span>.
+          <a
+            href="https://www.wavemetabolic.ca/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-sky-700 hover:text-sky-900"
+          >
+            Wave Metabolics
+          </a>
+          .
         </p>
         <button
           onClick={dismiss}
